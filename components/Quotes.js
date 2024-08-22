@@ -29,7 +29,7 @@ export default function Quotes() {
         component="p"
         sx={{ fontStyle: "italic", fontFamily: "Roboto, sans-serif" }}
       >
-        "{currentQuote.en}"
+        &quot;{currentQuote.en}&quot;
       </Typography>
       <Typography
         variant="body1"
