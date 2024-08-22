@@ -9,9 +9,8 @@ export default function HeroAnimation() {
     <>
       <div className={styles.container}>
         {/* Rohail - Top */}
-
         <motion.div
-          className={styles.firstname}
+          className={styles.name}
           initial={{ x: "-100vh", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 50, delay: 0.5 }}
@@ -37,7 +36,7 @@ export default function HeroAnimation() {
 
         {/* Ramesh - Bottom */}
         <motion.div
-          className={styles.secondname}
+          className={styles.name}
           initial={{ x: "100vh", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 50, delay: 0.5 }}
