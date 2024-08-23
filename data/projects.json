@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "UniClean",
+    "description": "Academic project",
+    "details": "- Developed a full-stack cross-platform mobile application as a final year project to address menstrual health issues and period poverty. <br/> - Implemented a Long Short-Term Memory (LSTM) model to predict the length of the luteal phase in regular and irregular menstrual cycles, enabling timely medical attention to prevent miscarriages and infertility and implementing a real-time trained medical chat assistant specifically for such issues. <br/> - Integrated a personalised reminder system that notifies members of academic institutions about the availability of free period products on campuses, based on their individual menstrual cycles, to overcome period product poverty.",
+    "image": "/uniclean.png"
+  },
+  {
+    "id": 2,
+    "title": "Subspace",
+    "description": "Personal project",
+    "details": "Developed a full-stack cross-platform mobile application as a final year project to address menstrual health issues and period poverty.",
+    "image": "/subspace.png"
+  },
+  {
+    "id": 3,
+    "title": "Flatify",
+    "description": "Academic project",
+    "details": "Developed a full-stack cross-platform mobile application as a final year project to address menstrual health issues and period poverty.",
+    "image": "/flatify.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "Ro-Reviews",
+    "description": "Personal project",
+    "details": "Developed a full-stack cross-platform mobile application as a final year project to address menstrual health issues and period poverty.",
+    "image": "/roreviews.png"
+  },
+  {
+    "id": 5,
+    "title": "RoamCast",
+    "description": "Academic project",
+    "details": "Developed a full-stack cross-platform mobile application as a final year project to address menstrual health issues and period poverty.",
+    "image": "/roamcast.png"
+  },
+  {
+    "id": 6,
+    "title": "HART News",
+    "description": "Academic project",
+    "details": "Developed a full-stack cross-platform mobile application as a final year project to address menstrual health issues and period poverty.",
+    "image": "/newsapp.png"
+  }
+]

@@ -294,29 +294,29 @@ export default function ExperienceTimeline() {
 
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                className="block mb-2 text-sm font-normal leading-none text-gray-400 text-white"
               >
                 IT Floorwalker
               </Typography>
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-white"
               >
                 Ideal Health & NHS Foundation Trust - 04/2022 - 05/2022
               </Typography>
               <Box className="mb-4">
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-gray-500 dark:text-white">
                   - Provided technical support for the Electronic Patient Record
                   (EPR) system implementation across 5 hospital departments,
                   ensuring seamless integration and achieving a 98% user
                   satisfaction rate.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-gray-500 dark:text-white">
                   - Monitored and resolved over 20 software bugs, significantly
                   improving system efficiency and reducing downtime by 10%
                   during the critical post-launch phase.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-white-500 dark:text-white">
                   - Delivered comprehensive user training to over 100 healthcare
                   professionals, creating detailed operational documentation
                   that facilitated a 20% faster adoption rate of the new EPR
