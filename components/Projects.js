@@ -39,12 +39,12 @@ const Projects = () => {
             showAll ? styles.cards_wrapper : styles.single_card_wrapper
           }
         >
-          <AnimatePresence>
+          <AnimatePresence initial={false} mode="wait">
             {showAll
               ? projects.map((project) => (
                   <motion.div
                     key={project.id}
-                    layout
+                    layoutId={`project-${project.id}`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
@@ -77,8 +77,8 @@ const Projects = () => {
                     activeCard === project.id && (
                       <motion.div
                         key={project.id}
-                        layout
-                        initial={{ opacity: 0, scale: 0.95 }}
+                        layoutId={`project-${project.id}`}
+                        initial={{ opacity: 0, scale: 1 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
