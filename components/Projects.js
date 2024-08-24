@@ -7,6 +7,8 @@ import {
   Typography,
   Button,
   CardActions,
+  Chip,
+  Box,
 } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Projects.module.css";
@@ -106,14 +108,59 @@ const Projects = () => {
                                 }}
                               />
                             </Typography>
+                            <Box mt={2}>
+                              <Typography
+                                variant="body2"
+                                color="text.secondary"
+                              >
+                                Tech Stack:
+                              </Typography>
+                              <Box display="flex" flexWrap="wrap" gap={1}>
+                                {project.techStack.map((tech, index) => (
+                                  <Chip
+                                    key={index}
+                                    label={tech}
+                                    color="primary"
+                                    sx={{
+                                      backgroundColor: "#000", // Set the background color to black
+                                      color: "#fff", // Set the text color to white
+                                      "&:hover": {
+                                        backgroundColor: "#333", // Optional: Darken on hover
+                                      },
+                                    }}
+                                  />
+                                ))}
+                              </Box>
+                            </Box>
                           </CardContent>
-                          <CardActions>
+                          <CardActions sx={{ marginLeft: 1 }}>
                             <Button
-                              size="small"
                               color="primary"
                               onClick={handleBackClick}
+                              variant="contained"
+                              sx={{
+                                backgroundColor: "#000", // Set the background color to black
+                                color: "#fff", // Set the text color to white
+                                "&:hover": {
+                                  backgroundColor: "#333", // Optional: Darken on hover
+                                },
+                              }}
                             >
                               Back
+                            </Button>
+                            <Button
+                              href={project.url}
+                              target="_blank"
+                              variant="contained"
+                              sx={{
+                                backgroundColor: "#000", // Set the background color to black
+                                color: "#fff", // Set the text color to white
+                                "&:hover": {
+                                  backgroundColor: "#333", // Optional: Darken on hover
+                                },
+                              }}
+                            >
+                              View Project
                             </Button>
                           </CardActions>
                         </Card>
