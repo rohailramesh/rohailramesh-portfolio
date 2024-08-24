@@ -12,6 +12,7 @@ import {
   TextField,
 } from "@mui/material";
 import Quotes from "./Quotes";
+import Image from "next/image";
 
 // LifeUpdate Component
 const LifeUpdate = () => {
@@ -36,7 +37,7 @@ const LifeUpdate = () => {
       />
       <CardContent sx={{ flex: 1 }}>
         <Typography gutterBottom variant="h5" component="div">
-          What's new?
+          What is new?
         </Typography>
         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
           September 2024
@@ -166,10 +167,16 @@ const LifeUpdateAndContact = () => {
           overflow: "hidden",
         }}
       >
-        <img
+        {/* <img
           src="./pom.jpg" // Replace with your image URL
           alt="Full-width"
           style={{ width: "50%", height: "50%", objectFit: "cover" }}
+              /> */}
+        <Image
+          src="/pom.jpg"
+          alt="Picture of the month"
+          width={500}
+          height={500}
         />
       </Box>
       <Quotes />
