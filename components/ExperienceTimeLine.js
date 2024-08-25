@@ -10,16 +10,21 @@ const fadeInUp = {
 };
 
 export default function ExperienceTimeline() {
-  const controls = useAnimation();
-
   return (
     <>
-      <Typography
-        component="time"
-        className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100px",
+        }}
       >
-        EXPERIENCE
-      </Typography>
+        <Typography component="time" className={styles.section_heading}>
+          EXPERIENCE
+        </Typography>
+      </div>
+
       <div className={styles.container}>
         <Box
           component="ol"
@@ -48,7 +53,7 @@ export default function ExperienceTimeline() {
 
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                className="block mb-2 text-sm font-bold leading-none text-black-400 dark:text-black-500"
               >
                 Computer Science Teaching Assistant
               </Typography>
@@ -56,19 +61,19 @@ export default function ExperienceTimeline() {
                 component="time"
                 className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
               >
-                Queen Mary University of London - 2023 - Present
+                Queen Mary University of London - 01/2023 - Present
               </Typography>
               <Box className="mb-4">
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Provided comprehensive support to module organisers during
                   lab sessions, tutorials, and assessment marking.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Guided 7 teams through SDLC, developing a well-being app for
                   a tech consultancy firm for 12 weeks, resulting in a 95%
                   project completion rate.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Modules assisted: Professional Research Practice,
                   Fundamentals of Web Technology, Information System Analysis
                   (1st Year), Software Engineering, and Software Engineering
@@ -99,7 +104,7 @@ export default function ExperienceTimeline() {
 
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                className="block mb-2 text-sm font-bold leading-none text-black-400 dark:text-black-500"
               >
                 Maths Tutor
               </Typography>
@@ -107,19 +112,19 @@ export default function ExperienceTimeline() {
                 component="time"
                 className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
               >
-                MyTutor - 2022 - Present
+                MyTutor - 02/2022 - Present
               </Typography>
               <Box className="mb-4">
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Facilitated diverse data driven and tailored teaching
                   strategies for over 200 one-on-one and group tutoring
                   sessions.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Provided detailed and organised explanations, ensuring
                   clarity in remote teaching environment for over 10,000 minutes
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Applied analytical and logical problem-solving skills to
                   enhance students’ understanding of mathematical concepts.
                 </Typography>
@@ -148,7 +153,7 @@ export default function ExperienceTimeline() {
 
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                className="block mb-2 text-sm font-bold leading-none text-black-400 dark:text-black-500"
               >
                 Start Your Journey 2023 Technology & Data Intern
               </Typography>
@@ -159,15 +164,15 @@ export default function ExperienceTimeline() {
                 Lloyds Banking Group - 08/2023
               </Typography>
               <Box className="mb-4">
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Led a data analysis project focused on fraud detection,
                   showcasing technical and problem-solving skills.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Developed and tested a notification system, integrating user
                   requirements and technical specifications
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-grblackay-500 dark:text-black-400">
                   - Demonstrated strategic thinking in a bank simulation,
                   emphasising collaboration and technical competency.
                 </Typography>
@@ -196,7 +201,7 @@ export default function ExperienceTimeline() {
 
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                className="block mb-2 text-sm leading-none text-black-400 dark:text-black-500 font-bold"
               >
                 I Accelerator Technology & Engineering Intern
               </Typography>
@@ -207,15 +212,15 @@ export default function ExperienceTimeline() {
                 Rolls Royce - 07/2022
               </Typography>
               <Box className="mb-4">
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black">
                   - Created a remote maintenance and charging solution for urban
                   mobility aircrafts, emphasising technical innovation.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Presented technical solutions to senior leaders, integrating
                   new technology insights.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Collaborated with 5 team members to research and design
                   software solutions.
                 </Typography>
@@ -244,28 +249,28 @@ export default function ExperienceTimeline() {
 
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                className="block mb-2 text-sm font-bold leading-none text-white-500 dark:text-white"
               >
                 Technology Stream Intern
               </Typography>
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                className="block mb-2 text-sm font-normal leading-none text-white-500 dark:text-white"
               >
                 Bright Network - 06/2022
               </Typography>
               <Box className="mb-4">
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-white-500 dark:text-white">
                   - Optimised routing and scheduling algorithms using
                   breadth-first and depth-first search techniques, leading to a
                   10% improvement in delivery efficiency for simulated logistics
                   scenarios.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-white-500 dark:text-white">
                   - Completed a work sample project, demonstrating thorough
                   technical skills and problem-solving abilities.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-gray-400">
+                <Typography className="text-base font-normal text-white-500 dark:text-white">
                   - Researched and developed software solutions for delivery
                   optimization challenges presented by Amazon.
                 </Typography>
@@ -294,13 +299,13 @@ export default function ExperienceTimeline() {
 
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-gray-400 text-white"
+                className="block mb-2 text-sm font-bold leading-none text-gray-400 text-white"
               >
                 IT Floorwalker
               </Typography>
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-white"
+                className="block mb-2 text-sm font-normal leading-none text-white-500 dark:text-white"
               >
                 Ideal Health & NHS Foundation Trust - 04/2022 - 05/2022
               </Typography>

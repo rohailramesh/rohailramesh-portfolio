@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import LifeUpdate from "@/components/LifeUpdate";
 import LifeUpdateAndContact from "@/components/LifeUpdateAndContact";
+import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
@@ -12,9 +13,8 @@ export default function Home() {
       <Myself />
       <ExperienceTimeline />
       <Projects />
-      {/* <Contact /> */}
-      {/* <LifeUpdate /> */}
       <LifeUpdateAndContact />
+      <Footer />
     </>
   );
 }

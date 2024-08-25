@@ -18,3 +18,11 @@
     background-size: cover; /* Adjusts background size for smaller screens */
   }
 }
+
+.section_heading {
+  font-family: Times, Times New Roman, serif;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}

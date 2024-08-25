@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import Quotes from "./Quotes";
 import Image from "next/image";
+import styles from "./Projects.module.css";
 
 // LifeUpdate Component
 const LifeUpdate = () => {
@@ -82,7 +83,12 @@ const Contact = () => {
       }}
     >
       <CardContent>
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          className={styles.section_heading}
+        >
           Reach out to me...
         </Typography>
         <form

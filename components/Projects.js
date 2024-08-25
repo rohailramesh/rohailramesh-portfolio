@@ -33,9 +33,19 @@ const Projects = () => {
     <>
       <Quotes />
       <div className={styles.container}>
-        <Typography gutterBottom variant="h5" component="div">
-          PROJECTS
-        </Typography>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100px",
+          }}
+        >
+          <Typography component="time" className={styles.section_heading}>
+            PROJECTS
+          </Typography>
+        </div>
+
         <div
           className={
             showAll ? styles.cards_wrapper : styles.single_card_wrapper

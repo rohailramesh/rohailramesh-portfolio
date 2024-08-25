@@ -76,10 +76,10 @@ function Myself() {
                   color="text.primary"
                   sx={{ marginBottom: 2, fontFamily: "Roboto, sans-serif" }}
                 >
-                  Passionate Full Stack Developer with extensive experience in
-                  building web and mobile applications using JavaScript,
-                  React.js, Next.js, React Native, and various other
-                  technologies and frameworks.
+                  Passionate Full Stack Developer with experience in building
+                  web and mobile applications using JavaScript, React.js,
+                  Next.js, React Native, and various other technologies and
+                  frameworks.
                 </Typography>
                 {/* Skills with Icons */}
                 <Box
