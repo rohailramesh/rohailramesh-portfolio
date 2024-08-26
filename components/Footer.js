@@ -1,20 +1,12 @@
-// Footer.js
 "use client";
 import React from "react";
 import {
   Box,
   Container,
-  Grid,
   Typography,
-  Link,
-  IconButton,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Footer = () => {
   const theme = useTheme();
@@ -31,8 +23,6 @@ const Footer = () => {
       }}
     >
       <Container maxWidth="lg">
-        {/* Bottom Copyright Section */}
-
         <Typography
           variant="body2"
           color="text.secondary"

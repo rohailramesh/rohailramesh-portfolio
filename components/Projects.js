@@ -132,10 +132,10 @@ const Projects = () => {
                                     label={tech}
                                     color="primary"
                                     sx={{
-                                      backgroundColor: "#000", // Set the background color to black
-                                      color: "#fff", // Set the text color to white
+                                      backgroundColor: "#000",
+                                      color: "#fff",
                                       "&:hover": {
-                                        backgroundColor: "#333", // Optional: Darken on hover
+                                        backgroundColor: "#333",
                                       },
                                     }}
                                   />
@@ -149,10 +149,10 @@ const Projects = () => {
                               onClick={handleBackClick}
                               variant="contained"
                               sx={{
-                                backgroundColor: "#000", // Set the background color to black
-                                color: "#fff", // Set the text color to white
+                                backgroundColor: "#000",
+                                color: "#fff",
                                 "&:hover": {
-                                  backgroundColor: "#333", // Optional: Darken on hover
+                                  backgroundColor: "#333",
                                 },
                               }}
                             >
@@ -163,10 +163,10 @@ const Projects = () => {
                               target="_blank"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#000", // Set the background color to black
-                                color: "#fff", // Set the text color to white
+                                backgroundColor: "#000",
+                                color: "#fff",
                                 "&:hover": {
-                                  backgroundColor: "#333", // Optional: Darken on hover
+                                  backgroundColor: "#333",
                                 },
                               }}
                             >

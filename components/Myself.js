@@ -21,13 +21,11 @@ function Myself() {
     <>
       <Quotes />
       <div className={styles.container}>
-        {/* Card Section */}
-
         <div className={styles.card}>
           <Card
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", md: "row" }, // Responsive layout
+              flexDirection: { xs: "column", md: "row" },
               maxWidth: 1000,
               boxShadow: 3,
               borderRadius: 2,
@@ -36,7 +34,6 @@ function Myself() {
               marginTop: 10,
             }}
           >
-            {/* Card Media */}
             <CardMedia
               component="img"
               sx={{
@@ -48,7 +45,6 @@ function Myself() {
               alt="Rohail Ramesh"
             />
 
-            {/* Card Content */}
             <Box
               sx={{ display: "flex", flexDirection: "column", flex: 1, p: 3 }}
             >
@@ -81,7 +77,6 @@ function Myself() {
                   Next.js, React Native, and various other technologies and
                   frameworks.
                 </Typography>
-                {/* Skills with Icons */}
                 <Box
                   sx={{
                     display: "flex",
@@ -117,16 +112,15 @@ function Myself() {
                 </Box>
               </CardContent>
 
-              {/* Card Actions */}
               <CardActions sx={{ paddingLeft: 2, paddingBottom: 2 }}>
                 <Button
                   size="medium"
                   variant="contained"
                   sx={{
-                    backgroundColor: "#000", // Set the background color to black
-                    color: "#fff", // Set the text color to white
+                    backgroundColor: "#000",
+                    color: "#fff",
                     "&:hover": {
-                      backgroundColor: "#333", // Optional: Darken on hover
+                      backgroundColor: "#333",
                     },
                   }}
                   href="/cv.pdf"
@@ -134,7 +128,6 @@ function Myself() {
                 >
                   View CV
                 </Button>
-                {/* Social Media Icons */}
                 <Box sx={{ marginLeft: "auto", display: "flex", gap: 1 }}>
                   <IconButton
                     component={Link}

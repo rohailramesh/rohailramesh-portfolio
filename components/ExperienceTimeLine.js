@@ -30,11 +30,10 @@ export default function ExperienceTimeline() {
           component="ol"
           className="relative border-s border-gray-200 dark:border-gray-700 mt-5 ml-5"
         >
-          {/* Timeline item 1 */}
           <motion.div
             initial="hidden"
-            whileInView="visible" // Use whileInView to handle visibility automatically
-            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
             variants={fadeInUp}
           >
@@ -84,8 +83,8 @@ export default function ExperienceTimeline() {
           </motion.div>
           <motion.div
             initial="hidden"
-            whileInView="visible" // Use whileInView to handle visibility automatically
-            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
             variants={fadeInUp}
           >
@@ -133,8 +132,8 @@ export default function ExperienceTimeline() {
           </motion.div>
           <motion.div
             initial="hidden"
-            whileInView="visible" // Use whileInView to handle visibility automatically
-            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
             variants={fadeInUp}
           >
@@ -181,8 +180,8 @@ export default function ExperienceTimeline() {
           </motion.div>
           <motion.div
             initial="hidden"
-            whileInView="visible" // Use whileInView to handle visibility automatically
-            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
             variants={fadeInUp}
           >
@@ -229,8 +228,8 @@ export default function ExperienceTimeline() {
           </motion.div>
           <motion.div
             initial="hidden"
-            whileInView="visible" // Use whileInView to handle visibility automatically
-            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
             variants={fadeInUp}
           >
@@ -279,8 +278,8 @@ export default function ExperienceTimeline() {
           </motion.div>
           <motion.div
             initial="hidden"
-            whileInView="visible" // Use whileInView to handle visibility automatically
-            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
             variants={fadeInUp}
           >

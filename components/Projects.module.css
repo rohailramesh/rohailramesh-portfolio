@@ -6,34 +6,35 @@
   flex-direction: column;
   padding: 20px;
   margin-top: 20px;
+  background-image: url("../public/project-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Cards wrapper styling using CSS Grid */
 .cards_wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  width: 100%; /* Ensure the wrapper takes full width */
-  height: 100%; /* Ensure the wrapper takes full height */
+  width: 100%;
+  height: 100%;
 }
 
-/* Add a new class to override grid layout when a single card is active */
 .single_card_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Ensure the wrapper takes full width */
-  padding: 20px; /* Optional: Add some padding to center the card nicely */
-  gap: 0; /* Remove any gap for single card view */
+  width: 100%;
+  padding: 20px;
+  gap: 0;
 }
 
-/* Style for individual cards */
 .card {
   display: flex;
   flex-direction: column;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  width: 100%; /* Ensure cards take full width in grid */
+  width: 100%;
   max-width: 400px;
 }
 
@@ -41,40 +42,38 @@
   transform: scale(1.05);
 }
 
-/* Ensure cards are the same size when all are shown */
 .cardContent {
   display: flex;
   flex-direction: column;
-  height: 100%; /* Full height of the grid cell */
+  height: 100%;
   transition: transform 0.3s ease-in-out;
-  overflow: hidden; /* Hide overflow to keep dimensions consistent */
-  width: 100%; /* Consistent width for smooth transition */
+  overflow: hidden;
+  width: 100%;
 }
 
 .cardContent:hover {
   transform: scale(1.05);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .cards_wrapper {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
   .card img {
-    height: 200px; /* Adjust image height for tablets */
+    height: 200px;
   }
 }
 
 @media (max-width: 480px) {
   .cards_wrapper {
-    grid-template-columns: 1fr; /* 1 column for mobile phones */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .card img {
-    height: 150px; /* Further adjust image height for mobile phones */
+    height: 150px;
   }
 }
 
@@ -84,4 +83,11 @@
   font-size: 1.6rem;
   margin-bottom: 10px;
   margin-top: 30px;
+}
+
+.contact_card {
+  background-image: url("../public/timeline-bg4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

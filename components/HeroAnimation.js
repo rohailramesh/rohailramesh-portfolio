@@ -8,7 +8,6 @@ export default function HeroAnimation() {
   return (
     <>
       <div className={styles.container}>
-        {/* Rohail - Top */}
         <motion.div
           className={styles.name}
           initial={{ x: "-100vh", opacity: 0 }}
@@ -18,13 +17,6 @@ export default function HeroAnimation() {
           ROHAIL
         </motion.div>
 
-        {/* Software Engineer - Middle */}
-        {/* <motion.div
-          // className={styles.title}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 50, delay: 1.5 }}
-        > */}
         <Image
           src="/logo.png"
           alt="Rohail"
@@ -32,9 +24,7 @@ export default function HeroAnimation() {
           height={100}
           className={styles.logo}
         />
-        {/* </motion.div> */}
 
-        {/* Ramesh - Bottom */}
         <motion.div
           className={styles.name}
           initial={{ x: "100vh", opacity: 0 }}

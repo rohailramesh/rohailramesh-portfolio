@@ -10,18 +10,16 @@ export default function Quotes() {
   const [currentQuote, setCurrentQuote] = React.useState(null);
 
   React.useEffect(() => {
-    // Set initial random quote on client-side only
     const initialQuote = quotes[Math.floor(Math.random() * quotes.length)];
     setCurrentQuote(initialQuote);
   }, []);
 
-  // Function to get a new random quote
   const getRandomQuote = () => {
     const newQuote = quotes[Math.floor(Math.random() * quotes.length)];
     setCurrentQuote(newQuote);
   };
 
-  if (!currentQuote) return null; // Show nothing while loading
+  if (!currentQuote) return null;
 
   return (
     <Box sx={{ marginTop: 4, textAlign: "center", padding: 2 }}>

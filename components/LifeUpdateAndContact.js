@@ -8,7 +8,6 @@ import {
   CardContent,
   CardMedia,
   Button,
-  CardActions,
   TextField,
 } from "@mui/material";
 import Quotes from "./Quotes";
@@ -22,17 +21,17 @@ const LifeUpdate = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        maxWidth: "100%", // Ensure it fits within its container
-        height: "100%", // Allow height to be controlled by container
+        maxWidth: "100%",
+        height: "100%",
         boxShadow: 3,
-        maxHeight: "600px", // Set a fixed maximum height
-        overflow: "auto", // Add scroll if content exceeds height
+        maxHeight: "600px",
+        overflow: "auto",
       }}
     >
       <CardMedia
         component="img"
         height="100%"
-        image="./pom.jpg" // Replace with your image URL
+        image="./update-bg.jpg"
         alt="Life Update"
         style={{ height: "40%" }}
       />
@@ -74,15 +73,32 @@ const Contact = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        maxWidth: "100%", // Ensure it fits within its container
-        height: "100%", // Allow height to be controlled by container
+        maxWidth: "100%",
+        height: "100%",
         boxShadow: 3,
-        maxHeight: "600px", // Set a fixed maximum height
-        overflow: "auto", // Add scroll if content exceeds height
+        maxHeight: "600px",
+        overflow: "auto",
         padding: 2,
+        backgroundImage: `url('/timeline-bg4.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        position: "relative",
+        color: "#fff",
       }}
     >
-      <CardContent>
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          zIndex: 1,
+        }}
+      />
+
+      <CardContent sx={{ position: "relative", zIndex: 2 }}>
         <Typography
           variant="h4"
           component="h1"
@@ -103,6 +119,7 @@ const Contact = () => {
             variant="outlined"
             fullWidth
             required
+            sx={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
           />
           <TextField
             label="Email Address"
@@ -111,6 +128,7 @@ const Contact = () => {
             variant="outlined"
             fullWidth
             required
+            sx={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
           />
           <TextField
             label="Your Message"
@@ -120,6 +138,7 @@ const Contact = () => {
             variant="outlined"
             fullWidth
             required
+            sx={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
           />
           <Box textAlign="center" mt={2}>
             <Button
@@ -128,10 +147,10 @@ const Contact = () => {
               color="primary"
               size="large"
               sx={{
-                backgroundColor: "#000", // Set the background color to black
-                color: "#fff", // Set the text color to white
+                backgroundColor: "#000",
+                color: "#fff",
                 "&:hover": {
-                  backgroundColor: "#333", // Optional: Darken on hover
+                  backgroundColor: "#333",
                 },
               }}
             >
@@ -150,22 +169,19 @@ const LifeUpdateAndContact = () => {
     <>
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Grid container spacing={4}>
-          {/* Life Update Section */}
           <Grid item xs={12} sm={6}>
             <LifeUpdate />
           </Grid>
 
-          {/* Contact Form Section */}
           <Grid item xs={12} sm={6}>
             <Contact />
           </Grid>
         </Grid>
       </Container>
-      {/* Full-width Image */}
       <Box
         sx={{
           width: "100%",
-          height: "100%", // Adjust height to 30% of the viewport height
+          height: "100%",
           mt: 4,
           display: "flex",
           justifyContent: "center",
@@ -173,11 +189,6 @@ const LifeUpdateAndContact = () => {
           overflow: "hidden",
         }}
       >
-        {/* <img
-          src="./pom.jpg" // Replace with your image URL
-          alt="Full-width"
-          style={{ width: "50%", height: "50%", objectFit: "cover" }}
-              /> */}
         <Image
           src="/pom.jpg"
           alt="Picture of the month"
