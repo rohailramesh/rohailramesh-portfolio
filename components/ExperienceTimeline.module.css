@@ -5,11 +5,12 @@
   align-items: start;
   min-height: 100vh;
   font-family: Times, Times New Roman, serif;
-  background-image: url("../public/timeline-bg3.jpg");
+  background-image: url("../public/exp-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
+  color: black;
 }
 
 /* Media query for smaller screens */

@@ -38,7 +38,7 @@ export default function ExperienceTimeline() {
             variants={fadeInUp}
           >
             <Box component="li" className="mb-10 ms-6">
-              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-white-900">
+              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-black dark:ring-gray-900 dark:bg-black-900">
                 <svg
                   className="w-2.5 h-2.5 text-black-800 dark:text-black-300"
                   aria-hidden="true"
@@ -89,7 +89,7 @@ export default function ExperienceTimeline() {
             variants={fadeInUp}
           >
             <Box component="li" className="mb-10 ms-6">
-              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-white-900">
+              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-black dark:ring-gray-900 dark:bg-black-900">
                 <svg
                   className="w-2.5 h-2.5 text-black-800 dark:text-black-300"
                   aria-hidden="true"
@@ -138,7 +138,7 @@ export default function ExperienceTimeline() {
             variants={fadeInUp}
           >
             <Box component="li" className="mb-10 ms-6">
-              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-white-900">
+              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-black dark:ring-gray-900 dark:bg-black-900">
                 <svg
                   className="w-2.5 h-2.5 text-black-800 dark:text-black-300"
                   aria-hidden="true"
@@ -186,7 +186,7 @@ export default function ExperienceTimeline() {
             variants={fadeInUp}
           >
             <Box component="li" className="mb-10 ms-6">
-              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-white-900">
+              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-black dark:ring-gray-900 dark:bg-black-900">
                 <svg
                   className="w-2.5 h-2.5 text-black-800 dark:text-black-300"
                   aria-hidden="true"
@@ -234,7 +234,7 @@ export default function ExperienceTimeline() {
             variants={fadeInUp}
           >
             <Box component="li" className="mb-10 ms-6">
-              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-white-900">
+              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-black dark:ring-gray-900 dark:bg-black-900">
                 <svg
                   className="w-2.5 h-2.5 text-black-800 dark:text-black-300"
                   aria-hidden="true"
@@ -248,28 +248,28 @@ export default function ExperienceTimeline() {
 
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-bold leading-none text-white-500 dark:text-white"
+                className="block mb-2 text-sm font-bold leading-none text-black-500 dark:text-black"
               >
                 Technology Stream Intern
               </Typography>
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-white-500 dark:text-white"
+                className="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray"
               >
                 Bright Network - 06/2022
               </Typography>
               <Box className="mb-4">
-                <Typography className="text-base font-normal text-white-500 dark:text-white">
+                <Typography className="text-base font-normal text-black-500 dark:text-black">
                   - Optimised routing and scheduling algorithms using
                   breadth-first and depth-first search techniques, leading to a
                   10% improvement in delivery efficiency for simulated logistics
                   scenarios.
                 </Typography>
-                <Typography className="text-base font-normal text-white-500 dark:text-white">
+                <Typography className="text-base font-normal text-black-500 dark:text-black">
                   - Completed a work sample project, demonstrating thorough
                   technical skills and problem-solving abilities.
                 </Typography>
-                <Typography className="text-base font-normal text-white-500 dark:text-white">
+                <Typography className="text-base font-normal text-black-500 dark:text-black">
                   - Researched and developed software solutions for delivery
                   optimization challenges presented by Amazon.
                 </Typography>
@@ -284,7 +284,7 @@ export default function ExperienceTimeline() {
             variants={fadeInUp}
           >
             <Box component="li" className="mb-10 ms-6">
-              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-white-900">
+              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-black dark:ring-gray-900 dark:bg-black-900">
                 <svg
                   className="w-2.5 h-2.5 text-black-800 dark:text-black-300"
                   aria-hidden="true"
@@ -298,29 +298,29 @@ export default function ExperienceTimeline() {
 
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-bold leading-none text-gray-400 text-white"
+                className="block mb-2 text-sm font-bold leading-none  text-gray"
               >
                 IT Floorwalker
               </Typography>
               <Typography
                 component="time"
-                className="block mb-2 text-sm font-normal leading-none text-white-500 dark:text-white"
+                className="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-bgraylack"
               >
                 Ideal Health & NHS Foundation Trust - 04/2022 - 05/2022
               </Typography>
               <Box className="mb-4">
-                <Typography className="text-base font-normal text-gray-500 dark:text-white">
+                <Typography className="text-base font-normal text-gray-500 dark:text-black">
                   - Provided technical support for the Electronic Patient Record
                   (EPR) system implementation across 5 hospital departments,
                   ensuring seamless integration and achieving a 98% user
                   satisfaction rate.
                 </Typography>
-                <Typography className="text-base font-normal text-gray-500 dark:text-white">
+                <Typography className="text-base font-normal text-gray-500 dark:text-black">
                   - Monitored and resolved over 20 software bugs, significantly
                   improving system efficiency and reducing downtime by 10%
                   during the critical post-launch phase.
                 </Typography>
-                <Typography className="text-base font-normal text-white-500 dark:text-white">
+                <Typography className="text-base font-normal text-black-500 dark:text-black">
                   - Delivered comprehensive user training to over 100 healthcare
                   professionals, creating detailed operational documentation
                   that facilitated a 20% faster adoption rate of the new EPR

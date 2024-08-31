@@ -25,20 +25,20 @@ function Myself() {
           <Card
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              maxWidth: 1000,
+              flexDirection: { xs: "column", md: "row" }, // Column on small screens, row on medium and above
+              maxWidth: { xs: "100%", md: 1000 }, // Full width on small screens
               boxShadow: 3,
               borderRadius: 2,
               overflow: "hidden",
               backgroundColor: "#ffffff",
-              marginTop: 10,
+              marginTop: { xs: 2, md: 10 }, // Margin varies based on screen size
             }}
           >
             <CardMedia
               component="img"
               sx={{
                 width: { xs: "100%", md: 350 },
-                height: { xs: 250, md: "auto" },
+                height: { xs: 200, md: "auto" },
                 objectFit: "cover",
               }}
               image="/profile-pic.jpg"
@@ -46,7 +46,12 @@ function Myself() {
             />
 
             <Box
-              sx={{ display: "flex", flexDirection: "column", flex: 1, p: 3 }}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                flex: 1,
+                p: { xs: 2, md: 3 },
+              }} // Responsive padding
             >
               <CardContent>
                 <Typography
@@ -56,6 +61,7 @@ function Myself() {
                     fontWeight: "bold",
                     fontFamily: "Roboto, sans-serif",
                     marginBottom: 1,
+                    fontSize: { xs: "1.5rem", md: "2rem" }, // Responsive font size
                   }}
                 >
                   Rohail Ramesh
@@ -63,14 +69,22 @@ function Myself() {
                 <Typography
                   variant="h6"
                   color="text.secondary"
-                  sx={{ marginBottom: 2, fontFamily: "Roboto, sans-serif" }}
+                  sx={{
+                    marginBottom: 2,
+                    fontFamily: "Roboto, sans-serif",
+                    fontSize: { xs: "1rem", md: "1.25rem" }, // Responsive font size
+                  }}
                 >
                   Full Stack Software Developer
                 </Typography>
                 <Typography
                   variant="body1"
                   color="text.primary"
-                  sx={{ marginBottom: 2, fontFamily: "Roboto, sans-serif" }}
+                  sx={{
+                    marginBottom: 2,
+                    fontFamily: "Roboto, sans-serif",
+                    fontSize: { xs: "0.875rem", md: "1rem" }, // Responsive font size
+                  }}
                 >
                   Passionate Full Stack Developer with experience in building
                   web and mobile applications using JavaScript, React.js,
@@ -122,6 +136,7 @@ function Myself() {
                     "&:hover": {
                       backgroundColor: "#333",
                     },
+                    fontSize: { xs: "0.75rem", md: "1rem" }, // Responsive button font size
                   }}
                   href="/cv.pdf"
                   target="_blank"
@@ -136,7 +151,7 @@ function Myself() {
                     rel="noopener"
                     aria-label="LinkedIn"
                   >
-                    <LinkedInIcon color="black" />
+                    <LinkedInIcon color="action" />
                   </IconButton>
                   <IconButton
                     component={Link}
