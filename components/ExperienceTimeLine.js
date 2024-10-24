@@ -54,6 +54,49 @@ export default function ExperienceTimeline() {
                 component="time"
                 className="block mb-2 text-sm font-bold leading-none text-black-400 dark:text-black-500"
               >
+                Web Developer
+              </Typography>
+              <Typography
+                component="time"
+                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+              >
+                Freelance - 07/2024 - Present
+              </Typography>
+              <Box className="mb-4">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
+                  - Developed a responsive Next.js web application for a
+                  professional artist to showcase their portfolio, integrating a
+                  content management system for managing and promoting upcoming
+                  events.
+                </Typography>
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
+                  - Enabled real-time event booking and payment functionality
+                  using Stripe, enhancing user experience and streamlining event
+                  registration
+                </Typography>
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
+                  - Utilised a modern tech stack including TypeScript, MongoDB,
+                  TailwindCSS, Shadcn, and Uploadthing for implementation.
+                </Typography>
+              </Box>
+            </Box>
+            <Box component="li" className="mb-10 ms-6">
+              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-black dark:ring-gray-900 dark:bg-black-900">
+                <svg
+                  className="w-2.5 h-2.5 text-black-800 dark:text-black-300"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                </svg>
+              </span>
+
+              <Typography
+                component="time"
+                className="block mb-2 text-sm font-bold leading-none text-black-400 dark:text-black-500"
+              >
                 Computer Science Teaching Assistant
               </Typography>
               <Typography

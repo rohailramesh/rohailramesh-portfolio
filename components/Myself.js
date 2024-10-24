@@ -102,13 +102,13 @@ function Myself() {
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <CodeIcon color="action" sx={{ marginRight: 1 }} />
                     <Typography variant="body2" color="text.secondary">
-                      JavaScript, Python, Java
+                      JavaScript, Python
                     </Typography>
                   </Box>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <StorageIcon color="action" sx={{ marginRight: 1 }} />
                     <Typography variant="body2" color="text.secondary">
-                      SQL, NoSQL, PostgreSQL
+                      SQL, NoSQL
                     </Typography>
                   </Box>
                   <Box sx={{ display: "flex", alignItems: "center" }}>

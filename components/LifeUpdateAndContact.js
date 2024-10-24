@@ -16,6 +16,24 @@ import styles from "./Projects.module.css";
 
 // LifeUpdate Component
 const LifeUpdate = () => {
+  const today = new Date();
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const month = monthNames[today.getMonth()];
+  const year = today.getFullYear();
+  const currentDate = month + "-" + year;
   return (
     <Card
       sx={{
@@ -40,25 +58,23 @@ const LifeUpdate = () => {
           What is new?
         </Typography>
         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-          September 2024
+          {currentDate}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Recent Computer Science graduate. Currently looking for Software
-          Engineering role.
-        </Typography>
+
         <Typography variant="h6" component="div" sx={{ mt: 2 }}>
           What I am working on?
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          - Developing an online portfolio for a professional dancer <br />-
-          Preparing for AWS Cloud Practioner certification exam
+          - Developing and maintaining an online portfolio for a professional
+          dancer <br />- Exploring cloud solutions (AWS)
         </Typography>
         <Typography variant="h6" component="div" sx={{ mt: 2 }}>
           What I am doing beside work?
         </Typography>
         <Typography variant="body2" color="text.secondary">
           - Running, Badminton, Reading, Chess, Photography
-          <br /> - Currently reading: Vegetarian by Han Kang
+          <br /> - Currently reading: DallerGut Dream Department Store by Miye
+          Lee
           <br /> Down below you can find the picture of the month taken by me!
         </Typography>
       </CardContent>
