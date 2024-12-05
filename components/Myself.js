@@ -66,7 +66,7 @@ function Myself() {
                 >
                   Rohail Ramesh
                 </Typography>
-                <Typography
+                {/* <Typography
                   variant="h6"
                   color="text.secondary"
                   sx={{
@@ -75,8 +75,8 @@ function Myself() {
                     fontSize: { xs: "1rem", md: "1.25rem" }, // Responsive font size
                   }}
                 >
-                  Full Stack Software Developer
-                </Typography>
+                  Computer Scientist
+                </Typography> */}
                 <Typography
                   variant="body1"
                   color="text.primary"
@@ -86,10 +86,9 @@ function Myself() {
                     fontSize: { xs: "0.875rem", md: "1rem" }, // Responsive font size
                   }}
                 >
-                  Passionate Full Stack Developer with experience in building
-                  web and mobile applications using JavaScript, React.js,
-                  Next.js, React Native, and various other technologies and
-                  frameworks.
+                  Computer Scientist with expertise in full-stack development
+                  and scalable applications. Experienced in providing technical
+                  support and solving real-world problems.
                 </Typography>
                 <Box
                   sx={{
@@ -99,7 +98,7 @@ function Myself() {
                     marginBottom: 2,
                   }}
                 >
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                  {/* <Box sx={{ display: "flex", alignItems: "center" }}>
                     <CodeIcon color="action" sx={{ marginRight: 1 }} />
                     <Typography variant="body2" color="text.secondary">
                       JavaScript, Python
@@ -122,7 +121,7 @@ function Myself() {
                     <Typography variant="body2" color="text.secondary">
                       React.js, React Native, Next.js, Django
                     </Typography>
-                  </Box>
+                  </Box> */}
                 </Box>
               </CardContent>
 

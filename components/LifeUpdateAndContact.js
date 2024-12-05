@@ -67,14 +67,14 @@ const LifeUpdate = () => {
         <Typography variant="body2" color="text.secondary">
           - Developing and maintaining an online portfolio for a professional
           dancer <br />- Exploring cloud solutions (AWS)
+          <br /> - Learning Perl
         </Typography>
         <Typography variant="h6" component="div" sx={{ mt: 2 }}>
           What I am doing beside work?
         </Typography>
         <Typography variant="body2" color="text.secondary">
           - Running, Badminton, Reading, Chess, Photography
-          <br /> - Currently reading: DallerGut Dream Department Store by Miye
-          Lee
+          <br /> - Currently reading: The Idiot Brain - by Dean Burnett
           <br /> Down below you can find the picture of the month taken by me!
         </Typography>
       </CardContent>
