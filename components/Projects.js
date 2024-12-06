@@ -77,9 +77,9 @@ const Projects = () => {
                         <Typography gutterBottom variant="h5" component="div">
                           {project.title}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        {/* <Typography variant="body2" color="text.secondary">
                           {project.description}
-                        </Typography>
+                        </Typography> */}
                       </CardContent>
                     </Card>
                   </motion.div>

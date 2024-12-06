@@ -1,6 +1,24 @@
 [
   {
     "id": 1,
+    "title": "Arang",
+    "description": "Personal project",
+    "details": "The app offers a dynamic music experience where users can listen to their favorite tracks, seamlessly navigate through songs with the ability to play the next or previous track, and adjust the volume with a convenient slider. The admin dashboard provides an intuitive platform for creating and managing albums and songs, streamlining content management. Additionally, a real-time chat app is integrated with Arang, allowing users to communicate while enjoying their music. Users can easily check their online or offline status and see what other listeners are enjoying in real-time, enhancing social interaction. For deeper insights, the app also includes an analytics page that aggregates data, offering a comprehensive view of user activity and trends.",
+    "techStack": [
+      "MERN Stack",
+      "Clerk",
+      "Cloudinary",
+      "Socket.io",
+      "Zustand",
+      "Shadcn UI",
+      "Axios",
+      "Typescript"
+    ],
+    "url": "https://github.com/rohailramesh/arang-mern-app",
+    "image": "/arang_homepage.png"
+  },
+  {
+    "id": 2,
     "title": "UniClean",
     "description": "Academic project",
     "details": "- Developed a full-stack cross-platform mobile application as a final year project to address menstrual health issues and period poverty. <br/> - Implemented a Long Short-Term Memory (LSTM) model to predict the length of the luteal phase in regular and irregular menstrual cycles, enabling timely medical attention to prevent miscarriages and infertility and implementing a real-time trained medical chat assistant specifically for such issues. <br/> - Integrated a personalised reminder system that notifies members of academic institutions about the availability of free period products on campuses, based on their individual menstrual cycles, to overcome period product poverty.",
@@ -16,7 +34,7 @@
     "image": "/uniclean.png"
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "Subspace",
     "description": "Personal project",
     "details": "- Developed a full-stack, cross-platform application as a personal project to streamline the management of online subscriptions, providing a centralised solution with timely reminders and an interactive dashboard. <br/> - incorporated real-time features, such as push notifications and automatic subscription renewal reminders, to enhance user experience and prevent unintended lapses or cancellations. <br/> - Implemented a robust backend using Supabase that ensures data privacy, security, and compliance.",
@@ -25,7 +43,7 @@
     "image": "/subspace.png"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Flatify",
     "description": "Academic project",
     "details": "- Led a team of seven in developing a cross-platform application for a global corporation to streamline the process of locating accommodations for their consultants. <br/> - Designed and implemented features that allowed consultants to easily search for and connect with suitable accommodations, fostering meaningful connections among the company's global workforce.  <br/> - Utilized agile methodologies throughout the 12-week project to adapt dynamically to emerging requirements, ensuring collaboration, transparency, and innovation within the team. <br/> - Awarded the Best Software Engineering Award for successfully delivering a user-centered solution that enhanced the company's operational efficiency and consultant experience.",
@@ -43,7 +61,7 @@
     "image": "/flatify.jpeg"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Ro-Reviews",
     "description": "Personal project",
     "details": "- Developed a user-friendly website as a personal project using Next.js for book enthusiasts to track and manage their book collections, featuring a clean and modern design that makes it easy to navigate and organise books. <br/> - Implemented a robust note-taking system that allows users to add, edit, and delete notes for each book, providing a seamless experience for users to record their thoughts, opinions, and insights about the books they read. <br/> - Utilised Next.js's server-side rendering capabilities to ensure fast and efficient loading of the website, ensuring a smooth user experience for users who want to quickly access and manage their book collections.",
@@ -52,7 +70,7 @@
     "image": "/roreviews.png"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "RoamCast",
     "description": "Academic project",
     "details": "- Collaborated on a graphical user interface application as a group project in 2nd year, designed to help tourists plan their trips based on real-time weather forecasts and access all the necessary information related to their destination in one centralised platform. <br/> - Implemented a user-friendly interface that allows tourists to easily search for their desired destination, view detailed weather forecasts, and access relevant information such as local attractions, restaurants, transportation options, and accommodation recommendations. <br/> - Focused on Human-Computer Interaction principle whilst enhancing the application's usability, intuitive navigation, and overall user experience.",
@@ -60,8 +78,9 @@
     "url": "https://github.com/rohailramesh/GUI_Weather_App",
     "image": "/roamcast.png"
   },
+
   {
-    "id": 6,
+    "id": 7,
     "title": "HART News",
     "description": "Academic project",
     "details": "- Led a web-based news application project for a final year module on Web Programming, utilising Django for a scalable backend architecture and MySQL for efficient data storage and retrieval; integrated RESTful APIs to fetch and display news articles in JSON format dynamically. <br/> - Implemented secure user authentication and session management using web cookies and tokens, enhancing web security and user experience; <br/> - Deployed the application on OpenShift for scalable cloud hosting and used AWS S3 to host multimedia content, optimising storage and enhancing content delivery for a global user base.",
