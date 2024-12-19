@@ -64,19 +64,20 @@ export default function ExperienceTimeline() {
               </Typography>
               <Box className="mb-4">
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Developed a responsive Next.js web application for a
-                  professional artist to showcase their portfolio, integrating a
-                  content management system for managing and promoting upcoming
-                  events.
+                  - Built a responsive Next.js portfolio website for a
+                  professional artist, integrating a CMS for event management,
+                  real-time booking, and payment functionality using Stripe.
                 </Typography>
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Enabled real-time event booking and payment functionality
-                  using Stripe, enhancing user experience and streamlining event
-                  registration
+                  - Designed and developed a dynamic MERN stack music streaming
+                  app with real-time chat, user activity analytics, and an admin
+                  dashboard for managing albums and songs,leveraging
+                  technologies like Socket.io, ShadCN UI,MongoDB and TypeScript.
                 </Typography>
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Utilised a modern tech stack including TypeScript, MongoDB,
-                  TailwindCSS, Shadcn, and Uploadthing for implementation.
+                  - Delivered scalable, user-centric solutions by utilising
+                  modern tools such as Clerk, Cloudinary, and Zustand, enhancing
+                  user experience
                 </Typography>
               </Box>
             </Box>
