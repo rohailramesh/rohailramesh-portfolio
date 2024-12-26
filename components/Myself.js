@@ -86,9 +86,17 @@ function Myself() {
                     fontSize: { xs: "0.875rem", md: "1rem" }, // Responsive font size
                   }}
                 >
-                  Computer Scientist with expertise in full-stack development
-                  and scalable applications. Experienced in providing technical
-                  support and solving real-world problems.
+                  First-class Computer Science graduate with extensive
+                  full-stack development experience across fintech, healthcare,
+                  and education sectors. Proven track record in building
+                  scalable web and mobile applications using tech stacks (MERN,
+                  Next.js, React Native). Notable achievements include
+                  award-winning projects in enterprise chat platforms and
+                  healthcare innovation. Currently freelancing as web developer
+                  while serving as a Computer Science Teaching Assistant,
+                  demonstrating strong technical mentorship and project
+                  management capabilities. Seeking full-time Software Developer
+                  or similar position for creating impactful solutions.
                 </Typography>
                 <Box
                   sx={{
