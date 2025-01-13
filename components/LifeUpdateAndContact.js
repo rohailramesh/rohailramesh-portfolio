@@ -74,7 +74,7 @@ const LifeUpdate = () => {
         </Typography>
         <Typography variant="body2" color="text.secondary">
           - Running, Badminton, Reading, Chess, Photography
-          <br /> - Currently reading: The Idiot Brain - by Dean Burnett
+          <br /> - Currently reading: 1984 by George Orwell
           <br /> Down below you can find the picture of the month taken by me!
         </Typography>
       </CardContent>
