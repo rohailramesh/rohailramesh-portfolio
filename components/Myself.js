@@ -89,15 +89,16 @@ function Myself() {
                   First-class Computer Science graduate with full-stack
                   development experience across fintech, healthcare, education,
                   and non-profit sectors. Currently working as a Web &
-                  Applications Developer at Mary's Meals International, where I
-                  develop and maintain digital solutions that enhance user
-                  experience and support the organisation's mission of providing
-                  life-changing meals to children in need. Skilled in building
-                  scalable web and mobile applications using modern tech stacks,
-                  whilst working in Agile Scrum environments. Notable
-                  achievements include award-winning projects in enterprise chat
-                  platforms and healthcare innovation. Passionate about
-                  leveraging technology to create meaningful impact.
+                  Applications Developer at Mary&apos;s Meals International,
+                  where I develop and maintain digital solutions that enhance
+                  user experience and support the organisation&apos;s mission of
+                  providing life-changing meals to children in need. Skilled in
+                  building scalable web and mobile applications using modern
+                  tech stacks, whilst working in Agile Scrum environments.
+                  Notable achievements include award-winning projects in
+                  enterprise chat platforms and healthcare innovation.
+                  Passionate about leveraging technology to create meaningful
+                  impact.
                 </Typography>
                 <Box
                   sx={{

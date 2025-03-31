@@ -65,8 +65,8 @@ export default function ExperienceTimeline() {
               <Box className="mb-4">
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Develop and maintain digital platforms using Nuxt.js and
-                  Laravel to support Mary's Meals' mission of providing daily
-                  meals to children in education.​
+                  Laravel to support Mary&apos;s Meals&apos; mission of
+                  providing daily meals to children in education.​
                 </Typography>
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Integrate Stripe for secure donation processing with
