@@ -64,7 +64,7 @@ function Myself() {
                     fontSize: { xs: "1.5rem", md: "2rem" }, // Responsive font size
                   }}
                 >
-                  Rohail Ramesh
+                  ROHAIL RAMESH
                 </Typography>
                 {/* <Typography
                   variant="h6"
@@ -86,17 +86,18 @@ function Myself() {
                     fontSize: { xs: "0.875rem", md: "1rem" }, // Responsive font size
                   }}
                 >
-                  First-class Computer Science graduate with extensive
-                  full-stack development experience across fintech, healthcare,
-                  and education sectors. Proven track record in building
-                  scalable web and mobile applications using tech stacks (MERN,
-                  Next.js, React Native). Notable achievements include
-                  award-winning projects in enterprise chat platforms and
-                  healthcare innovation. Currently freelancing as web developer
-                  while serving as a Computer Science Teaching Assistant,
-                  demonstrating strong technical mentorship and project
-                  management capabilities. Seeking full-time Software Developer
-                  or similar position for creating impactful solutions.
+                  First-class Computer Science graduate with full-stack
+                  development experience across fintech, healthcare, education,
+                  and non-profit sectors. Currently working as a Web &
+                  Applications Developer at Mary's Meals International, where I
+                  develop and maintain digital solutions that enhance user
+                  experience and support the organisation's mission of providing
+                  life-changing meals to children in need. Skilled in building
+                  scalable web and mobile applications using modern tech stacks,
+                  whilst working in Agile Scrum environments. Notable
+                  achievements include award-winning projects in enterprise chat
+                  platforms and healthcare innovation. Passionate about
+                  leveraging technology to create meaningful impact.
                 </Typography>
                 <Box
                   sx={{
@@ -134,7 +135,7 @@ function Myself() {
               </CardContent>
 
               <CardActions sx={{ paddingLeft: 2, paddingBottom: 2 }}>
-                <Button
+                {/* <Button
                   size="medium"
                   variant="contained"
                   sx={{
@@ -149,34 +150,34 @@ function Myself() {
                   target="_blank"
                 >
                   View CV
-                </Button>
-                <Box sx={{ marginLeft: "auto", display: "flex", gap: 1 }}>
-                  <IconButton
-                    component={Link}
-                    href="https://www.linkedin.com/in/rohail-ramesh-a18b001b4/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="LinkedIn"
-                  >
-                    <LinkedInIcon color="action" />
-                  </IconButton>
-                  <IconButton
-                    component={Link}
-                    href="https://github.com/rohailramesh"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="GitHub"
-                  >
-                    <GitHubIcon />
-                  </IconButton>
-                  <IconButton
-                    component={Link}
-                    href="mailto:rohailramesh@hotmail.com"
-                    aria-label="Email"
-                  >
-                    <EmailIcon color="action" />
-                  </IconButton>
-                </Box>
+                </Button> */}
+                {/* <Box sx={{ marginLeft: "auto", display: "flex", gap: 1 }}> */}
+                <IconButton
+                  component={Link}
+                  href="https://www.linkedin.com/in/rohail-ramesh-a18b001b4/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedInIcon color="action" />
+                </IconButton>
+                <IconButton
+                  component={Link}
+                  href="https://github.com/rohailramesh"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="GitHub"
+                >
+                  <GitHubIcon />
+                </IconButton>
+                <IconButton
+                  component={Link}
+                  href="mailto:rohailramesh@hotmail.com"
+                  aria-label="Email"
+                >
+                  <EmailIcon color="action" />
+                </IconButton>
+                {/* </Box> */}
               </CardActions>
             </Box>
           </Card>

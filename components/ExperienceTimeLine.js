@@ -54,25 +54,25 @@ export default function ExperienceTimeline() {
                 component="time"
                 className="block mb-2 text-sm font-bold leading-none text-black-400 dark:text-black-500"
               >
-                Web Developer
+                Web & Applications Developer
               </Typography>
               <Typography
                 component="time"
                 className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
               >
-                Freelance - 07/2024 - Present
+                Mary's Meals (International) - 03/2025 - Present
               </Typography>
               <Box className="mb-4">
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Developed scalable web applicationsusing MERN stack,
-                  including a Next.js portfolio for a professional artist with
-                  CMS-based event management, and Stripe integration for instant
-                  booking, increasing event booking efficiency by 20%.
+                  - Develop and maintain digital platforms using Nuxt.js and
+                  Laravel to support Mary's Meals' mission of providing daily
+                  meals to children in education.​
                 </Typography>
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Leveraged modern technologies such as Socket.io, ShadCN UI,
-                  Clerk, Cloudinary, MongoDB, TypeScript, and Zustand to enhance
-                  functionality, scalability, and user experience.
+                  - Integrate Stripe for secure donation processing with
+                  Salesforce CRM and manage AWS infrastructure to ensure
+                  scalable and reliable hosting of web applications and other
+                  services.
                 </Typography>
               </Box>
             </Box>
@@ -99,17 +99,56 @@ export default function ExperienceTimeline() {
                 component="time"
                 className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
               >
-                Queen Mary University of London - 01/2023 - Present
+                Queen Mary University of London - 01/2023 - 03/2025
               </Typography>
               <Box className="mb-4">
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Mentored7 teams through12-weekSDLCproject, developing a
+                  - Mentored 7 teams through12-week SDLCproject, developing a
                   well-being applicationfor a consultancy firm (FDM Group)
                   achieving 95% project completion rate.
                 </Typography>
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
                   - Led lab sessions for 200+ students across 5 core modules,
                   improving average assignment scores from 65% to 78%.
+                </Typography>
+              </Box>
+            </Box>
+            <Box component="li" className="mb-10 ms-6">
+              <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-black dark:ring-gray-900 dark:bg-black-900">
+                <svg
+                  className="w-2.5 h-2.5 text-black-800 dark:text-black-300"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                </svg>
+              </span>
+
+              <Typography
+                component="time"
+                className="block mb-2 text-sm font-bold leading-none text-black-400 dark:text-black-500"
+              >
+                Web Developer
+              </Typography>
+              <Typography
+                component="time"
+                className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+              >
+                Freelance - 07/2024 - 12/2024
+              </Typography>
+              <Box className="mb-4">
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
+                  - Developed scalable web applicationsusing MERN stack,
+                  including a Next.js portfolio for a professional artist with
+                  CMS-based event management, and Stripe integration for instant
+                  booking, increasing event booking efficiency by 20%.
+                </Typography>
+                <Typography className="text-base font-normal text-black-500 dark:text-black-400">
+                  - Leveraged modern technologies such as Socket.io, ShadCN UI,
+                  Clerk, Cloudinary, MongoDB, TypeScript, and Zustand to enhance
+                  functionality, scalability, and user experience.
                 </Typography>
               </Box>
             </Box>
@@ -144,7 +183,7 @@ export default function ExperienceTimeline() {
                 component="time"
                 className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
               >
-                MyTutor - 02/2022 - Present
+                MyTutor - 02/2022 - 01/2025
               </Typography>
               <Box className="mb-4">
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">

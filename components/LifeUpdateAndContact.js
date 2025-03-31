@@ -58,23 +58,23 @@ const LifeUpdate = () => {
           What is new?
         </Typography>
         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-          {currentDate}
+          {/* {currentDate} */}
+          April 2025
         </Typography>
 
         <Typography variant="h6" component="div" sx={{ mt: 2 }}>
           What I am working on?
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          - Developing and maintaining an online portfolio for a professional
-          dancer <br />- Exploring cloud solutions (AWS)
-          <br /> - Learning Perl
+          - Just reading documentations for my new role and playing around with
+          codebase.
         </Typography>
         <Typography variant="h6" component="div" sx={{ mt: 2 }}>
           What I am doing beside work?
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          - Running, Badminton, Reading, Chess, Photography
-          <br /> - Currently reading: 1984 by George Orwell
+          - Running, Badminton, Reading, Photography & Gardening!
+          <br /> - Currently reading: Almond by Sohn Won-Pyung
           <br /> Down below you can find the picture of the month taken by me!
         </Typography>
       </CardContent>
