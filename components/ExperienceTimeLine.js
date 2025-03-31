@@ -60,7 +60,7 @@ export default function ExperienceTimeline() {
                 component="time"
                 className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
               >
-                Mary's Meals (International) - 03/2025 - Present
+                Mary&apos;s Meals (International) - 03/2025 - Present
               </Typography>
               <Box className="mb-4">
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
