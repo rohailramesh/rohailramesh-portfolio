@@ -59,7 +59,7 @@ const LifeUpdate = () => {
         </Typography>
         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
           {/* {currentDate} */}
-          April 2025
+          September 2025
         </Typography>
 
         <Typography variant="h6" component="div" sx={{ mt: 2 }}>
@@ -184,17 +184,17 @@ const LifeUpdateAndContact = () => {
   return (
     <>
       <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={6}>
+        <Grid container spacing={0}>
+          {/* <Grid item xs={12} sm={6}>
             <LifeUpdate />
-          </Grid>
+          </Grid> */}
 
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={12}>
             <Contact />
           </Grid>
         </Grid>
       </Container>
-      <Box
+      {/* <Box
         sx={{
           width: "100%",
           height: "100%",
@@ -211,7 +211,7 @@ const LifeUpdateAndContact = () => {
           width={500}
           height={500}
         />
-      </Box>
+      </Box> */}
       <Quotes />
     </>
   );
