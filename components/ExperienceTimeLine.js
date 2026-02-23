@@ -64,15 +64,17 @@ export default function ExperienceTimeline() {
               </Typography>
               <Box className="mb-4">
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Develop and maintain digital platforms using Nuxt.js and
-                  Laravel to support Mary&apos;s Meals&apos; mission of
-                  providing daily meals to children in education.​
+                  - Building responsive, multi-language supporter journeys using
+                  Vue.js and modern TypeScript, serving a global audience across
+                  devices. Designing intuitive donation flows, story pages and
+                  regional content, improving accessibility and engagement.
                 </Typography>
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Integrate Stripe for secure donation processing with
-                  Salesforce CRM and manage AWS infrastructure to ensure
-                  scalable and reliable hosting of web applications and other
-                  services.
+                  - Integrating Stripe (payments), Algolia (search), Google
+                  Analytics (behaviour insights) and OpenAI features to support
+                  data-informed improvements that contribute to ongoing digital
+                  transformation initiatives supporting over 3 million children
+                  daily.
                 </Typography>
               </Box>
             </Box>
@@ -103,13 +105,21 @@ export default function ExperienceTimeline() {
               </Typography>
               <Box className="mb-4">
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Mentored 7 teams through12-week SDLCproject, developing a
-                  well-being applicationfor a consultancy firm (FDM Group)
-                  achieving 95% project completion rate.
+                  - Mentored 7 student teams through full 12-week SDLC cycles to
+                  build well-being web and mobile applications for FDM Group,
+                  guiding them on frontend design with React and React Native to
+                  create responsive, user-centered interfaces resulting in a 95%
+                  project completion rate and earning the Best Software
+                  Engineering Award through strong agile practices and clean,
+                  intuitive UI/UX focus.
                 </Typography>
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Led lab sessions for 200+ students across 5 core modules,
-                  improving average assignment scores from 65% to 78%.
+                  - Led hands-on lab sessions for 200+ students across 5 core
+                  modules, breaking down complex programming and networking
+                  concepts while demonstrating practical frontend development
+                  techniques, delivering clear, engaging explanations that
+                  achieved a 97% issue resolution rate and helped students
+                  confidently build interactive, cross-platform apps.
                 </Typography>
               </Box>
             </Box>
@@ -136,19 +146,23 @@ export default function ExperienceTimeline() {
                 component="time"
                 className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
               >
-                Freelance - 07/2024 - 12/2024
+                Freelance - 07/2024 - 02/2025
               </Typography>
               <Box className="mb-4">
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Developed scalable web applicationsusing MERN stack,
-                  including a Next.js portfolio for a professional artist with
-                  CMS-based event management, and Stripe integration for instant
-                  booking, increasing event booking efficiency by 20%.
+                  - Developing, user-friendly web applications with a strong
+                  frontend focus using modern tech stacks, including a custom
+                  portfolio site for a professional artist featuring intuitive
+                  event browsing, CMS-driven content management, and seamless
+                  cross-device layouts to showcase work and engage visitors
+                  effectively.
                 </Typography>
                 <Typography className="text-base font-normal text-black-500 dark:text-black-400">
-                  - Leveraged modern technologies such as Socket.io, ShadCN UI,
-                  Clerk, Cloudinary, MongoDB, TypeScript, and Zustand to enhance
-                  functionality, scalability, and user experience.
+                  - Designed and built responsive UI components with ShadCN and
+                  TypeScript, creating a smoother, more accessible user
+                  experience. Integrated Stripe for seamless bookings and
+                  Cloudinary for media handling, leading to a 20% increase in
+                  event bookings.
                 </Typography>
               </Box>
             </Box>
