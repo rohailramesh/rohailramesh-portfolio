@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chapter & Verse - Interactive Portfolio
 
-## Getting Started
+A Vue 3 portfolio website with a creative bookshop metaphor, ported from the React version.
 
-First, run the development server:
+## 🎨 Features
+
+- **Interactive Hero** - Animated shop sign with letter-by-letter animation
+- **Shop Map** - Navigation directory with 6 themed aisles
+- **About Section** - Staff pick card with bio and social links
+- **Experience Shelf** - Interactive book spines revealing work history
+- **Projects Gallery** - Book covers with expandable synopses
+- **Skills Index** - Genre-organized skill books on shelves
+- **Resume Card** - Library card with animated stamp effect
+- **Contact Guestbook** - Notebook-style contact form
+
+## 🛠️ Tech Stack
+
+- **Vue 3.5** - Composition API with `<script setup>`
+- **TypeScript** - Type safety
+- **Vite 8** - Lightning-fast dev server
+- **Tailwind CSS 4** - Utility-first styling
+- **@vueuse/motion** - Vue 3 animations
+- **Lucide Vue** - Icon library
+- **Radix Vue** - Accessible UI primitives
+
+## 📦 Installation
+
+```bash
+npm install
+```
+
+## 🚀 Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🏗️ Build
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run build
+```
 
-## Learn More
+## 📝 Key Differences from React Version
 
-To learn more about Next.js, take a look at the following resources:
+1. **Composition API** - Using Vue 3's `<script setup>` instead of React hooks
+2. **v-motion directive** - Instead of Framer Motion
+3. **Vue Transitions** - Built-in `<Transition>` component for animations
+4. **Template syntax** - Vue templates instead of JSX
+5. **Reactive refs** - Using `ref()` instead of `useState()`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎭 Sections
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Hero** (`/`) - Animated bookshop entrance
+- **Map** (`#map`) - Navigation guide
+- **About** (`#about`) - Personal introduction
+- **Experience** (`#experience`) - Career timeline
+- **Projects** (`#projects`) - Featured work
+- **Skills** (`#skills`) - Technical expertise
+- **Resume** (`#resume`) - Downloadable CV
+- **Contact** (`#contact`) - Get in touch
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This portfolio is based on the original Figma Make project.
