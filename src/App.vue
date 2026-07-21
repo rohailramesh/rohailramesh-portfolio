@@ -231,7 +231,7 @@ function handleFormSubmit() {
 }
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  window.scrollTo({ top: 0, behavior: 'smooth' }) //
 }
 
 // Show scroll to top button when user scrolls down
