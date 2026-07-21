@@ -621,7 +621,7 @@ if (typeof window !== 'undefined') {
               class="text-3xl font-bold"
               :style="{ fontFamily: 'var(--font-display)', color: '#A8C5A0' }"
             >
-              <img src="../rohailramesh-pic.jpg" alt="Rohail Ramesh" class="rounded-full w-full h-full object-cover" />
+              <img src="/rohailramesh-pic.jpg" alt="Rohail Ramesh" class="rounded-full w-full h-full object-cover" />
             </span>
           </div>
 
