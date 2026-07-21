@@ -253,7 +253,7 @@ if (typeof window !== 'undefined') {
       }"
     >
       <button
-        @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        @click="scrollToTop"
         class="text-sm font-bold tracking-widest uppercase hover:opacity-60 transition-opacity"
         :style="{ fontFamily: 'var(--font-display)', letterSpacing: '0.15em' }"
       >
