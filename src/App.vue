@@ -1187,7 +1187,7 @@ if (typeof window !== 'undefined') {
             <!-- Checkout button -->
             <div class="relative">
               <a
-                href="../public/Rohail%20Ramesh%20CV%202026.pdf"
+                href="/public/Rohail%20Ramesh%20CV%202026.pdf"
                 target="_blank"
                 @click="stamped = true"
                 class="w-full py-3 border-2 border-foreground/20 text-xs uppercase tracking-widest hover:border-foreground/50 transition-all flex items-center justify-center gap-2"
