@@ -325,8 +325,9 @@ const showScrollTop = ref(false)
 const windowWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1024)
 
 // Random quotes for section dividers
-const getRandomQuote = () => {
-  return quotesData[Math.floor(Math.random() * quotesData.length)]
+const getRandomQuote = (): { en: string; author: string } => {
+  const quote = quotesData[Math.floor(Math.random() * quotesData.length)]
+  return quote || { en: 'Code is poetry.', author: 'Unknown' }
 }
 
 const quote1 = ref<{ en: string; author: string }>(getRandomQuote())
