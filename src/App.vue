@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Download, ExternalLink, Github, Linkedin, Mail, ArrowUp, Eye } from 'lucide-vue-next'
+import quotesData from '../data/quotes.json'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -128,48 +129,156 @@ const DECORATIVE_SPINES = [
 
 const PROJECTS = [
   {
-    id: 'period-ml',
-    title: 'Period Poverty ML',
-    genre: 'Health Tech',
-    coverBg: '#1F3D2F',
-    accentColor: '#A8C5A0',
-    synopsis:
-      'Machine learning app implementing an LSTM model for preventing luteal phase defect, miscarriages and infertility, while overcoming period product poverty amongst academic institutions — achieving 80% accuracy.',
-    stack: ['Python', 'React Native', 'Flask', 'Supabase', 'TensorFlow', 'PostgreSQL'],
-    year: '2024',
-  },
-  {
-    id: 'globalstay',
-    title: 'GlobalStay',
-    genre: 'Consultancy Platform',
-    coverBg: '#6B1F2A',
-    accentColor: '#F0B8C0',
-    synopsis:
-      'Cross-platform accommodation and consultant networking application built for FDM Group. Led a 7-member team through a 12-week sprint cycle, earning the Best Software Engineering Award.',
-    stack: ['Next.js', 'React Native', 'Node.js', 'Redis', 'Tailwind CSS', 'Redux'],
-    year: '2024',
-  },
-  {
-    id: 'artist-portfolio',
-    title: 'Artist Portfolio',
-    genre: 'Creative Tools',
-    coverBg: '#1A2B4A',
-    accentColor: '#A8BCE8',
-    synopsis:
-      'Custom portfolio site for a professional artist featuring intuitive event browsing, CMS-driven content management and seamless cross-device layouts, contributing to a 20% increase in event bookings.',
-    stack: ['TypeScript', 'ShadCN', 'Stripe', 'Cloudinary'],
-    year: '2025',
-  },
-  {
-    id: 'supporter-platform',
-    title: 'Supporter Platform',
+    id: 'Donation Platform',
+    title: 'Mary\'s Meals',
     genre: 'Non-Profit',
     coverBg: '#4A3410',
     accentColor: '#D4A840',
     synopsis:
       "Multilingual supporter journeys for Mary's Meals, with accessible donation flows, story pages and regional content that drive engagement for a charity serving over 3 million children daily.",
-    stack: ['Vue.js', 'TypeScript', 'Stripe', 'Algolia', 'OpenAI API'],
+    stack: ['Vue.js', 'Laravel', 'Stripe', 'Algolia', 'OpenAI API', 'OpenAI API', 'Salesforce', 'AWS', 'Google Analytics'],
+    year: '2026',
+    url: 'https://www.marysmeals.org.uk',
+  },
+  {
+    id: 'booklet',
+    title: 'Booklet',
+    genre: 'Education Tech',
+    coverBg: '#044d6c',
+    accentColor: '#A8C5A0',
+    synopsis:
+      'Never Forget a Book You Want. Spot a book in the shop? Scan it instantly. Build your personal "want-to-read & owned" library in one beautiful place.',
+    stack: ['Vue 3', 'Vue Barcode Reader', 'Axios', 'MongoDB', 'Render', 'Node.js', 'Vuetify', 'Bootstrap'],
+    year: '2026',
+    url: 'https://github.com/rohailramesh/booklet',
+  },
+  {
+    id: 'converse',
+    title: 'Converse',
+    genre: 'Social Media Platform',
+    coverBg: '#932545',
+    accentColor: '#F0B8C0',
+    synopsis:
+      'Built a real-time messaging application using the MERN stack, leveraging WebSockets (Socket.io) for instant communication and JWT for secure authentication. Delivered features like online user presence, efficient state management, and a responsive UI, alongside robust error handling to ensure reliable performance.',
+    stack: [
+      "MERN Stack",
+      "Socket.io",
+      "JWT",
+      "Zustand",
+      "TailwindCSS",
+      "Daisy UI"
+    ],
+    url: 'https://github.com/rohailramesh/Converse',
     year: '2025',
+  },
+  {
+    id: 'barter',
+    title: 'Barter',
+    genre: 'E-Commerce Platform',
+    coverBg: '#570e55',
+    accentColor: '#F0B8C0',
+    synopsis:
+      'Developed a full-featured e-commerce platform with secure JWT-based authentication, Stripe-powered checkout, and Redis caching for performance. Included comprehensive product management, a responsive UI, and an admin dashboard with sales analytics to support efficient operations and user experience.',
+    stack: [
+      "MongoDB",
+      "Express.js",
+      "React.js",
+      "Node.js",
+      "Stripe",
+      "JWT",
+      "Redis",
+      "TailwindCSS"
+    ],
+    url: 'https://github.com/rohailramesh/barter-mern-app',
+    year: '2025',
+  },
+  {
+    id: 'period-ml',
+    title: 'UniClean',
+    genre: 'Health Tech',
+    coverBg: '#1F3D2F',
+    accentColor: '#A8C5A0',
+    synopsis:
+      'Machine learning app implementing an LSTM model for preventing luteal phase defect, miscarriages and infertility, while overcoming period product poverty amongst academic institutions — achieving 80% accuracy.',
+    stack: ['Python', 'React Native', 'Flask', 'Supabase', 'TensorFlow', 'PostgreSQL', 'Botpress', 'Notify'],
+    year: '2024',
+    url: 'https://github.com/rohailramesh/UniClean_FYP',
+  },
+  {
+    id: 'hartnews',
+    title: 'Hart News',
+    genre: 'News Platform',
+    coverBg: '#71250a',
+    accentColor: '#F0B8C0',
+    synopsis:
+      'Led development of a web-based news application using Django and MySQL, integrating RESTful APIs for dynamic content delivery. Implemented secure authentication and session management, and deployed on OpenShift with AWS S3 for scalable hosting and optimized media delivery.',
+    stack: [
+      "Django",
+      "MySQL",
+      "Bootstrap",
+      "REST API",
+      "OpenShift",
+      "AWS S3"
+    ],
+    url: 'https://github.com/rohailramesh/ECS639U-Web-Programming-2023-24-CW3',
+    year: '2024',
+  },
+  {
+    id: 'arang',
+    title: 'Arang',
+    genre: 'Music Platform',
+    coverBg: '#5b6505',
+    accentColor: '#F0B8C0',
+    synopsis:
+      'Built a dynamic music application with seamless playback controls, volume adjustment, and real-time social features including chat and user activity tracking. Included an admin dashboard for managing content and an analytics page to provide insights into user behavior and trends.',
+    stack: [
+      "MERN Stack",
+      "Clerk",
+      "Cloudinary",
+      "Socket.io",
+      "Zustand",
+      "Shadcn UI",
+      "Axios",
+      "Typescript"
+    ],
+    url: 'https://github.com/rohailramesh/arang-mern-app',
+    year: '2024',
+  },
+  {
+    id: 'artist-portfolio',
+    title: 'Reebolly',
+    genre: 'Artist Portfolio',
+    coverBg: '#1A2B4A',
+    accentColor: '#A8BCE8',
+    synopsis:
+      'Custom portfolio site for a professional artist featuring intuitive event browsing, CMS-driven content management and seamless cross-device layouts, contributing to a 20% increase in event bookings.',
+    stack: ['Next.js', 'ShadCN', 'Stripe', 'Cloudinary', 'MongoDB', 'Tailwind'],
+    year: '2024',
+    url: 'https://github.com/rohailramesh/reebolly',
+  },
+  {
+    id: 'flatify',
+    title: 'Flatify',
+    genre: 'Consultancy Platform',
+    coverBg: '#6B1F2A',
+    accentColor: '#F0B8C0',
+    synopsis:
+      'Cross-platform accommodation and consultant networking application built for FDM Group. Led a 7-member team through a 12-week sprint cycle, earning the Best Software Engineering Award.',
+    stack: ['Next.js', 'React Native', 'Node.js', 'Redis', 'Tailwind CSS', 'Redux', 'Supabase', 'Framer Motion', 'Google Places API', 'Chakra UI'],
+    url: 'https://github.com/rohailramesh/flat-finder',
+    year: '2024',
+  },
+  {
+    id: 'supabase',
+    title: 'Supabase',
+    genre: 'Subscription Management',
+    coverBg: '#25104a',
+    accentColor: '#F0B8C0',
+    synopsis:
+      "Developed a full-stack, cross-platform subscription management application with an interactive dashboard and centralized tracking. Incorporated real-time push notifications and renewal reminders, backed by a secure Supabase backend ensuring data privacy and reliability.",
+    stack: ['React Native', 'Supabase'],
+    year: '2023',
+    url: 'https://github.com/rohailramesh/Subspace',
   },
 ]
 
@@ -186,6 +295,7 @@ const SKILLS: Record<string, { title: string; color: string; height: number }[]>
     { title: 'Vue.js', color: '#1E3A24', height: 130 },
     { title: 'React / Next.js', color: '#1A3030', height: 140 },
     { title: 'React Native', color: '#1A2448', height: 126 },
+    { title: 'Django', color: '#2e4725', height: 116 },
     { title: 'REST APIs', color: '#3A1A2A', height: 120 },
     { title: 'i18n', color: '#3A1A1A', height: 114 },
     { title: 'OpenAI API', color: '#1A2A3A', height: 134 },
@@ -212,6 +322,28 @@ const submitted = ref(false)
 const guestbook = ref({ name: '', email: '', message: '' })
 const mobileMenuOpen = ref(false)
 const showScrollTop = ref(false)
+const windowWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1024)
+
+// Random quotes for section dividers
+const getRandomQuote = () => {
+  return quotesData[Math.floor(Math.random() * quotesData.length)]
+}
+
+const quote1 = ref(getRandomQuote())
+const quote2 = ref(getRandomQuote())
+const quote3 = ref(getRandomQuote())
+const quote4 = ref(getRandomQuote())
+const quote5 = ref(getRandomQuote())
+const quote6 = ref(getRandomQuote())
+const quote7 = ref(getRandomQuote())
+
+// Currently Reading data
+const currentlyReading = ref({
+  title: 'Less',
+  author: 'Andrew Sean Greer',
+  lastUpdated: 'August 2026'
+})
+
 
 const shopName = 'ROHAIL RAMESH'
 const letters = shopName.split('')
@@ -240,6 +372,25 @@ if (typeof window !== 'undefined') {
     showScrollTop.value = window.scrollY > 500
   })
 }
+
+// Update window width on resize for responsive elements
+const handleResize = () => {
+  if (typeof window !== 'undefined') {
+    windowWidth.value = window.innerWidth
+  }
+}
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', handleResize)
+  }
+})
+
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('resize', handleResize)
+  }
+})
 </script>
 
 <template>
@@ -341,162 +492,588 @@ if (typeof window !== 'undefined') {
 
     <!-- ── HERO ────────────────────────────────────────────────────────────── -->
     <section
-      class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-14"
+      class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-14 px-4"
       :style="{ backgroundColor: '#0B1A11' }"
     >
       <!-- Warm floor glow -->
       <div
         class="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
         :style="{
-          width: '700px',
+          width: '100%',
+          maxWidth: '800px',
           height: '280px',
           background: 'radial-gradient(ellipse at 50% 100%, rgba(196,146,43,0.18) 0%, transparent 70%)',
         }"
       />
-      <!-- Window panes -->
-      <div class="absolute inset-0 pointer-events-none flex items-center justify-center opacity-[0.03]">
-        <div class="grid grid-cols-2 gap-4" :style="{ width: '340px', height: '280px' }">
-          <div v-for="i in 4" :key="i" class="border border-white rounded-sm" />
-        </div>
-      </div>
 
-      <!-- Shop sign board -->
+      <!-- Bookshop Storefront Door -->
       <div
         v-motion
-        :initial="{ opacity: 0, y: 24 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 800, ease: 'easeOut' } }"
-        class="relative mb-10 px-8 sm:px-14 py-8 sm:py-10 text-center mx-4"
+        :initial="{ opacity: 0, scale: 0.95 }"
+        :enter="{ opacity: 1, scale: 1, transition: { duration: 1000, ease: 'easeOut' } }"
+        class="relative w-full max-w-[90%] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px]"
         :style="{
-          background: 'linear-gradient(150deg, #1E1208 0%, #120C04 100%)',
-          border: '2px solid #5A3C18',
-          borderRadius: '3px',
-          boxShadow: '0 0 60px rgba(196,146,43,0.14), 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04)',
+          aspectRatio: '3/4',
+          maxHeight: '70vh',
+          maxWidth: '60vh',
         }"
       >
-        <!-- Inner gold border -->
+        <!-- Door frame outer -->
         <div
-          class="absolute pointer-events-none"
+          class="absolute inset-0 rounded-t-lg"
           :style="{
-            inset: '10px',
-            border: '1px solid rgba(196,146,43,0.22)',
-            borderRadius: '2px',
-          }"
-        />
-
-        <!-- Animated shop name -->
-        <div class="flex items-center justify-center mb-3 overflow-hidden">
-          <span
-            v-for="(char, i) in letters"
-            :key="i"
-            v-motion
-            :initial="{ opacity: 0, y: 28 }"
-            :enter="{
-              opacity: 1,
-              y: 0,
-              transition: {
-                delay: 300 + i * 55,
-                duration: 450,
-                ease: 'easeOut',
-              },
-            }"
-            :style="{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(28px, 5vw, 48px)',
-              fontWeight: 700,
-              color: '#C4922B',
-              textShadow: '0 0 30px rgba(196,146,43,0.45)',
-              letterSpacing: char === ' ' ? '0.4em' : '0.06em',
-              display: 'inline-block',
-            }"
-          >
-            {{ char === ' ' ? '\u00A0' : char }}
-          </span>
-        </div>
-
-        <div
-          v-motion
-          :initial="{ opacity: 0, scaleX: 0 }"
-          :enter="{ opacity: 1, scaleX: 1, transition: { delay: 1400, duration: 500 } }"
-          :style="{
-            height: '1px',
-            backgroundColor: 'rgba(196,146,43,0.3)',
-            marginBottom: '10px',
-          }"
-        />
-
-        <p
-          v-motion
-          :initial="{ opacity: 0 }"
-          :enter="{ opacity: 0.5, transition: { delay: 1600, duration: 600 } }"
-          class="text-[10px] sm:text-[11px]"
-          :style="{
-            fontFamily: 'var(--font-label)',
-            letterSpacing: '0.35em',
-            textTransform: 'uppercase',
-            color: '#C4922B',
+            background: 'linear-gradient(180deg, #3D2817 0%, #2A1B0F 100%)',
+            boxShadow: '0 20px 80px rgba(0,0,0,0.8), inset 0 2px 4px rgba(255,255,255,0.1)',
+            padding: 'clamp(8px, 2vw, 16px)',
           }"
         >
-          A Portfolio of Works
-        </p>
-
-        <!-- Open sign -->
-        <div
-          v-motion
-          :initial="{ opacity: 0, rotate: -20 }"
-          :enter="{ opacity: 1, rotate: 10, transition: { delay: 2000, duration: 500, type: 'spring', stiffness: 200 } }"
-          class="absolute"
-          :style="{ top: '-18px', right: '-16px' }"
-        >
+          <!-- Door main panel -->
           <div
-            class="px-3 py-1 text-xs font-bold uppercase tracking-widest border-2 rounded-sm"
+            class="relative w-full h-full rounded-t-md"
             :style="{
-              fontFamily: 'var(--font-label)',
-              backgroundColor: '#C4922B',
-              color: '#0B1A11',
-              borderColor: '#8B6214',
-              fontSize: '10px',
-              boxShadow: '2px 2px 0 rgba(0,0,0,0.4)',
+              background: 'linear-gradient(165deg, #1E1208 0%, #120C04 60%, #0A0604 100%)',
+              border: '2px solid #5A3C18',
+              boxShadow: 'inset 0 0 60px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.03)',
             }"
           >
-            OPEN
+            <!-- Top arched transom window -->
+            <div
+              v-motion
+              :initial="{ opacity: 0 }"
+              :enter="{ opacity: 1, transition: { delay: 600, duration: 800 } }"
+              class="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%]"
+              :style="{
+                height: 'clamp(80px, 15%, 140px)',
+                marginTop: 'clamp(12px, 3%, 24px)',
+              }"
+            >
+              <!-- Arched window frame -->
+              <div
+                class="relative w-full h-full rounded-t-full overflow-hidden"
+                :style="{
+                  background: 'linear-gradient(180deg, rgba(196,146,43,0.15) 0%, rgba(196,146,43,0.05) 100%)',
+                  border: '2px solid #5A3C18',
+                  padding: 'clamp(6px, 1.5vw, 10px)',
+                  boxShadow: '0 0 30px rgba(196,146,43,0.2), inset 0 0 20px rgba(0,0,0,0.4)',
+                }"
+              >
+                <!-- Window panes grid -->
+                <div class="grid grid-cols-3 gap-[clamp(2px,0.3vw,3px)] w-full h-full">
+                  <div
+                    v-for="i in 3"
+                    :key="i"
+                    class="rounded-t-full overflow-hidden"
+                    :style="{
+                      background: 'radial-gradient(circle at 30% 30%, rgba(196,146,43,0.08) 0%, rgba(0,0,0,0.3) 100%)',
+                      border: '1px solid rgba(90,60,24,0.6)',
+                    }"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Shop name sign -->
+            <div
+              class="absolute left-1/2 -translate-x-1/2 text-center w-[90%]"
+              :style="{
+                top: 'clamp(90px, 18%, 140px)',
+              }"
+            >
+              <!-- Book icon -->
+              <div
+                v-motion
+                :initial="{ opacity: 0, scale: 0 }"
+                :enter="{ opacity: 1, scale: 1, transition: { delay: 800, duration: 500, type: 'spring' } }"
+                class="flex justify-center mt-3 mb-2 sm:mb-3"
+              >
+                <svg
+                  :width="windowWidth < 640 ? 28 : 40"
+                  :height="windowWidth < 640 ? 28 : 40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  :style="{ filter: 'drop-shadow(0 0 20px rgba(196,146,43,0.4))' }"
+                >
+                  <path
+                    d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20"
+                    stroke="#C4922B"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2Z"
+                    stroke="#C4922B"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <!-- Animated name -->
+              <div class="flex items-center justify-center flex-wrap mb-2">
+                <span
+                  v-for="(char, i) in letters"
+                  :key="i"
+                  v-motion
+                  :initial="{ opacity: 0, y: 20 }"
+                  :enter="{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 900 + i * 50,
+                      duration: 400,
+                      ease: 'easeOut',
+                    },
+                  }"
+                  :style="{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 'clamp(20px, 5vw, 40px)',
+                    fontWeight: 700,
+                    color: '#C4922B',
+                    textShadow: '0 0 30px rgba(196,146,43,0.45)',
+                    letterSpacing: char === ' ' ? '0.3em' : '0.05em',
+                    display: 'inline-block',
+                  }"
+                >
+                  {{ char === ' ' ? '\u00A0' : char }}
+                </span>
+              </div>
+
+              <!-- Decorative divider -->
+              <div
+                v-motion
+                :initial="{ opacity: 0, scaleX: 0 }"
+                :enter="{ opacity: 1, scaleX: 1, transition: { delay: 1700, duration: 500 } }"
+                class="flex items-center justify-center gap-2 mb-2 sm:mb-3"
+              >
+                <div
+                  :style="{
+                    height: '1px',
+                    width: 'clamp(40px, 15%, 80px)',
+                    backgroundColor: 'rgba(196,146,43,0.3)',
+                  }"
+                />
+                <div
+                  :style="{
+                    width: '5px',
+                    height: '5px',
+                    backgroundColor: '#C4922B',
+                    transform: 'rotate(45deg)',
+                    opacity: 0.5,
+                  }"
+                />
+                <div
+                  :style="{
+                    height: '1px',
+                    width: 'clamp(40px, 15%, 80px)',
+                    backgroundColor: 'rgba(196,146,43,0.3)',
+                  }"
+                />
+              </div>
+
+              <!-- Subtitle -->
+              <p
+                v-motion
+                :initial="{ opacity: 0 }"
+                :enter="{ opacity: 0.6, transition: { delay: 1900, duration: 600 } }"
+                class="text-[10px] sm:text-xs mb-1 sm:mb-2"
+                :style="{
+                  fontFamily: 'var(--font-label)',
+                  letterSpacing: '0.25em',
+                  textTransform: 'uppercase',
+                  color: '#C4922B',
+                }"
+              >
+                A Portfolio of Works
+              </p>
+
+              <!-- Tagline -->
+              <p
+                v-motion
+                :initial="{ opacity: 0 }"
+                :enter="{ opacity: 0.4, transition: { delay: 2100, duration: 600 } }"
+                class="text-[8px] sm:text-[9px] italic mb-3 sm:mb-4"
+                :style="{
+                  fontFamily: 'var(--font-label)',
+                  letterSpacing: '0.15em',
+                  color: '#C4922B',
+                }"
+              >
+                ~ Curated Stories in Code & Design ~
+              </p>
+              <!-- Enter CTA -->
+              <button
+                v-motion
+                :initial="{ opacity: 0 }"
+                :enter="{ opacity: 1, transition: { delay: 2500, duration: 500 } }"
+                @click="scrollTo('map')"
+                class="px-5 sm:px-8 py-2 border transition-all hover:bg-[rgba(196,146,43,0.12)] text-[9px] sm:text-[10px]"
+                :style="{
+                  borderColor: 'rgba(196,146,43,0.5)',
+                  color: '#C4922B',
+                  fontFamily: 'var(--font-label)',
+                  letterSpacing: '0.3em',
+                  textTransform: 'uppercase',
+                }"
+              >
+                Enter the Bookshop
+                <span style="font-size: large">↓</span>
+              </button>
+            </div>
+
+            <!-- Bottom door panels (decorative) -->
+            <div
+              v-motion
+              :initial="{ opacity: 0 }"
+              :enter="{ opacity: 1, transition: { delay: 1200, duration: 800 } }"
+              class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] grid grid-cols-2 gap-[clamp(8px,2vw,16px)]"
+              :style="{
+                height: 'clamp(100px, 22%, 180px)',
+                marginBottom: 'clamp(12px, 3%, 24px)',
+              }"
+            >
+              <!-- Left panel with books -->
+              <div
+                class="rounded-sm relative overflow-hidden"
+                :style="{
+                  background: 'linear-gradient(135deg, rgba(90,60,24,0.15) 0%, rgba(90,60,24,0.05) 100%)',
+                  border: '2px solid #5A3C18',
+                  boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.3)',
+                  padding: 'clamp(4px, 1.5vw, 12px)',
+                }"
+              >
+                <!-- Book stacks in left panel -->
+                <div class="flex items-end justify-center h-full gap-[clamp(2px,0.5vw,4px)]">
+                  <!-- Stack 1 -->
+                  <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(15px, 4vw, 28px)',
+                        background: 'linear-gradient(90deg, #8B4513 0%, #654321 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(18px, 4.5vw, 32px)',
+                        background: 'linear-gradient(90deg, #2F4F4F 0%, #1C3030 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(12px, 3.5vw, 24px)',
+                        background: 'linear-gradient(90deg, #C4922B 0%, #8B6914 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                  </div>
+                  <!-- Stack 2 -->
+                  <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(20px, 5vw, 35px)',
+                        background: 'linear-gradient(90deg, #C4922B 0%, #8B6914 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(14px, 3.8vw, 26px)',
+                        background: 'linear-gradient(90deg, #8B4513 0%, #654321 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                  </div>
+                  <!-- Stack 3 -->
+                  <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(16px, 4.2vw, 30px)',
+                        background: 'linear-gradient(90deg, #2F4F4F 0%, #1C3030 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(13px, 3.6vw, 25px)',
+                        background: 'linear-gradient(90deg, #8B4513 0%, #654321 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(19px, 4.8vw, 34px)',
+                        background: 'linear-gradient(90deg, #C4922B 0%, #8B6914 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                  </div>
+                  <!-- Stack 4 -->
+                  <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(17px, 4.4vw, 31px)',
+                        background: 'linear-gradient(90deg, #8B4513 0%, #654321 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(15px, 4vw, 28px)',
+                        background: 'linear-gradient(90deg, #C4922B 0%, #8B6914 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right panel with books -->
+              <div
+                class="rounded-sm relative overflow-hidden"
+                :style="{
+                  background: 'linear-gradient(135deg, rgba(90,60,24,0.15) 0%, rgba(90,60,24,0.05) 100%)',
+                  border: '2px solid #5A3C18',
+                  boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.3)',
+                  padding: 'clamp(4px, 1.5vw, 12px)',
+                }"
+              >
+                <!-- Book stacks in right panel -->
+                <div class="flex items-end justify-center h-full gap-[clamp(2px,0.5vw,4px)]">
+                  <!-- Stack 1 -->
+                  <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(14px, 3.8vw, 26px)',
+                        background: 'linear-gradient(90deg, #2F4F4F 0%, #1C3030 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(21px, 5.2vw, 36px)',
+                        background: 'linear-gradient(90deg, #C4922B 0%, #8B6914 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                  </div>
+                  <!-- Stack 2 -->
+                  <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(18px, 4.5vw, 32px)',
+                        background: 'linear-gradient(90deg, #8B4513 0%, #654321 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(13px, 3.6vw, 25px)',
+                        background: 'linear-gradient(90deg, #2F4F4F 0%, #1C3030 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(16px, 4.2vw, 30px)',
+                        background: 'linear-gradient(90deg, #C4922B 0%, #8B6914 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                  </div>
+                  <!-- Stack 3 -->
+                  <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(19px, 4.8vw, 34px)',
+                        background: 'linear-gradient(90deg, #C4922B 0%, #8B6914 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(15px, 4vw, 28px)',
+                        background: 'linear-gradient(90deg, #8B4513 0%, #654321 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                  </div>
+                  <!-- Stack 4 -->
+                  <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(12px, 3.5vw, 24px)',
+                        background: 'linear-gradient(90deg, #2F4F4F 0%, #1C3030 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(17px, 4.4vw, 31px)',
+                        background: 'linear-gradient(90deg, #8B4513 0%, #654321 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                    <div
+                      class="rounded-sm"
+                      :style="{
+                        height: 'clamp(14px, 3.8vw, 26px)',
+                        background: 'linear-gradient(90deg, #C4922B 0%, #8B6914 100%)',
+                        border: '1px solid rgba(90,60,24,0.8)',
+                        boxShadow: '1px 1px 3px rgba(0,0,0,0.3)',
+                      }"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Door handle -->
+            <div
+              v-motion
+              :initial="{ opacity: 0, x: -10 }"
+              :enter="{ opacity: 1, x: 0, transition: { delay: 1400, duration: 500 } }"
+              class="absolute"
+              :style="{
+                right: 'clamp(20px, 8%, 60px)',
+                top: '50%',
+                transform: 'translateY(-50%)',
+              }"
+            >
+              <div
+                class="rounded-full"
+                :style="{
+                  width: 'clamp(12px, 2vw, 20px)',
+                  height: 'clamp(12px, 2vw, 20px)',
+                  background: 'radial-gradient(circle at 30% 30%, #C4922B 0%, #8B6914 100%)',
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.3)',
+                }"
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Enter CTA -->
-      <button
-        v-motion
-        :initial="{ opacity: 0 }"
-        :enter="{ opacity: 1, transition: { delay: 2100, duration: 500 } }"
-        @click="scrollTo('map')"
-        class="px-8 sm:px-10 py-3 border transition-all hover:bg-[rgba(196,146,43,0.12)] text-[11px] sm:text-xs mx-4"
-        :style="{
-          borderColor: 'rgba(196,146,43,0.5)',
-          color: '#C4922B',
-          fontFamily: 'var(--font-label)',
-          letterSpacing: '0.3em',
-          textTransform: 'uppercase',
-        }"
-      >
-        Enter the Shop
-        <span style="font-size: large">↓</span>
-      </button>
 
-      <p
+<!--      <p-->
+<!--        v-motion-->
+<!--        :initial="{ opacity: 0 }"-->
+<!--        :enter="{ opacity: 1, transition: { delay: 2900 } }"-->
+<!--        class="absolute bottom-4 sm:bottom-8 text-[8px] sm:text-[10px] px-4 text-center"-->
+<!--        :style="{-->
+<!--          fontFamily: 'var(&#45;&#45;font-label)',-->
+<!--          letterSpacing: '0.3em',-->
+<!--          textTransform: 'uppercase',-->
+<!--          color: 'rgba(196,146,43,0.35)',-->
+<!--        }"-->
+<!--      >-->
+<!--        scroll to browse the collection-->
+<!--      </p>-->
+    </section>
+
+    <!-- Quote Post-it Note 1 -->
+    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
+      <div
         v-motion
-        :initial="{ opacity: 0 }"
-        :enter="{ opacity: 1, transition: { delay: 2600 } }"
-        class="absolute bottom-8 text-[9px] sm:text-[10px] px-4"
+        :initial="{ opacity: 0, y: 20, rotate: -2 }"
+        :visible="{ opacity: 1, y: 0, rotate: 1, transition: { duration: 500 } }"
+        class="relative max-w-md"
         :style="{
-          fontFamily: 'var(--font-label)',
-          letterSpacing: '0.35em',
-          textTransform: 'uppercase',
-          color: 'rgba(196,146,43,0.35)',
+          background: 'linear-gradient(135deg, #F5E6D3 0%, #EAD8BF 100%)',
+          padding: 'clamp(20px, 4vw, 32px)',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
+          transform: 'rotate(1deg)',
+          border: '1px solid rgba(196,146,43,0.15)',
         }"
       >
-        scroll to browse
-      </p>
-    </section>
+        <!-- Post-it note top edge shadow -->
+        <div
+          class="absolute top-0 left-0 right-0 h-3 opacity-20"
+          :style="{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',
+          }"
+        />
+        <!-- Paperclip -->
+        <div
+          class="absolute -top-2 -left-2"
+          :style="{ color: '#8B7355' }"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+        </div>
+        <!-- Refresh button -->
+        <button
+          @click="quote1 = getRandomQuote()"
+          class="absolute top-3 right-3 opacity-40 hover:opacity-100 transition-opacity"
+          :style="{ color: '#C4922B' }"
+          aria-label="Get new quote"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+        </button>
+        <p
+          class="text-sm sm:text-base italic mb-3 leading-relaxed"
+          :style="{
+            fontFamily: 'var(--font-body)',
+            color: '#2A1810',
+          }"
+        >
+          "{{ quote1.en }}"
+        </p>
+        <p
+          class="text-xs text-right opacity-60"
+          :style="{
+            fontFamily: 'var(--font-label)',
+            color: '#2A1810',
+          }"
+        >
+          — {{ quote1.author }}
+        </p>
+      </div>
+    </div>
 
     <!-- ── SHOP MAP ────────────────────────────────────────────────────── -->
     <section id="map" class="py-24 px-8 max-w-5xl mx-auto">
@@ -583,7 +1160,68 @@ if (typeof window !== 'undefined') {
         <div class="flex-1 h-px bg-foreground/30" />
       </div>
     </section>
-
+    <!-- Quote Post-it Note 2 -->
+    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 20, rotate: -2 }"
+        :visible="{ opacity: 1, y: 0, rotate: 1, transition: { duration: 500 } }"
+        class="relative max-w-md"
+        :style="{
+          background: 'linear-gradient(135deg, #F5E6D3 0%, #EAD8BF 100%)',
+          padding: 'clamp(20px, 4vw, 32px)',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
+          transform: 'rotate(1deg)',
+          border: '1px solid rgba(196,146,43,0.15)',
+        }"
+      >
+        <!-- Post-it note top edge shadow -->
+        <div
+          class="absolute top-0 left-0 right-0 h-3 opacity-20"
+          :style="{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',
+          }"
+        />
+        <!-- Paperclip -->
+        <div
+          class="absolute -top-2 -left-2"
+          :style="{ color: '#8B7355' }"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+        </div>
+        <!-- Refresh button -->
+        <button
+          @click="quote2 = getRandomQuote()"
+          class="absolute top-3 right-3 opacity-40 hover:opacity-100 transition-opacity"
+          :style="{ color: '#C4922B' }"
+          aria-label="Get new quote"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+        </button>
+        <p
+          class="text-sm sm:text-base italic mb-3 leading-relaxed"
+          :style="{
+            fontFamily: 'var(--font-body)',
+            color: '#2A1810',
+          }"
+        >
+          "{{ quote2.en }}"
+        </p>
+        <p
+          class="text-xs text-right opacity-60"
+          :style="{
+            fontFamily: 'var(--font-label)',
+            color: '#2A1810',
+          }"
+        >
+          — {{ quote2.author }}
+        </p>
+      </div>
+    </div>
     <!-- ── ABOUT ───────────────────────────────────────────────────────────── -->
     <section id="about" class="py-24 px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
@@ -697,7 +1335,68 @@ if (typeof window !== 'undefined') {
         </div>
       </div>
     </section>
-
+    <!-- Quote Post-it Note 3 -->
+    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 20, rotate: -2 }"
+        :visible="{ opacity: 1, y: 0, rotate: 1, transition: { duration: 500 } }"
+        class="relative max-w-md"
+        :style="{
+          background: 'linear-gradient(135deg, #F5E6D3 0%, #EAD8BF 100%)',
+          padding: 'clamp(20px, 4vw, 32px)',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
+          transform: 'rotate(1deg)',
+          border: '1px solid rgba(196,146,43,0.15)',
+        }"
+      >
+        <!-- Post-it note top edge shadow -->
+        <div
+          class="absolute top-0 left-0 right-0 h-3 opacity-20"
+          :style="{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',
+          }"
+        />
+        <!-- Paperclip -->
+        <div
+          class="absolute -top-2 -left-2"
+          :style="{ color: '#8B7355' }"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+        </div>
+        <!-- Refresh button -->
+        <button
+          @click="quote3 = getRandomQuote()"
+          class="absolute top-3 right-3 opacity-40 hover:opacity-100 transition-opacity"
+          :style="{ color: '#C4922B' }"
+          aria-label="Get new quote"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+        </button>
+        <p
+          class="text-sm sm:text-base italic mb-3 leading-relaxed"
+          :style="{
+            fontFamily: 'var(--font-body)',
+            color: '#2A1810',
+          }"
+        >
+          "{{ quote3.en }}"
+        </p>
+        <p
+          class="text-xs text-right opacity-60"
+          :style="{
+            fontFamily: 'var(--font-label)',
+            color: '#2A1810',
+          }"
+        >
+          — {{ quote3.author }}
+        </p>
+      </div>
+    </div>
     <!-- ── EXPERIENCE ──────────────────────────────────────────────────────── -->
     <section id="experience" class="py-24 px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
@@ -892,6 +1591,69 @@ if (typeof window !== 'undefined') {
       </Transition>
     </section>
 
+    <!-- Quote Post-it Note 4 -->
+    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 20, rotate: 2 }"
+        :visible="{ opacity: 1, y: 0, rotate: -1, transition: { duration: 500 } }"
+        class="relative max-w-md"
+        :style="{
+          background: 'linear-gradient(135deg, #E8DCC8 0%, #D9CAAE 100%)',
+          padding: 'clamp(20px, 4vw, 32px)',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
+          transform: 'rotate(-1deg)',
+          border: '1px solid rgba(196,146,43,0.15)',
+        }"
+      >
+        <!-- Post-it note top edge shadow -->
+        <div
+          class="absolute top-0 left-0 right-0 h-3 opacity-20"
+          :style="{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',
+          }"
+        />
+        <!-- Paperclip -->
+        <div
+          class="absolute -top-2 -left-2"
+          :style="{ color: '#8B7355' }"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+        </div>
+        <!-- Refresh button -->
+        <button
+          @click="quote4 = getRandomQuote()"
+          class="absolute top-3 right-3 opacity-40 hover:opacity-100 transition-opacity"
+          :style="{ color: '#C4922B' }"
+          aria-label="Get new quote"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+        </button>
+        <p
+          class="text-sm sm:text-base italic mb-3 leading-relaxed"
+          :style="{
+            fontFamily: 'var(--font-body)',
+            color: '#2A1810',
+          }"
+        >
+          "{{ quote4.en }}"
+        </p>
+        <p
+          class="text-xs text-right opacity-60"
+          :style="{
+            fontFamily: 'var(--font-label)',
+            color: '#2A1810',
+          }"
+        >
+          — {{ quote4.author }}
+        </p>
+      </div>
+    </div>
+
     <!-- ── PROJECTS ────────────────────────────────────────────────────────── -->
     <section id="projects" class="py-24 px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
@@ -909,15 +1671,14 @@ if (typeof window !== 'undefined') {
         class="text-center text-sm sm:text-base uppercase tracking-widest opacity-40 -mt-8 mb-12 px-4"
         :style="{ fontFamily: 'var(--font-label)' }"
       >
-        Select a title to read the synopsis
+        Select a title to open the book
       </p>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
         <div v-for="project in PROJECTS" :key="project.id" class="flex flex-col">
           <button
-            @click="openProj = openProj === project.id ? null : project.id"
-            class="text-left focus:outline-none"
-            :class="{ 'hover:-translate-y-3 transition-transform duration-200': openProj !== project.id }"
+            @click="openProj = project.id"
+            class="text-left focus:outline-none hover:-translate-y-3 transition-transform duration-200"
             :aria-label="`${project.title} — click to open`"
           >
             <div
@@ -926,10 +1687,7 @@ if (typeof window !== 'undefined') {
                 aspectRatio: '2/3',
                 width: '100%',
                 backgroundColor: project.coverBg,
-                boxShadow:
-                  openProj === project.id
-                    ? 'inset 0 0 24px rgba(0,0,0,0.6), 6px 10px 24px rgba(0,0,0,0.5)'
-                    : '-4px 4px 14px rgba(0,0,0,0.4)',
+                boxShadow: '-4px 4px 14px rgba(0,0,0,0.4)',
                 transition: 'box-shadow 0.3s',
               }"
             >
@@ -980,43 +1738,256 @@ if (typeof window !== 'undefined') {
               </div>
             </div>
           </button>
+        </div>
+      </div>
 
-          <!-- Case study panel -->
-          <Transition
-            enter-active-class="transition-all duration-320 ease-in-out"
-            leave-active-class="transition-all duration-320 ease-in-out"
-            enter-from-class="opacity-0 max-h-0"
-            enter-to-class="opacity-100 max-h-[1000px]"
-            leave-from-class="opacity-100 max-h-[1000px]"
-            leave-to-class="opacity-0 max-h-0"
+      <!-- Full-screen Book Modal -->
+      <Transition
+        enter-active-class="transition-opacity duration-300"
+        leave-active-class="transition-opacity duration-300"
+        enter-from-class="opacity-0"
+        enter-to-class="opacity-100"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
+      >
+        <div
+          v-if="openProj"
+          @click="openProj = null"
+          class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
+          :style="{ backgroundColor: 'rgba(0, 0, 0, 0.85)' }"
+        >
+          <!-- Book Container -->
+          <div
+            @click.stop
+            class="relative w-full max-w-6xl"
+            :style="{ perspective: '2000px' }"
           >
-            <div v-if="openProj === project.id" class="overflow-hidden">
+            <!-- Close button -->
+            <button
+              @click="openProj = null"
+              class="absolute -top-12 right-0 text-white/60 hover:text-white transition-colors z-10"
+              :style="{ fontFamily: 'var(--font-label)' }"
+            >
+              <span class="text-sm uppercase tracking-widest">Close</span>
+              <span class="ml-2 text-xl">×</span>
+            </button>
+
+            <!-- Open Book -->
+            <div
+              v-motion
+              :initial="{ scale: 0.8, rotateY: -15, opacity: 0 }"
+              :enter="{ scale: 1, rotateY: 0, opacity: 1, transition: { duration: 600, ease: 'easeOut' } }"
+              class="relative grid grid-cols-2 gap-0 overflow-hidden shadow-2xl"
+              :style="{
+                backgroundColor: '#F5F1E8',
+                borderRadius: '8px',
+                minHeight: '70vh',
+                maxHeight: '85vh',
+              }"
+            >
+              <!-- Left Page - Project Info -->
               <div
-                class="mt-3 p-4 border border-border text-sm"
-                :style="{ backgroundColor: 'var(--card)' }"
+                class="p-3 sm:p-6 md:p-10 lg:p-12 overflow-y-auto border-r border-[#D4C4A8]"
+                :style="{
+                  background: 'linear-gradient(to right, #F5F1E8 0%, #EDE7D8 100%)',
+                  boxShadow: 'inset -10px 0 20px -10px rgba(0,0,0,0.1)',
+                }"
               >
-                <p class="leading-relaxed mb-4" :style="{ fontFamily: 'var(--font-body)' }">
-                  {{ project.synopsis }}
-                </p>
-                <div class="flex flex-wrap gap-1.5">
-                  <span
-                    v-for="s in project.stack"
-                    :key="s"
-                    class="text-xs px-2 py-0.5 border border-border"
+                <!-- Page decoration - left -->
+                <div class="mb-4 sm:mb-6">
+                  <div
+                    class="inline-block px-2 sm:px-3 py-0.5 sm:py-1 mb-2 sm:mb-4 text-[9px] sm:text-xs uppercase tracking-widest"
                     :style="{
                       fontFamily: 'var(--font-label)',
-                      backgroundColor: project.coverBg + '1A',
+                      backgroundColor: PROJECTS.find(p => p.id === openProj)?.coverBg + '20',
+                      color: PROJECTS.find(p => p.id === openProj)?.coverBg,
+                      border: '1px solid ' + PROJECTS.find(p => p.id === openProj)?.coverBg + '40',
                     }"
                   >
-                    {{ s }}
-                  </span>
+                    {{ PROJECTS.find(p => p.id === openProj)?.genre }}
+                  </div>
+                  <h3
+                    class="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2"
+                    :style="{
+                      fontFamily: 'var(--font-display)',
+                      color: '#2A1810',
+                    }"
+                  >
+                    {{ PROJECTS.find(p => p.id === openProj)?.title }}
+                  </h3>
+                  <div
+                    class="text-[10px] sm:text-sm uppercase tracking-widest opacity-40 mb-3 sm:mb-6"
+                    :style="{ fontFamily: 'var(--font-label)', color: '#2A1810' }"
+                  >
+                    {{ PROJECTS.find(p => p.id === openProj)?.year }}
+                  </div>
+                </div>
+
+                <!-- Synopsis -->
+                <div class="mb-4 sm:mb-6">
+                  <h4
+                    class="text-[9px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-3 opacity-50"
+                    :style="{ fontFamily: 'var(--font-label)', color: '#2A1810' }"
+                  >
+                    Synopsis
+                  </h4>
+                  <p
+                    class="text-xs sm:text-base lg:text-lg leading-relaxed text-left sm:text-justify"
+                    :style="{
+                      fontFamily: 'var(--font-body)',
+                      color: '#3A2820',
+                    }"
+                  >
+                    {{ PROJECTS.find(p => p.id === openProj)?.synopsis }}
+                  </p>
+                </div>
+
+                <!-- Decorative page number -->
+                <div
+                  class="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 text-[9px] sm:text-xs opacity-30"
+                  :style="{ fontFamily: 'var(--font-label)', color: '#2A1810' }"
+                >
+                  — 1 —
+                </div>
+              </div>
+
+              <!-- Right Page - Tech Stack & Link -->
+              <div
+                class="p-3 sm:p-6 md:p-10 lg:p-12 overflow-y-auto"
+                :style="{
+                  background: 'linear-gradient(to left, #F5F1E8 0%, #EDE7D8 100%)',
+                  boxShadow: 'inset 10px 0 20px -10px rgba(0,0,0,0.1)',
+                }"
+              >
+                <!-- Tech Stack -->
+                <div class="mb-4 sm:mb-8">
+                  <h4
+                    class="text-[9px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4 opacity-50"
+                    :style="{ fontFamily: 'var(--font-label)', color: '#2A1810' }"
+                  >
+                    Tech Stack
+                  </h4>
+                  <div class="flex flex-wrap gap-1 sm:gap-2">
+                    <span
+                      v-for="s in PROJECTS.find(p => p.id === openProj)?.stack"
+                      :key="s"
+                      class="px-1.5 sm:px-3 py-0.5 sm:py-1.5 text-[9px] sm:text-xs lg:text-sm"
+                      :style="{
+                        fontFamily: 'var(--font-label)',
+                        backgroundColor: PROJECTS.find(p => p.id === openProj)?.coverBg + '15',
+                        color: PROJECTS.find(p => p.id === openProj)?.coverBg,
+                        border: '1px solid ' + PROJECTS.find(p => p.id === openProj)?.coverBg + '30',
+                        borderRadius: '2px',
+                      }"
+                    >
+                      {{ s }}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- View Project Button -->
+                <div class="mb-4 sm:mb-8">
+                  <h4
+                    class="text-[9px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4 opacity-50"
+                    :style="{ fontFamily: 'var(--font-label)', color: '#2A1810' }"
+                  >
+                    Explore
+                  </h4>
+                  <a
+                    :href="PROJECTS.find(p => p.id === openProj)?.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-6 py-2 sm:py-3 transition-all hover:shadow-lg text-[9px] sm:text-xs"
+                    :style="{
+                      fontFamily: 'var(--font-label)',
+                      backgroundColor: PROJECTS.find(p => p.id === openProj)?.coverBg,
+                      color: '#F5F1E8',
+                      letterSpacing: '0.2em',
+                      textTransform: 'uppercase',
+                      borderRadius: '2px',
+                    }"
+                  >
+                    View Project
+                    <ExternalLink :size="windowWidth < 640 ? 12 : 16" />
+                  </a>
+                </div>
+
+                <!-- Decorative page number -->
+                <div
+                  class="absolute bottom-3 sm:bottom-6 right-3 sm:right-6 text-[9px] sm:text-xs opacity-30"
+                  :style="{ fontFamily: 'var(--font-label)', color: '#2A1810' }"
+                >
+                  — 2 —
                 </div>
               </div>
             </div>
-          </Transition>
+          </div>
         </div>
-      </div>
+      </Transition>
     </section>
+
+    <!-- Quote Post-it Note 5 -->
+    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 20, rotate: -1 }"
+        :visible="{ opacity: 1, y: 0, rotate: 2, transition: { duration: 500 } }"
+        class="relative max-w-md"
+        :style="{
+          background: 'linear-gradient(135deg, #F0E5D1 0%, #E3D4BA 100%)',
+          padding: 'clamp(20px, 4vw, 32px)',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
+          transform: 'rotate(2deg)',
+          border: '1px solid rgba(196,146,43,0.15)',
+        }"
+      >
+        <!-- Post-it note top edge shadow -->
+        <div
+          class="absolute top-0 left-0 right-0 h-3 opacity-20"
+          :style="{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',
+          }"
+        />
+        <!-- Paperclip -->
+        <div
+          class="absolute -top-2 -left-2"
+          :style="{ color: '#8B7355' }"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+        </div>
+        <!-- Refresh button -->
+        <button
+          @click="quote5 = getRandomQuote()"
+          class="absolute top-3 right-3 opacity-40 hover:opacity-100 transition-opacity"
+          :style="{ color: '#C4922B' }"
+          aria-label="Get new quote"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+        </button>
+        <p
+          class="text-sm sm:text-base italic mb-3 leading-relaxed"
+          :style="{
+            fontFamily: 'var(--font-body)',
+            color: '#2A1810',
+          }"
+        >
+          "{{ quote5.en }}"
+        </p>
+        <p
+          class="text-xs text-right opacity-60"
+          :style="{
+            fontFamily: 'var(--font-label)',
+            color: '#2A1810',
+          }"
+        >
+          — {{ quote5.author }}
+        </p>
+      </div>
+    </div>
 
     <!-- ── SKILLS ──────────────────────────────────────────────────────────── -->
     <section id="skills" class="py-24 px-8 max-w-5xl mx-auto">
@@ -1110,7 +2081,68 @@ if (typeof window !== 'undefined') {
         </div>
       </div>
     </section>
-
+    <!-- Quote Post-it Note 6 -->
+    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 20, rotate: -2 }"
+        :visible="{ opacity: 1, y: 0, rotate: 1, transition: { duration: 500 } }"
+        class="relative max-w-md"
+        :style="{
+          background: 'linear-gradient(135deg, #F5E6D3 0%, #EAD8BF 100%)',
+          padding: 'clamp(20px, 4vw, 32px)',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
+          transform: 'rotate(1deg)',
+          border: '1px solid rgba(196,146,43,0.15)',
+        }"
+      >
+        <!-- Post-it note top edge shadow -->
+        <div
+          class="absolute top-0 left-0 right-0 h-3 opacity-20"
+          :style="{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',
+          }"
+        />
+        <!-- Paperclip -->
+        <div
+          class="absolute -top-2 -left-2"
+          :style="{ color: '#8B7355' }"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+        </div>
+        <!-- Refresh button -->
+        <button
+          @click="quote6 = getRandomQuote()"
+          class="absolute top-3 right-3 opacity-40 hover:opacity-100 transition-opacity"
+          :style="{ color: '#C4922B' }"
+          aria-label="Get new quote"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+        </button>
+        <p
+          class="text-sm sm:text-base italic mb-3 leading-relaxed"
+          :style="{
+            fontFamily: 'var(--font-body)',
+            color: '#2A1810',
+          }"
+        >
+          "{{ quote6.en }}"
+        </p>
+        <p
+          class="text-xs text-right opacity-60"
+          :style="{
+            fontFamily: 'var(--font-label)',
+            color: '#2A1810',
+          }"
+        >
+          — {{ quote6.author }}
+        </p>
+      </div>
+    </div>
     <!-- ── RESUME ──────────────────────────────────────────────────────────── -->
     <section id="resume" class="py-24 px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
@@ -1209,7 +2241,68 @@ if (typeof window !== 'undefined') {
         </p>
       </div>
     </section>
-
+    <!-- Quote Post-it Note 7 -->
+    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 20, rotate: -2 }"
+        :visible="{ opacity: 1, y: 0, rotate: 1, transition: { duration: 500 } }"
+        class="relative max-w-md"
+        :style="{
+          background: 'linear-gradient(135deg, #F5E6D3 0%, #EAD8BF 100%)',
+          padding: 'clamp(20px, 4vw, 32px)',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
+          transform: 'rotate(1deg)',
+          border: '1px solid rgba(196,146,43,0.15)',
+        }"
+      >
+        <!-- Post-it note top edge shadow -->
+        <div
+          class="absolute top-0 left-0 right-0 h-3 opacity-20"
+          :style="{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',
+          }"
+        />
+        <!-- Paperclip -->
+        <div
+          class="absolute -top-2 -left-2"
+          :style="{ color: '#8B7355' }"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+        </div>
+        <!-- Refresh button -->
+        <button
+          @click="quote7 = getRandomQuote()"
+          class="absolute top-3 right-3 opacity-40 hover:opacity-100 transition-opacity"
+          :style="{ color: '#C4922B' }"
+          aria-label="Get new quote"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+        </button>
+        <p
+          class="text-sm sm:text-base italic mb-3 leading-relaxed"
+          :style="{
+            fontFamily: 'var(--font-body)',
+            color: '#2A1810',
+          }"
+        >
+          "{{ quote7.en }}"
+        </p>
+        <p
+          class="text-xs text-right opacity-60"
+          :style="{
+            fontFamily: 'var(--font-label)',
+            color: '#2A1810',
+          }"
+        >
+          — {{ quote7.author }}
+        </p>
+      </div>
+    </div>
     <!-- ── CONTACT ─────────────────────────────────────────────────────────── -->
     <section id="contact" class="py-24 px-8 max-w-5xl mx-auto pb-36">
       <div class="text-center mb-14">
@@ -1373,7 +2466,131 @@ if (typeof window !== 'undefined') {
         </Transition>
       </div>
     </section>
+    <!-- Current read    -->
+    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 20, rotate: -1 }"
+        :visible="{ opacity: 1, y: 0, rotate: 2, transition: { duration: 500 } }"
+        class="relative max-w-md w-full"
+        :style="{
+      background: 'linear-gradient(135deg, #F0E5D1 0%, #E3D4BA 100%)',
+      padding: 'clamp(20px, 4vw, 32px)',
+      boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
+      transform: 'rotate(2deg)',
+      border: '1px solid rgba(196,146,43,0.15)',
+    }"
+      >
+        <!-- Post-it note top edge shadow -->
+        <div
+          class="absolute top-0 left-0 right-0 h-3 opacity-20"
+          :style="{
+        background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',
+      }"
+        />
+        <!-- Paperclip -->
+        <div
+          class="absolute -top-2 -left-2"
+          :style="{ color: '#8B7355' }"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+        </div>
 
+        <!-- Decorative line -->
+        <div
+          class="w-16 sm:w-20 h-px mx-auto mb-3 sm:mb-4"
+          :style="{ backgroundColor: 'rgba(196,146,43,0.3)' }"
+        />
+        <!-- Book icon -->
+        <div class="flex justify-center mb-2 sm:mb-3">
+          <svg
+            :width="windowWidth < 640 ? 28 : 36"
+            :height="windowWidth < 640 ? 28 : 36"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#C4922B"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
+        <!-- Header -->
+        <h3
+          class="text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-2 sm:mb-3 text-center"
+          :style="{
+        fontFamily: 'var(--font-label)',
+        color: '#C4922B',
+        opacity: 0.8,
+      }"
+        >
+          The Shopkeeper's Current Read
+        </h3>
+        <p
+          class="text-[9px] sm:text-[10px] italic mb-3 sm:mb-4 text-center leading-relaxed px-2"
+          :style="{
+        fontFamily: 'var(--font-body)',
+        color: '#2A1810',
+        opacity: 0.6,
+      }"
+        >
+          What tale has captured Rohail's attention lately?
+        </p>
+        <!-- Divider -->
+        <div
+          class="border-t mb-3 sm:mb-4"
+          :style="{ borderColor: 'rgba(196,146,43,0.2)' }"
+        />
+        <!-- Book details -->
+        <div class="text-center mb-3 sm:mb-4">
+          <p
+            class="text-sm sm:text-lg font-bold mb-1 sm:mb-2"
+            :style="{
+          fontFamily: 'var(--font-display)',
+          color: '#2A1810',
+          lineHeight: '1.3',
+        }"
+          >
+            {{ currentlyReading.title }}
+          </p>
+          <p
+            class="text-[10px] sm:text-xs opacity-60"
+            :style="{
+          fontFamily: 'var(--font-label)',
+          color: '#2A1810',
+          letterSpacing: '0.05em',
+        }"
+          >
+            by {{ currentlyReading.author }}
+          </p>
+        </div>
+        <!-- Bottom decorative -->
+        <div
+          class="flex items-center justify-center gap-2 mb-2"
+          :style="{ opacity: 0.3 }"
+        >
+          <div :style="{ width: '20px', height: '1px', backgroundColor: '#C4922B' }" />
+          <div :style="{ width: '4px', height: '4px', backgroundColor: '#C4922B', borderRadius: '50%' }" />
+          <div :style="{ width: '20px', height: '1px', backgroundColor: '#C4922B' }" />
+        </div>
+        <!-- Last updated -->
+        <p
+          class="text-[8px] sm:text-[9px] text-center italic"
+          :style="{
+        fontFamily: 'var(--font-label)',
+        color: '#2A1810',
+        opacity: 0.4,
+        letterSpacing: '0.05em',
+      }"
+        >
+          Bookmark placed · {{ currentlyReading.lastUpdated }}
+        </p>
+      </div>
+    </div>
     <!-- ── FOOTER ──────────────────────────────────────────────────────────── -->
     <footer class="py-12 border-t border-border/50">
       <div class="text-center">
@@ -1381,7 +2598,7 @@ if (typeof window !== 'undefined') {
           class="text-xs opacity-30"
           :style="{ fontFamily: 'var(--font-label)', letterSpacing: '0.15em' }"
         >
-          © 2026 Chapter & Verse · A Portfolio by Rohail Ramesh
+          © 2026 Portfolio by Rohail Ramesh
         </p>
       </div>
     </footer>
@@ -1416,6 +2633,16 @@ if (typeof window !== 'undefined') {
 </template>
 
 <style scoped>
+/* Hide scrollbar for horizontal book page scroll on mobile */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
 @media (max-width: 768px) {
   .staff-picks {
     width: 100% !important;
