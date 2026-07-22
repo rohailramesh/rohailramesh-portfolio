@@ -329,13 +329,13 @@ const getRandomQuote = () => {
   return quotesData[Math.floor(Math.random() * quotesData.length)]
 }
 
-const quote1 = ref(getRandomQuote())
-const quote2 = ref(getRandomQuote())
-const quote3 = ref(getRandomQuote())
-const quote4 = ref(getRandomQuote())
-const quote5 = ref(getRandomQuote())
-const quote6 = ref(getRandomQuote())
-const quote7 = ref(getRandomQuote())
+const quote1 = ref<{ en: string; author: string }>(getRandomQuote())
+const quote2 = ref<{ en: string; author: string }>(getRandomQuote())
+const quote3 = ref<{ en: string; author: string }>(getRandomQuote())
+const quote4 = ref<{ en: string; author: string }>(getRandomQuote())
+const quote5 = ref<{ en: string; author: string }>(getRandomQuote())
+const quote6 = ref<{ en: string; author: string }>(getRandomQuote())
+const quote7 = ref<{ en: string; author: string }>(getRandomQuote())
 
 // Currently Reading data
 const currentlyReading = ref({
