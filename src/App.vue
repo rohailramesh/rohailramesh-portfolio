@@ -526,9 +526,9 @@ onUnmounted(() => {
         :enter="{ opacity: 1, scale: 1, transition: { duration: 1000, ease: 'easeOut' } }"
         class="relative w-full"
         :style="{
-          maxWidth: 'min(800px, 90vw, 60vh)',
+          maxWidth: 'min(700px, 85vw)',
           aspectRatio: '3/4',
-          maxHeight: 'min(70vh, 800px)',
+          maxHeight: '75vh',
         }"
       >
         <!-- Door frame outer -->
@@ -556,9 +556,9 @@ onUnmounted(() => {
               :enter="{ opacity: 1, transition: { delay: 600, duration: 800 } }"
               class="absolute top-0 left-1/2 -translate-x-1/2"
               :style="{
-                width: 'clamp(75%, 85%, 90%)',
-                height: 'clamp(60px, 15%, 140px)',
-                marginTop: 'clamp(8px, 3%, 24px)',
+                width: 'clamp(75%, 80%, 85%)',
+                height: 'clamp(50px, 12%, 120px)',
+                marginTop: 'clamp(6px, 2.5%, 20px)',
               }"
             >
               <!-- Arched window frame -->
@@ -590,7 +590,7 @@ onUnmounted(() => {
             <div
               class="absolute left-1/2 -translate-x-1/2 text-center w-[90%] px-2"
               :style="{
-                top: 'clamp(70px, 18%, 140px)',
+                top: 'clamp(90px, 20%, 160px)',
               }"
             >
               <!-- Book icon -->
@@ -598,11 +598,11 @@ onUnmounted(() => {
                 v-motion
                 :initial="{ opacity: 0, scale: 0 }"
                 :enter="{ opacity: 1, scale: 1, transition: { delay: 800, duration: 500, type: 'spring' } }"
-                class="flex justify-center mt-3 mb-2 sm:mb-3"
+                class="flex justify-center mt-2 mb-1 sm:mb-2"
               >
                 <svg
-                  :width="windowWidth < 640 ? 28 : 40"
-                  :height="windowWidth < 640 ? 28 : 40"
+                  :width="windowWidth < 640 ? 24 : 36"
+                  :height="windowWidth < 640 ? 24 : 36"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -626,7 +626,7 @@ onUnmounted(() => {
               </div>
 
               <!-- Animated name -->
-              <div class="flex items-center justify-center flex-wrap mb-2 gap-[0.05em]">
+              <div class="flex items-center justify-center flex-wrap mb-1 sm:mb-2 gap-[0.05em]">
                 <span
                   v-for="(char, i) in letters"
                   :key="i"
@@ -643,7 +643,7 @@ onUnmounted(() => {
                   }"
                   :style="{
                     fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(18px, 4.5vw, 40px)',
+                    fontSize: 'clamp(16px, 3.5vw, 36px)',
                     fontWeight: 700,
                     color: '#C4922B',
                     textShadow: '0 0 30px rgba(196,146,43,0.45)',
@@ -660,7 +660,7 @@ onUnmounted(() => {
                 v-motion
                 :initial="{ opacity: 0, scaleX: 0 }"
                 :enter="{ opacity: 1, scaleX: 1, transition: { delay: 1700, duration: 500 } }"
-                class="flex items-center justify-center gap-2 mb-2 sm:mb-3"
+                class="flex items-center justify-center gap-2 mb-1 sm:mb-2"
               >
                 <div
                   :style="{
@@ -692,11 +692,11 @@ onUnmounted(() => {
                 v-motion
                 :initial="{ opacity: 0 }"
                 :enter="{ opacity: 0.6, transition: { delay: 1900, duration: 600 } }"
-                class="mb-1 sm:mb-2 px-2"
+                class="mb-1 px-2"
                 :style="{
                   fontFamily: 'var(--font-label)',
-                  fontSize: 'clamp(9px, 2.5vw, 12px)',
-                  letterSpacing: '0.25em',
+                  fontSize: 'clamp(8px, 2vw, 11px)',
+                  letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                   color: '#C4922B',
                 }"
@@ -709,10 +709,10 @@ onUnmounted(() => {
                 v-motion
                 :initial="{ opacity: 0 }"
                 :enter="{ opacity: 0.4, transition: { delay: 2100, duration: 600 } }"
-                class="italic mb-3 sm:mb-4 px-2"
+                class="italic mb-2 sm:mb-3 px-2"
                 :style="{
                   fontFamily: 'var(--font-label)',
-                  fontSize: 'clamp(8px, 2vw, 10px)',
+                  fontSize: 'clamp(7px, 1.8vw, 9px)',
                   letterSpacing: '0.15em',
                   color: '#C4922B',
                 }"
@@ -725,18 +725,18 @@ onUnmounted(() => {
                 :initial="{ opacity: 0 }"
                 :enter="{ opacity: 1, transition: { delay: 2500, duration: 500 } }"
                 @click="scrollTo('map')"
-                class="px-4 sm:px-8 py-2 border transition-all hover:bg-[rgba(196,146,43,0.12)]"
+                class="px-4 sm:px-6 py-1.5 sm:py-2 border transition-all hover:bg-[rgba(196,146,43,0.12)]"
                 :style="{
                   borderColor: 'rgba(196,146,43,0.5)',
                   color: '#C4922B',
                   fontFamily: 'var(--font-label)',
-                  fontSize: 'clamp(8px, 2.2vw, 10px)',
+                  fontSize: 'clamp(7px, 1.8vw, 9px)',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                 }"
               >
                 <span class="inline-block">Enter the Bookshop</span>
-                <span class="inline-block ml-1" :style="{ fontSize: 'clamp(12px, 3vw, 16px)' }">↓</span>
+                <span class="inline-block ml-1" :style="{ fontSize: 'clamp(10px, 2.5vw, 14px)' }">↓</span>
               </button>
             </div>
 
@@ -747,10 +747,10 @@ onUnmounted(() => {
               :enter="{ opacity: 1, transition: { delay: 1200, duration: 800 } }"
               class="absolute bottom-0 left-1/2 -translate-x-1/2 grid grid-cols-2"
               :style="{
-                width: 'clamp(75%, 80%, 85%)',
-                height: 'clamp(80px, 22%, 180px)',
-                marginBottom: 'clamp(8px, 3%, 24px)',
-                gap: 'clamp(6px, 2vw, 16px)',
+                width: 'clamp(75%, 78%, 82%)',
+                height: 'clamp(70px, 18%, 150px)',
+                marginBottom: 'clamp(6px, 2.5%, 20px)',
+                gap: 'clamp(5px, 1.5vw, 14px)',
               }"
             >
               <!-- Left panel with books -->
@@ -764,7 +764,7 @@ onUnmounted(() => {
                 }"
               >
                 <!-- Book stacks in left panel -->
-                <div class="flex items-end justify-center h-full gap-[clamp(2px,0.5vw,4px)]">
+                <div class="flex items-end justify-center h-full gap-[clamp(2px,0.5vw,4px)]" style="height: 110%">
                   <!-- Stack 1 -->
                   <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
                     <div
@@ -881,7 +881,7 @@ onUnmounted(() => {
                 }"
               >
                 <!-- Book stacks in right panel -->
-                <div class="flex items-end justify-center h-full gap-[clamp(2px,0.5vw,4px)]">
+                <div class="flex items-end justify-center h-full gap-[clamp(2px,0.5vw,4px)]" style="height: 110%">
                   <!-- Stack 1 -->
                   <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
                     <div
@@ -2067,11 +2067,12 @@ onUnmounted(() => {
                   <span
                     :style="{
                       fontFamily: 'var(--font-label)',
-                      fontSize: '9px',
+                      fontSize: '10px',
                       letterSpacing: '0.18em',
                       textTransform: 'uppercase',
                       color: 'rgba(255,255,255,0.72)',
                       transform: 'rotate(180deg)',
+                      fontWeight: 1000,
                     }"
                   >
                     {{ book.title }}
