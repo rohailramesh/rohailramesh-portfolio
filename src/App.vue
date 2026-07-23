@@ -153,6 +153,18 @@ const PROJECTS = [
     url: 'https://github.com/rohailramesh/booklet',
   },
   {
+    id: 'toiletforlondon',
+    title: 'Toilet for London',
+    genre: 'Civic Tech',
+    coverBg: '#0a673d',
+    accentColor: '#F0B8C0',
+    synopsis:
+      'Built a civic-focused web application to help users easily locate public toilets across London, improving accessibility and convenience in urban environments. Features intuitive location-based search, real-time availability insights, and a clean, responsive interface designed for on-the-go use, supporting better city navigation and public well-being.',
+    stack: ['Vue.js', 'Algolia', 'Bootstrap', 'Vercel Analytics', ],
+    year: '2026',
+    url: 'https://github.com/rohailramesh/toilet-for-london/tree/main',
+  },
+  {
     id: 'converse',
     title: 'Converse',
     genre: 'Social Media Platform',
@@ -398,7 +410,7 @@ onUnmounted(() => {
   <div class="min-h-screen overflow-x-hidden" :style="{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }">
     <!-- ── STICKY NAV ──────────────────────────────────────────────────────── -->
     <nav
-      class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 border-b border-border"
+      class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 py-3 border-b border-border"
       :style="{
         backdropFilter: 'blur(16px)',
         backgroundColor: 'rgba(242, 236, 216, 0.88)',
@@ -493,7 +505,7 @@ onUnmounted(() => {
 
     <!-- ── HERO ────────────────────────────────────────────────────────────── -->
     <section
-      class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-14 px-4"
+      class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-14 px-4 sm:px-6"
       :style="{ backgroundColor: '#0B1A11' }"
     >
       <!-- Warm floor glow -->
@@ -501,8 +513,8 @@ onUnmounted(() => {
         class="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
         :style="{
           width: '100%',
-          maxWidth: '800px',
-          height: '280px',
+          maxWidth: 'min(800px, 90vw)',
+          height: 'clamp(180px, 25vh, 280px)',
           background: 'radial-gradient(ellipse at 50% 100%, rgba(196,146,43,0.18) 0%, transparent 70%)',
         }"
       />
@@ -512,11 +524,11 @@ onUnmounted(() => {
         v-motion
         :initial="{ opacity: 0, scale: 0.95 }"
         :enter="{ opacity: 1, scale: 1, transition: { duration: 1000, ease: 'easeOut' } }"
-        class="relative w-full max-w-[90%] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px]"
+        class="relative w-full"
         :style="{
+          maxWidth: 'min(700px, 85vw)',
           aspectRatio: '3/4',
-          maxHeight: '70vh',
-          maxWidth: '60vh',
+          maxHeight: '75vh',
         }"
       >
         <!-- Door frame outer -->
@@ -542,10 +554,11 @@ onUnmounted(() => {
               v-motion
               :initial="{ opacity: 0 }"
               :enter="{ opacity: 1, transition: { delay: 600, duration: 800 } }"
-              class="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%]"
+              class="absolute top-0 left-1/2 -translate-x-1/2"
               :style="{
-                height: 'clamp(80px, 15%, 140px)',
-                marginTop: 'clamp(12px, 3%, 24px)',
+                width: 'clamp(75%, 80%, 85%)',
+                height: 'clamp(50px, 12%, 120px)',
+                marginTop: 'clamp(6px, 2.5%, 20px)',
               }"
             >
               <!-- Arched window frame -->
@@ -575,9 +588,9 @@ onUnmounted(() => {
 
             <!-- Shop name sign -->
             <div
-              class="absolute left-1/2 -translate-x-1/2 text-center w-[90%]"
+              class="absolute left-1/2 -translate-x-1/2 text-center w-[90%] px-2"
               :style="{
-                top: 'clamp(90px, 18%, 140px)',
+                top: 'clamp(90px, 20%, 160px)',
               }"
             >
               <!-- Book icon -->
@@ -585,11 +598,11 @@ onUnmounted(() => {
                 v-motion
                 :initial="{ opacity: 0, scale: 0 }"
                 :enter="{ opacity: 1, scale: 1, transition: { delay: 800, duration: 500, type: 'spring' } }"
-                class="flex justify-center mt-3 mb-2 sm:mb-3"
+                class="flex justify-center mt-2 mb-1 sm:mb-2"
               >
                 <svg
-                  :width="windowWidth < 640 ? 28 : 40"
-                  :height="windowWidth < 640 ? 28 : 40"
+                  :width="windowWidth < 640 ? 24 : 36"
+                  :height="windowWidth < 640 ? 24 : 36"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -613,7 +626,7 @@ onUnmounted(() => {
               </div>
 
               <!-- Animated name -->
-              <div class="flex items-center justify-center flex-wrap mb-2">
+              <div class="flex items-center justify-center flex-wrap mb-1 sm:mb-2 gap-[0.05em]">
                 <span
                   v-for="(char, i) in letters"
                   :key="i"
@@ -630,11 +643,11 @@ onUnmounted(() => {
                   }"
                   :style="{
                     fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(20px, 5vw, 40px)',
+                    fontSize: 'clamp(16px, 3.5vw, 36px)',
                     fontWeight: 700,
                     color: '#C4922B',
                     textShadow: '0 0 30px rgba(196,146,43,0.45)',
-                    letterSpacing: char === ' ' ? '0.3em' : '0.05em',
+                    letterSpacing: char === ' ' ? '0.3em' : '0',
                     display: 'inline-block',
                   }"
                 >
@@ -647,7 +660,7 @@ onUnmounted(() => {
                 v-motion
                 :initial="{ opacity: 0, scaleX: 0 }"
                 :enter="{ opacity: 1, scaleX: 1, transition: { delay: 1700, duration: 500 } }"
-                class="flex items-center justify-center gap-2 mb-2 sm:mb-3"
+                class="flex items-center justify-center gap-2 mb-1 sm:mb-2"
               >
                 <div
                   :style="{
@@ -679,10 +692,11 @@ onUnmounted(() => {
                 v-motion
                 :initial="{ opacity: 0 }"
                 :enter="{ opacity: 0.6, transition: { delay: 1900, duration: 600 } }"
-                class="text-[10px] sm:text-xs mb-1 sm:mb-2"
+                class="mb-1 px-2"
                 :style="{
                   fontFamily: 'var(--font-label)',
-                  letterSpacing: '0.25em',
+                  fontSize: 'clamp(8px, 2vw, 11px)',
+                  letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                   color: '#C4922B',
                 }"
@@ -695,9 +709,10 @@ onUnmounted(() => {
                 v-motion
                 :initial="{ opacity: 0 }"
                 :enter="{ opacity: 0.4, transition: { delay: 2100, duration: 600 } }"
-                class="text-[8px] sm:text-[9px] italic mb-3 sm:mb-4"
+                class="italic mb-2 sm:mb-3 px-2"
                 :style="{
                   fontFamily: 'var(--font-label)',
+                  fontSize: 'clamp(7px, 1.8vw, 9px)',
                   letterSpacing: '0.15em',
                   color: '#C4922B',
                 }"
@@ -710,17 +725,18 @@ onUnmounted(() => {
                 :initial="{ opacity: 0 }"
                 :enter="{ opacity: 1, transition: { delay: 2500, duration: 500 } }"
                 @click="scrollTo('map')"
-                class="px-5 sm:px-8 py-2 border transition-all hover:bg-[rgba(196,146,43,0.12)] text-[9px] sm:text-[10px]"
+                class="px-4 sm:px-6 py-1.5 sm:py-2 border transition-all hover:bg-[rgba(196,146,43,0.12)]"
                 :style="{
                   borderColor: 'rgba(196,146,43,0.5)',
                   color: '#C4922B',
                   fontFamily: 'var(--font-label)',
-                  letterSpacing: '0.3em',
+                  fontSize: 'clamp(7px, 1.8vw, 9px)',
+                  letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                 }"
               >
-                Enter the Bookshop
-                <span style="font-size: large">↓</span>
+                <span class="inline-block">Enter the Bookshop</span>
+                <span class="inline-block ml-1" :style="{ fontSize: 'clamp(10px, 2.5vw, 14px)' }">↓</span>
               </button>
             </div>
 
@@ -729,10 +745,12 @@ onUnmounted(() => {
               v-motion
               :initial="{ opacity: 0 }"
               :enter="{ opacity: 1, transition: { delay: 1200, duration: 800 } }"
-              class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] grid grid-cols-2 gap-[clamp(8px,2vw,16px)]"
+              class="absolute bottom-0 left-1/2 -translate-x-1/2 grid grid-cols-2"
               :style="{
-                height: 'clamp(100px, 22%, 180px)',
-                marginBottom: 'clamp(12px, 3%, 24px)',
+                width: 'clamp(75%, 78%, 82%)',
+                height: 'clamp(70px, 18%, 150px)',
+                marginBottom: 'clamp(6px, 2.5%, 20px)',
+                gap: 'clamp(5px, 1.5vw, 14px)',
               }"
             >
               <!-- Left panel with books -->
@@ -746,7 +764,7 @@ onUnmounted(() => {
                 }"
               >
                 <!-- Book stacks in left panel -->
-                <div class="flex items-end justify-center h-full gap-[clamp(2px,0.5vw,4px)]">
+                <div class="flex items-end justify-center h-full gap-[clamp(2px,0.5vw,4px)]" style="height: 110%">
                   <!-- Stack 1 -->
                   <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
                     <div
@@ -863,7 +881,7 @@ onUnmounted(() => {
                 }"
               >
                 <!-- Book stacks in right panel -->
-                <div class="flex items-end justify-center h-full gap-[clamp(2px,0.5vw,4px)]">
+                <div class="flex items-end justify-center h-full gap-[clamp(2px,0.5vw,4px)]" style="height: 110%">
                   <!-- Stack 1 -->
                   <div class="flex flex-col justify-end gap-[2px]" :style="{ width: '20%' }">
                     <div
@@ -1224,7 +1242,7 @@ onUnmounted(() => {
       </div>
     </div>
     <!-- ── ABOUT ───────────────────────────────────────────────────────────── -->
-    <section id="about" class="py-24 px-8 max-w-5xl mx-auto">
+    <section id="about" class="py-16 sm:py-24 px-4 sm:px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <p
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
@@ -1284,7 +1302,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Flap / bio -->
-        <div class="flex-1 p-8 md:p-10">
+        <div class="flex-1 p-6 sm:p-8 md:p-10">
           <div
             class="text-xs uppercase tracking-[0.2em] mb-5 opacity-45"
             :style="{ fontFamily: 'var(--font-label)' }"
@@ -1303,27 +1321,27 @@ onUnmounted(() => {
             about combining clean, maintainable code with thoughtful UI/UX design.
           </p>
 
-          <div class="flex items-center gap-5">
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
             <a
               href="mailto:rohailramesh@hotmail.com"
               class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
               :style="{ fontFamily: 'var(--font-label)' }"
             >
-              <Mail :size="12" /> Mail
+              <Mail :size="12" /> <span class="hidden xs:inline">Mail</span><span class="xs:hidden">@</span>
             </a>
             <a
               href="#"
               class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
               :style="{ fontFamily: 'var(--font-label)' }"
             >
-              <Github :size="12" /> GitHub
+              <Github :size="12" /> <span class="hidden xs:inline">GitHub</span>
             </a>
             <a
               href="#"
               class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
               :style="{ fontFamily: 'var(--font-label)' }"
             >
-              <Linkedin :size="12" /> LinkedIn
+              <Linkedin :size="12" /> <span class="hidden xs:inline">LinkedIn</span>
             </a>
 <!--            <a-->
 <!--              href="#"-->
@@ -1399,7 +1417,7 @@ onUnmounted(() => {
       </div>
     </div>
     <!-- ── EXPERIENCE ──────────────────────────────────────────────────────── -->
-    <section id="experience" class="py-24 px-8 max-w-5xl mx-auto">
+    <section id="experience" class="py-16 sm:py-24 px-4 sm:px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <p
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
@@ -1656,7 +1674,7 @@ onUnmounted(() => {
     </div>
 
     <!-- ── PROJECTS ────────────────────────────────────────────────────────── -->
-    <section id="projects" class="py-24 px-8 max-w-5xl mx-auto">
+    <section id="projects" class="py-16 sm:py-24 px-4 sm:px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <p
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
@@ -1675,7 +1693,7 @@ onUnmounted(() => {
         Select a title to open the book
       </p>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+      <div class="grid grid-cols-3 xs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
         <div v-for="project in PROJECTS" :key="project.id" class="flex flex-col">
           <button
             @click="openProj = project.id"
@@ -1704,17 +1722,17 @@ onUnmounted(() => {
                 }"
               />
               <!-- Cover content -->
-              <div class="absolute inset-0 p-5 flex flex-col justify-between">
+              <div class="absolute inset-0 p-3 sm:p-5 flex flex-col justify-between">
                 <div>
                   <div
-                    class="text-xs uppercase tracking-widest mb-3 opacity-65"
-                    :style="{ fontFamily: 'var(--font-label)', color: project.accentColor }"
+                    class="uppercase tracking-widest mb-2 sm:mb-3 opacity-65"
+                    :style="{ fontFamily: 'var(--font-label)', fontSize: 'clamp(9px, 2vw, 12px)', color: project.accentColor }"
                   >
                     {{ project.genre }}
                   </div>
                   <div
-                    class="text-xl font-bold leading-tight text-white"
-                    :style="{ fontFamily: 'var(--font-display)' }"
+                    class="font-bold leading-tight text-white"
+                    :style="{ fontFamily: 'var(--font-display)', fontSize: 'clamp(16px, 4vw, 20px)' }"
                   >
                     {{ project.title }}
                   </div>
@@ -1730,8 +1748,8 @@ onUnmounted(() => {
                     }"
                   />
                   <span
-                    class="text-white/40 text-xs"
-                    :style="{ fontFamily: 'var(--font-label)' }"
+                    class="text-white/40"
+                    :style="{ fontFamily: 'var(--font-label)', fontSize: 'clamp(10px, 2.5vw, 12px)' }"
                   >
                     {{ project.year }}
                   </span>
@@ -1991,7 +2009,7 @@ onUnmounted(() => {
     </div>
 
     <!-- ── SKILLS ──────────────────────────────────────────────────────────── -->
-    <section id="skills" class="py-24 px-8 max-w-5xl mx-auto">
+    <section id="skills" class="py-16 sm:py-24 px-4 sm:px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <p
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
@@ -2049,11 +2067,12 @@ onUnmounted(() => {
                   <span
                     :style="{
                       fontFamily: 'var(--font-label)',
-                      fontSize: '9px',
+                      fontSize: '10px',
                       letterSpacing: '0.18em',
                       textTransform: 'uppercase',
                       color: 'rgba(255,255,255,0.72)',
                       transform: 'rotate(180deg)',
+                      fontWeight: 1000,
                     }"
                   >
                     {{ book.title }}
@@ -2145,7 +2164,7 @@ onUnmounted(() => {
       </div>
     </div>
     <!-- ── RESUME ──────────────────────────────────────────────────────────── -->
-    <section id="resume" class="py-24 px-8 max-w-5xl mx-auto">
+    <section id="resume" class="py-16 sm:py-24 px-4 sm:px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <p
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
@@ -2305,7 +2324,7 @@ onUnmounted(() => {
       </div>
     </div>
     <!-- ── CONTACT ─────────────────────────────────────────────────────────── -->
-    <section id="contact" class="py-24 px-8 max-w-5xl mx-auto pb-36">
+    <section id="contact" class="py-16 sm:py-24 px-4 sm:px-8 max-w-5xl mx-auto pb-24 sm:pb-36">
       <div class="text-center mb-14">
         <p
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
@@ -2616,7 +2635,7 @@ onUnmounted(() => {
       <button
         v-if="showScrollTop"
         @click="scrollToTop"
-        class="fixed bottom-8 right-8 px-4 py-3 border-2 border-border hover:border-foreground/40 transition-all shadow-lg z-50 group"
+        class="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 px-3 sm:px-4 py-2 sm:py-3 border-2 border-border hover:border-foreground/40 transition-all shadow-lg z-50 group"
         :style="{
           backgroundColor: 'rgba(242, 236, 216, 0.95)',
           backdropFilter: 'blur(8px)',
