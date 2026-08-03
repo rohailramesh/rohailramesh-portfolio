@@ -376,7 +376,7 @@ function handleFormSubmit() {
 }
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' }) //
+  scrollTo('map') //
 }
 
 // Show scroll to top button when user scrolls down
@@ -1489,7 +1489,6 @@ onUnmounted(() => {
               <span
                 :style="{
                   color: exp.labelColor,
-                  transform: 'rotate(180deg)',
                   fontFamily: 'var(--font-label)',
                   fontSize: '10px',
                   letterSpacing: '0.2em',
@@ -1569,7 +1568,11 @@ onUnmounted(() => {
                   class="text-sm opacity-50 mt-1"
                   :style="{ fontFamily: 'var(--font-label)', letterSpacing: '0.05em' }"
                 >
-                  {{ EXPERIENCE.find((e) => e.id === openExp)?.role }} &nbsp;·&nbsp;
+                  {{ EXPERIENCE.find((e) => e.id === openExp)?.role }}
+                </p><p
+                  class="text-sm opacity-50 mt-1"
+                  :style="{ fontFamily: 'var(--font-label)', letterSpacing: '0.05em' }"
+                >
                   {{ EXPERIENCE.find((e) => e.id === openExp)?.period }}
                 </p>
               </div>
@@ -2071,7 +2074,6 @@ onUnmounted(() => {
                       letterSpacing: '0.18em',
                       textTransform: 'uppercase',
                       color: 'rgba(255,255,255,0.72)',
-                      transform: 'rotate(180deg)',
                       fontWeight: 1000,
                     }"
                   >
@@ -2540,8 +2542,8 @@ onUnmounted(() => {
           </svg>
         </div>
         <!-- Header -->
-        <h3
-          class="text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-2 sm:mb-3 text-center"
+        <h2
+          class="text-[14px] sm:text-xs uppercase tracking-[0.3em] mb-2 sm:mb-3 text-center"
           :style="{
         fontFamily: 'var(--font-label)',
         color: '#C4922B',
@@ -2549,9 +2551,9 @@ onUnmounted(() => {
       }"
         >
           The Shopkeeper's Current Read
-        </h3>
-        <p
-          class="text-[9px] sm:text-[10px] italic mb-3 sm:mb-4 text-center leading-relaxed px-2"
+        </h2>
+        <h3
+          class="text-[12px] sm:text-[10px] italic mb-3 sm:mb-4 text-center leading-relaxed px-2"
           :style="{
         fontFamily: 'var(--font-body)',
         color: '#2A1810',
@@ -2559,7 +2561,7 @@ onUnmounted(() => {
       }"
         >
           What tale has captured Rohail's attention lately?
-        </p>
+        </h3>
         <!-- Divider -->
         <div
           class="border-t mb-3 sm:mb-4"
@@ -2567,7 +2569,7 @@ onUnmounted(() => {
         />
         <!-- Book details -->
         <div class="text-center mb-3 sm:mb-4">
-          <p
+          <h3
             class="text-sm sm:text-lg font-bold mb-1 sm:mb-2"
             :style="{
           fontFamily: 'var(--font-display)',
@@ -2576,9 +2578,9 @@ onUnmounted(() => {
         }"
           >
             {{ currentlyReading.title }}
-          </p>
-          <p
-            class="text-[10px] sm:text-xs opacity-60"
+          </h3>
+          <h3
+            class="text-[12px] sm:text-xs opacity-60"
             :style="{
           fontFamily: 'var(--font-label)',
           color: '#2A1810',
@@ -2586,7 +2588,7 @@ onUnmounted(() => {
         }"
           >
             by {{ currentlyReading.author }}
-          </p>
+          </h3>
         </div>
         <!-- Bottom decorative -->
         <div
@@ -2598,8 +2600,8 @@ onUnmounted(() => {
           <div :style="{ width: '20px', height: '1px', backgroundColor: '#C4922B' }" />
         </div>
         <!-- Last updated -->
-        <p
-          class="text-[8px] sm:text-[9px] text-center italic"
+        <h3
+          class="text-[10px] sm:text-[9px] text-center italic"
           :style="{
         fontFamily: 'var(--font-label)',
         color: '#2A1810',
@@ -2608,7 +2610,7 @@ onUnmounted(() => {
       }"
         >
           Bookmark placed · {{ currentlyReading.lastUpdated }}
-        </p>
+        </h3>
       </div>
     </div>
     <!-- ── FOOTER ──────────────────────────────────────────────────────────── -->
@@ -2644,8 +2646,8 @@ onUnmounted(() => {
       >
         <div class="flex items-center gap-2 text-xs uppercase tracking-widest">
           <ArrowUp :size="14" class="group-hover:-translate-y-1 transition-transform" />
-          <span class="hidden sm:inline">Back to Gate</span>
-          <span class="sm:hidden">Back to Gate</span>
+          <span class="hidden sm:inline">Shop Map</span>
+          <span class="sm:hidden">Shop Map</span>
         </div>
       </button>
     </Transition>
