@@ -133,7 +133,7 @@ const PROJECTS = [
     id: 'Donation Platform',
     title: 'Mary\'s Meals',
     genre: 'Non-Profit',
-    coverBg: '#4A3410',
+    coverBg: '#7e708e',
     accentColor: '#D4A840',
     synopsis:
       "Multilingual supporter journeys for Mary's Meals, with accessible donation flows, story pages and regional content that drive engagement for a charity serving over 3 million children daily.",
@@ -331,6 +331,9 @@ const SKILLS: Record<string, { title: string; color: string; height: number }[]>
 const openExp = ref<string | null>(null)
 const openProj = ref<string | null>(null)
 const stamped = ref(false)
+const showExpScrollHint = ref(false)
+const showSkillsScrollHint = ref(false)
+const expShelf = ref<HTMLElement | null>(null)
 const submitted = ref(false)
 const guestbook = ref({ name: '', email: '', message: '' })
 const mobileMenuOpen = ref(false)
@@ -394,15 +397,35 @@ const handleResize = () => {
   }
 }
 
+const checkShelfOverflow = () => {
+  if (expShelf.value) {
+    showExpScrollHint.value = expShelf.value.scrollWidth > expShelf.value.clientWidth
+  }
+  // Check all skills shelves for overflow
+  const skillsShelves = document.querySelectorAll('.skills-shelf')
+  let hasOverflow = false
+  skillsShelves.forEach((shelf) => {
+    if (shelf.scrollWidth > shelf.clientWidth) {
+      hasOverflow = true
+    }
+  })
+  showSkillsScrollHint.value = hasOverflow
+}
+
 onMounted(() => {
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', checkShelfOverflow)
   }
+  
+  // Check shelf overflow after DOM is ready
+  setTimeout(checkShelfOverflow, 300)
 })
 
 onUnmounted(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('resize', handleResize)
+    window.removeEventListener('resize', checkShelfOverflow)
   }
 })
 </script>
@@ -573,25 +596,19 @@ onUnmounted(() => {
     <!-- ── SHOP MAP ────────────────────────────────────────────────────── -->
     <section id="map" class="py-24 px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
-        <p
-          class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
-          :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
-        >
-          Aisle Directory
-        </p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Shop Map</h2>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">Contents</h2>
       </div>
 
       <!-- Zigzag Timeline Path -->
       <div class="relative max-w-3xl mx-auto" style="text-align: center">
         <div
           v-for="(item, index) in [
-            { aisle: 'A·1', label: 'About', sub: 'Staff Picks · Bio', id: 'about' },
-            { aisle: 'B·2', label: 'Experience', sub: 'Career Shelf', id: 'experience' },
-            { aisle: 'C·3', label: 'Projects', sub: 'Featured Works', id: 'projects' },
-            { aisle: 'D·4', label: 'Skills', sub: 'Genre Index', id: 'skills' },
-            { aisle: 'E·5', label: 'Checkout', sub: 'Resume Desk', id: 'resume' },
-            { aisle: 'F·6', label: 'Contact', sub: 'Guestbook', id: 'contact' },
+            { aisle: 'CHP.1', label: 'About', sub: 'Bio', id: 'about' },
+            { aisle: 'CHP.2', label: 'Experience', sub: 'Career Shelf', id: 'experience' },
+            { aisle: 'CHP.3', label: 'Projects', sub: 'Featured Works', id: 'projects' },
+            { aisle: 'CHP.4', label: 'Skills', sub: 'Genre Index', id: 'skills' },
+            { aisle: 'CHP.5', label: 'Checkout', sub: 'Resume Desk', id: 'resume' },
+            { aisle: 'CHP.6', label: 'Contact', sub: 'Guestbook', id: 'contact' },
           ]"
           :key="item.id"
           class="relative mb-12 last:mb-0"
@@ -607,7 +624,7 @@ onUnmounted(() => {
           <button
             @click="scrollTo(item.id)"
             class="group relative w-full text-left p-6 border-2 transition-all hover:border-foreground/30 hover:shadow-md"
-            :class="index % 2 === 0 ? 'md:mr-auto md:w-[80%]' : 'md:ml-auto md:w-[80%]'"
+            :class="index % 2 === 0 ? 'md:mr-auto md:w-[45%]' : 'md:ml-auto md:w-[45%]'"
             :style="{
               backgroundColor: 'var(--card)',
               borderColor: 'var(--border)',
@@ -633,9 +650,9 @@ onUnmounted(() => {
               >
                 {{ item.label }}
               </div>
-              <div class="text-sm opacity-60" :style="{ fontFamily: 'var(--font-label)' }">
-                {{ item.sub }}
-              </div>
+<!--              <div class="text-sm opacity-60" :style="{ fontFamily: 'var(&#45;&#45;font-label)' }">-->
+<!--                {{ item.sub }}-->
+<!--              </div>-->
             </div>
 
             <!-- Arrow indicator -->
@@ -646,14 +663,6 @@ onUnmounted(() => {
         </div>
       </div>
 
-      <!-- Decorative rule -->
-      <div class="flex items-center gap-4 mt-16 opacity-25">
-        <div class="flex-1 h-px bg-foreground/30" />
-        <span :style="{ fontFamily: 'var(--font-label)', fontSize: '10px', letterSpacing: '0.3em' }">
-          BROWSE FREELY
-        </span>
-        <div class="flex-1 h-px bg-foreground/30" />
-      </div>
     </section>
     <!-- Quote Post-it Note 2 -->
     <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
@@ -724,9 +733,9 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          Aisle A·1
+          CHP.1
         </p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Staff Picks</h2>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">ABOUT</h2>
       </div>
 
       <div
@@ -803,7 +812,7 @@ onUnmounted(() => {
               class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
               :style="{ fontFamily: 'var(--font-label)' }"
             >
-              <Mail :size="12" /> <span class="hidden xs:inline">Mail</span><span class="xs:hidden">@</span>
+              <Mail :size="12" /> <span class="hidden xs:inline">Mail</span>
             </a>
             <a
               href="#"
@@ -899,19 +908,13 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          Aisle B·2
+          CHP.2
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Career Shelf</h2>
       </div>
-      <p
-        class="text-center text-sm sm:text-base uppercase tracking-widest opacity-40 -mt-8 mb-12 px-4"
-        :style="{ fontFamily: 'var(--font-label)' }"
-      >
-        Pull a book to read the chapters
-      </p>
-
       <!-- Shelf unit -->
       <div
+        ref="expShelf"
         class="relative p-4 sm:p-6 pt-6 sm:pt-8 pb-0 overflow-x-auto"
         :style="{
           backgroundColor: '#F0EAD8',
@@ -921,15 +924,21 @@ onUnmounted(() => {
         <!-- Wrapper for books and shelf bar to scroll together -->
         <div class="inline-block min-w-full">
           <!-- Books + decoratives -->
-          <div class="flex items-end gap-2 px-2 pb-0 min-h-[220px]">
+          <div class="flex items-end gap-2 px-2 pb-0 min-h-[220px] relative">
+          
           <!-- Experience books -->
           <button
-            v-for="exp in EXPERIENCE"
+            v-for="(exp, index) in EXPERIENCE"
             :key="exp.id"
             @click="openExp = openExp === exp.id ? null : exp.id"
-            class="cursor-pointer flex-shrink-0 focus:outline-none hover:-translate-y-3 transition-transform duration-200"
+            class="cursor-pointer flex-shrink-0 focus:outline-none hover:-translate-y-3 transition-transform duration-200 relative"
+            :class="{ 'pulse-book': index === 0 }"
             :aria-label="`${exp.company} — click to read`"
           >
+            <!-- Hand pointer under first book only -->
+            <div v-if="index === 0" class="absolute -bottom-4 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+              <span class="text-2xl sm:text-3xl">👆🏼</span>
+            </div>
             <div
               :style="{
                 width: '48px',
@@ -1012,8 +1021,8 @@ onUnmounted(() => {
         </div>
       </div>
 
-      <!-- Scroll hint below shelf - only visible on small screens -->
-      <div class="sm:hidden flex items-center justify-center gap-2 mt-3 animate-pulse">
+      <!-- Scroll hint below shelf - only visible on small screens when there's overflow -->
+      <div v-if="showExpScrollHint" class="sm:hidden flex items-center justify-center gap-2 mt-3 animate-pulse">
         <span class="text-xs opacity-50" :style="{ fontFamily: 'var(--font-label)', letterSpacing: '0.1em' }">
           Swipe to see more
         </span>
@@ -1159,26 +1168,24 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          Aisle C·3
+          CHP.3
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">
           Featured Works
         </h2>
       </div>
-      <p
-        class="text-center text-sm sm:text-base uppercase tracking-widest opacity-40 -mt-8 mb-12 px-4"
-        :style="{ fontFamily: 'var(--font-label)' }"
-      >
-        Select a title to open the book
-      </p>
 
       <div class="grid grid-cols-3 xs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-        <div v-for="project in PROJECTS" :key="project.id" class="flex flex-col">
+        <div v-for="(project, index) in PROJECTS" :key="project.id" class="flex flex-col relative">
           <button
             @click="openProj = project.id"
             class="text-left focus:outline-none hover:-translate-y-3 transition-transform duration-200"
             :aria-label="`${project.title} — click to open`"
           >
+          <!-- Hand pointer under first book only -->
+          <div v-if="index === 0" class="absolute -bottom-5 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+            <span class="text-2xl sm:text-3xl">👆🏼</span>
+          </div>
             <div
               class="relative rounded-sm overflow-hidden"
               :style="{
@@ -1494,7 +1501,7 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          Aisle D·4
+          CHP.4
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Genre Index</h2>
       </div>
@@ -1514,7 +1521,7 @@ onUnmounted(() => {
           </div>
 
           <div
-            class="relative p-4 sm:p-5 pt-6 sm:pt-7 pb-0 overflow-x-auto"
+            class="relative p-4 sm:p-5 pt-6 sm:pt-7 pb-0 overflow-x-auto skills-shelf"
             :style="{
               backgroundColor: '#F0EAD8',
               border: '1px solid rgba(0,0,0,0.06)',
@@ -1569,8 +1576,8 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <!-- Scroll hint below shelf - only visible on small screens -->
-          <div class="sm:hidden flex items-center justify-center gap-2 mt-3 animate-pulse">
+          <!-- Scroll hint below shelf - only visible on small screens when there's overflow -->
+          <div v-if="showSkillsScrollHint" class="sm:hidden flex items-center justify-center gap-2 mt-3 animate-pulse">
             <span class="text-xs opacity-50" :style="{ fontFamily: 'var(--font-label)', letterSpacing: '0.1em' }">
               Swipe to see more
             </span>
@@ -1648,7 +1655,7 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          Aisle E·5
+          CHP.5
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">
           Checkout Desk
@@ -1808,7 +1815,7 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          Aisle F·6
+          CHP.6
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Guestbook</h2>
       </div>
@@ -2122,8 +2129,8 @@ onUnmounted(() => {
       >
         <div class="flex items-center gap-2 text-xs uppercase tracking-widest">
           <ArrowUp :size="14" class="group-hover:-translate-y-1 transition-transform" />
-          <span class="hidden sm:inline">Shop Map</span>
-          <span class="sm:hidden">Shop Map</span>
+          <span class="hidden sm:inline">Content Page</span>
+          <span class="sm:hidden">Content Page</span>
         </div>
       </button>
     </Transition>
