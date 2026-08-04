@@ -1,0 +1,329 @@
+    <!-- ── HERO ────────────────────────────────────────────────────────────── -->
+    <section
+      class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-14 px-4 sm:px-6"
+      :style="{ backgroundColor: '#0B1A11' }"
+    >
+      <!-- Animated gradient orbs background -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <!-- Orb 1 - Gold -->
+        <div
+          v-motion
+          :initial="{ opacity: 0, scale: 0.8 }"
+          :enter="{ opacity: 1, scale: 1, transition: { duration: 2000, ease: 'easeOut' } }"
+          class="absolute"
+          :style="{
+            width: 'clamp(300px, 40vw, 600px)',
+            height: 'clamp(300px, 40vw, 600px)',
+            left: '10%',
+            top: '15%',
+            background: 'radial-gradient(circle, rgba(196,146,43,0.25) 0%, transparent 70%)',
+            filter: 'blur(60px)',
+            animation: 'float-slow 20s ease-in-out infinite',
+          }"
+        />
+        <!-- Orb 2 - Teal -->
+        <div
+          v-motion
+          :initial="{ opacity: 0, scale: 0.8 }"
+          :enter="{ opacity: 1, scale: 1, transition: { duration: 2000, delay: 300, ease: 'easeOut' } }"
+          class="absolute"
+          :style="{
+            width: 'clamp(400px, 50vw, 700px)',
+            height: 'clamp(400px, 50vw, 700px)',
+            right: '5%',
+            top: '25%',
+            background: 'radial-gradient(circle, rgba(47,79,79,0.2) 0%, transparent 70%)',
+            filter: 'blur(70px)',
+            animation: 'float-slow-reverse 25s ease-in-out infinite',
+          }"
+        />
+        <!-- Orb 3 - Amber accent -->
+        <div
+          v-motion
+          :initial="{ opacity: 0, scale: 0.8 }"
+          :enter="{ opacity: 1, scale: 1, transition: { duration: 2000, delay: 600, ease: 'easeOut' } }"
+          class="absolute"
+          :style="{
+            width: 'clamp(250px, 35vw, 500px)',
+            height: 'clamp(250px, 35vw, 500px)',
+            left: '50%',
+            bottom: '10%',
+            transform: 'translateX(-50%)',
+            background: 'radial-gradient(circle, rgba(196,146,43,0.15) 0%, transparent 70%)',
+            filter: 'blur(80px)',
+            animation: 'pulse-glow 15s ease-in-out infinite',
+          }"
+        />
+      </div>
+
+      <!-- Floating book particles -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          v-for="i in 8"
+          :key="i"
+          v-motion
+          :initial="{ opacity: 0, y: 100 }"
+          :enter="{
+            opacity: [0, 0.15, 0.15, 0],
+            y: -100,
+            transition: {
+              delay: 1000 + i * 400,
+              duration: 8000 + i * 1000,
+              repeat: Infinity,
+              ease: 'linear'
+            }
+          }"
+          class="absolute"
+          :style="{
+            left: `${10 + i * 11}%`,
+            width: '20px',
+            height: '24px',
+            background: 'linear-gradient(135deg, rgba(196,146,43,0.3) 0%, rgba(139,69,19,0.3) 100%)',
+            border: '1px solid rgba(196,146,43,0.4)',
+            transform: `rotate(${15 * i}deg)`,
+          }"
+        />
+      </div>
+
+      <!-- Main content container -->
+      <div class="relative z-10 max-w-6xl mx-auto w-full">
+        <!-- Hero title and subtitle -->
+        <div class="text-center mb-12 sm:mb-16">
+          <!-- Name with stagger animation -->
+          <h1
+            v-motion
+            :initial="{ opacity: 0, y: 30 }"
+            :enter="{ opacity: 1, y: 0, transition: { duration: 800, ease: 'easeOut' } }"
+            class="mb-4 sm:mb-6"
+            :style="{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(48px, 10vw, 120px)',
+              fontWeight: 800,
+              lineHeight: 0.95,
+              background: 'linear-gradient(135deg, #C4922B 0%, #F4D88A 50%, #C4922B 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textShadow: '0 0 80px rgba(196,146,43,0.3)',
+              letterSpacing: '-0.02em',
+            }"
+          >
+            ROHAIL<br>RAMESH
+          </h1>
+
+          <!-- Animated tagline -->
+          <p
+            v-motion
+            :initial="{ opacity: 0, y: 20 }"
+            :enter="{ opacity: 0.9, y: 0, transition: { delay: 400, duration: 800 } }"
+            class="mb-6 sm:mb-8"
+            :style="{
+              fontFamily: 'var(--font-label)',
+              fontSize: 'clamp(14px, 3vw, 24px)',
+              letterSpacing: '0.3em',
+              textTransform: 'uppercase',
+              color: '#C4922B',
+              fontWeight: 500,
+            }"
+          >
+            Portfolio Architect
+          </p>
+
+          <!-- Description -->
+          <p
+            v-motion
+            :initial="{ opacity: 0 }"
+            :enter="{ opacity: 0.7, transition: { delay: 800, duration: 1000 } }"
+            class="max-w-2xl mx-auto mb-8 sm:mb-12 px-4"
+            :style="{
+              fontFamily: 'var(--font-body)',
+              fontSize: 'clamp(15px, 2.5vw, 20px)',
+              lineHeight: 1.8,
+              color: 'rgba(196,146,43,0.85)',
+            }"
+          >
+            Welcome to a curated collection where code meets creativity.
+            Each project is a carefully bound story, waiting to be explored.
+          </p>
+
+          <!-- CTA Button -->
+          <button
+            v-motion
+            :initial="{ opacity: 0, scale: 0.9 }"
+            :enter="{ opacity: 1, scale: 1, transition: { delay: 1200, duration: 600, type: 'spring', stiffness: 200 } }"
+            @click="scrollTo('map')"
+            class="group relative px-8 sm:px-12 py-4 sm:py-5 overflow-hidden transition-all duration-300"
+            :style="{
+              fontFamily: 'var(--font-label)',
+              fontSize: 'clamp(11px, 2vw, 14px)',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: '#0B1A11',
+              backgroundColor: '#C4922B',
+              border: '2px solid #C4922B',
+              fontWeight: 600,
+            }"
+            @mouseenter="ctaHover = true"
+            @mouseleave="ctaHover = false"
+          >
+            <span class="relative z-10 flex items-center gap-3">
+              <span>Explore Collection</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div
+              class="absolute inset-0 transition-transform duration-300"
+              :style="{
+                background: 'linear-gradient(90deg, transparent 0%, rgba(244,216,138,0.3) 50%, transparent 100%)',
+                transform: ctaHover ? 'translateX(100%)' : 'translateX(-100%)',
+              }"
+            />
+          </button>
+        </div>
+
+        <!-- Featured info cards -->
+        <div
+          v-motion
+          :initial="{ opacity: 0, y: 40 }"
+          :enter="{ opacity: 1, y: 0, transition: { delay: 1600, duration: 800 } }"
+          class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto"
+        >
+          <!-- Card 1 -->
+          <div
+            class="group relative p-6 backdrop-blur-sm border border-[rgba(196,146,43,0.2)] hover:border-[rgba(196,146,43,0.5)] transition-all duration-300"
+            :style="{
+              background: 'linear-gradient(135deg, rgba(11,26,17,0.6) 0%, rgba(28,23,16,0.4) 100%)',
+            }"
+          >
+            <div class="mb-3">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#C4922B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="#C4922B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="#C4922B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3
+              class="mb-2"
+              :style="{
+                fontFamily: 'var(--font-label)',
+                fontSize: '12px',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: '#C4922B',
+              }"
+            >
+              Full Stack
+            </h3>
+            <p
+              :style="{
+                fontFamily: 'var(--font-body)',
+                fontSize: '14px',
+                lineHeight: 1.6,
+                color: 'rgba(196,146,43,0.7)',
+              }"
+            >
+              End-to-end solutions from concept to deployment
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="group relative p-6 backdrop-blur-sm border border-[rgba(196,146,43,0.2)] hover:border-[rgba(196,146,43,0.5)] transition-all duration-300"
+            :style="{
+              background: 'linear-gradient(135deg, rgba(11,26,17,0.6) 0%, rgba(28,23,16,0.4) 100%)',
+            }"
+          >
+            <div class="mb-3">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 16V8C20.9996 7.64927 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64927 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z" stroke="#C4922B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3.27 6.96L12 12.01L20.73 6.96" stroke="#C4922B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 22.08V12" stroke="#C4922B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3
+              class="mb-2"
+              :style="{
+                fontFamily: 'var(--font-label)',
+                fontSize: '12px',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: '#C4922B',
+              }"
+            >
+              Design Focus
+            </h3>
+            <p
+              :style="{
+                fontFamily: 'var(--font-body)',
+                fontSize: '14px',
+                lineHeight: 1.6,
+                color: 'rgba(196,146,43,0.7)',
+              }"
+            >
+              Pixel-perfect interfaces that users love
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="group relative p-6 backdrop-blur-sm border border-[rgba(196,146,43,0.2)] hover:border-[rgba(196,146,43,0.5)] transition-all duration-300"
+            :style="{
+              background: 'linear-gradient(135deg, rgba(11,26,17,0.6) 0%, rgba(28,23,16,0.4) 100%)',
+            }"
+          >
+            <div class="mb-3">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#C4922B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 4L12 14.01L9 11.01" stroke="#C4922B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3
+              class="mb-2"
+              :style="{
+                fontFamily: 'var(--font-label)',
+                fontSize: '12px',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: '#C4922B',
+              }"
+            >
+              Quality Driven
+            </h3>
+            <p
+              :style="{
+                fontFamily: 'var(--font-body)',
+                fontSize: '14px',
+                lineHeight: 1.6,
+                color: 'rgba(196,146,43,0.7)',
+              }"
+            >
+              Meticulous attention to every detail
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div
+        v-motion
+        :initial="{ opacity: 0 }"
+        :enter="{ opacity: 0.6, transition: { delay: 2000, duration: 1000 } }"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce"
+      >
+        <p
+          :style="{
+            fontFamily: 'var(--font-label)',
+            fontSize: '10px',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'rgba(196,146,43,0.5)',
+          }"
+        >
+          Scroll
+        </p>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="rgba(196,146,43,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </section>
