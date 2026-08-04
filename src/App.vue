@@ -334,6 +334,7 @@ const stamped = ref(false)
 const showExpScrollHint = ref(false)
 const showSkillsScrollHint = ref(false)
 const expShelf = ref<HTMLElement | null>(null)
+const showAllProjects = ref(false)
 const submitted = ref(false)
 const guestbook = ref({ name: '', email: '', message: '' })
 const mobileMenuOpen = ref(false)
@@ -437,7 +438,7 @@ onUnmounted(() => {
     
     <!-- ── STICKY NAV ──────────────────────────────────────────────────────── -->
     <nav
-      class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 py-3 border-b border-border"
+      class="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 py-3 border-b border-border"
       :style="{
         backdropFilter: 'blur(16px)',
         backgroundColor: 'rgba(242, 236, 216, 0.88)',
@@ -453,22 +454,7 @@ onUnmounted(() => {
       
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center gap-7">
-        <button
-          v-for="section in ['about', 'experience', 'projects', 'skills', 'contact']"
-          :key="section"
-          @click="scrollTo(section)"
-          class="text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
-          :style="{ fontFamily: 'var(--font-label)' }"
-        >
-          {{ section }}
-        </button>
-        <button
-          @click="scrollTo('resume')"
-          class="text-xs uppercase tracking-widest px-3 py-1.5 border border-border hover:border-foreground/40 transition-all"
-          :style="{ fontFamily: 'var(--font-label)' }"
-        >
-          Checkout →
-        </button>
+        <!-- Navigation links hidden on desktop -->
       </div>
 
       <!-- Mobile Menu Button -->
@@ -511,20 +497,46 @@ onUnmounted(() => {
       >
         <div class="flex flex-col py-2">
           <button
-            v-for="section in ['about', 'experience', 'projects', 'skills', 'contact']"
-            :key="section"
-            @click="scrollTo(section)"
-            class="text-left px-6 py-3 text-sm uppercase tracking-widest opacity-70 hover:opacity-100 transition-opacity"
-            :style="{ fontFamily: 'var(--font-label)' }"
+            @click="scrollTo('about')"
+            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            :style="{ fontFamily: 'var(--font-display)' }"
           >
-            {{ section }}
+            Author's Note
+          </button>
+          <button
+            @click="scrollTo('experience')"
+            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            :style="{ fontFamily: 'var(--font-display)' }"
+          >
+            Career Anthology
+          </button>
+          <button
+            @click="scrollTo('projects')"
+            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            :style="{ fontFamily: 'var(--font-display)' }"
+          >
+            Bestsellers
+          </button>
+          <button
+            @click="scrollTo('skills')"
+            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            :style="{ fontFamily: 'var(--font-display)' }"
+          >
+            The Arsenal
+          </button>
+          <button
+            @click="scrollTo('contact')"
+            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            :style="{ fontFamily: 'var(--font-display)' }"
+          >
+            Contact
           </button>
           <button
             @click="scrollTo('resume')"
-            class="text-left px-6 py-3 text-sm uppercase tracking-widest opacity-70 hover:opacity-100 transition-opacity border-t border-border/30 mt-2 pt-4"
-            :style="{ fontFamily: 'var(--font-label)' }"
+            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity border-t border-border/30 mt-2 pt-4"
+            :style="{ fontFamily: 'var(--font-display)' }"
           >
-            Checkout →
+            Catalog Card
           </button>
         </div>
       </div>
@@ -596,19 +608,19 @@ onUnmounted(() => {
     <!-- ── SHOP MAP ────────────────────────────────────────────────────── -->
     <section id="map" class="py-24 px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">Contents</h2>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold " :style="{ fontFamily: 'var(--font-display)' }">Index</h2>
       </div>
 
       <!-- Zigzag Timeline Path -->
       <div class="relative max-w-3xl mx-auto" style="text-align: center">
         <div
           v-for="(item, index) in [
-            { aisle: 'CHP.1', label: 'About', sub: 'Bio', id: 'about' },
-            { aisle: 'CHP.2', label: 'Experience', sub: 'Career Shelf', id: 'experience' },
-            { aisle: 'CHP.3', label: 'Projects', sub: 'Featured Works', id: 'projects' },
-            { aisle: 'CHP.4', label: 'Skills', sub: 'Genre Index', id: 'skills' },
-            { aisle: 'CHP.5', label: 'Checkout', sub: 'Resume Desk', id: 'resume' },
-            { aisle: 'CHP.6', label: 'Contact', sub: 'Guestbook', id: 'contact' },
+            { aisle: 'CHP.1', sub: 'About', label: 'Author\'s Note', id: 'about' },
+            { aisle: 'CHP.2', sub: 'Experience', label: 'Career Anthology', id: 'experience' },
+            { aisle: 'CHP.3', sub: 'Projects', label: 'Bestsellers', id: 'projects' },
+            { aisle: 'CHP.4', sub: 'Skills', label: 'The Arsenal', id: 'skills' },
+            { aisle: 'CHP.5', sub: 'Checkout', label: 'Catalog Card', id: 'resume' },
+            { aisle: 'CHP.6', sub: 'Contact', label: 'The Guestbook', id: 'contact' },
           ]"
           :key="item.id"
           class="relative mb-12 last:mb-0"
@@ -735,7 +747,7 @@ onUnmounted(() => {
         >
           CHP.1
         </p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">ABOUT</h2>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Author's Note</h2>
       </div>
 
       <div
@@ -747,12 +759,7 @@ onUnmounted(() => {
           class="flex-shrink-0 flex flex-col items-center justify-between p-10 md:py-12 staff-picks"
           :style="{ backgroundColor: '#1F3D2F', minWidth: '220px', width: '220px' }"
         >
-          <div
-            class="text-xs uppercase tracking-[0.25em] text-white/40 staff-pick-title"
-            :style="{ fontFamily: 'var(--font-label)' }"
-          >
-            Staff Pick
-          </div>
+
 
           <!-- Avatar circle -->
           <div
@@ -788,14 +795,8 @@ onUnmounted(() => {
 
         <!-- Flap / bio -->
         <div class="flex-1 p-6 sm:p-8 md:p-10">
-          <div
-            class="text-xs uppercase tracking-[0.2em] mb-5 opacity-45"
-            :style="{ fontFamily: 'var(--font-label)' }"
-          >
-            About the Author
-          </div>
           <p class="text-base leading-relaxed mb-4" :style="{ fontFamily: 'var(--font-body)' }">
-            Rohail builds scalable, user-focused products across fintech, healthcare, education, and
+            I build scalable, user-focused products across fintech, healthcare, education, and
             non-profit sectors. Currently developing multilingual supporter platforms at Mary's
             Meals, creating accessible, cross-device experiences that drive engagement and
             donations for a global charity serving over 3 million children daily.
@@ -910,7 +911,7 @@ onUnmounted(() => {
         >
           CHP.2
         </p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Career Shelf</h2>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Career Anthology</h2>
       </div>
       <!-- Shelf unit -->
       <div
@@ -1171,19 +1172,34 @@ onUnmounted(() => {
           CHP.3
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">
-          Featured Works
+          Bestsellers
         </h2>
       </div>
 
-      <div class="grid grid-cols-3 xs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-        <div v-for="(project, index) in PROJECTS" :key="project.id" class="flex flex-col relative">
+      <div class="grid grid-cols-3 xs:grid-cols-2 md:3 gap-4 sm:gap-6 md:gap-8">
+        <div v-for="(project, index) in (showAllProjects ? PROJECTS : PROJECTS.slice(0, 3))" :key="project.id" class="flex flex-col relative">
+          <!-- Top 3 Ranking Badge -->
+          <div 
+            v-if="index < 3" 
+            class="absolute -top-2 -right-2 z-20 px-2 py-1 rounded-full text-xs font-bold shadow-lg"
+            :style="{
+              fontFamily: 'var(--font-label)',
+              letterSpacing: '0.1em',
+              backgroundColor: index === 0 ? '#FFD700' : index === 1 ? '#C0C0C0' : '#CD7F32',
+              color: '#1C1714',
+              border: '2px solid rgba(255, 255, 255, 0.5)'
+            }"
+          >
+            {{ index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉' }}
+          </div>
+          
           <button
             @click="openProj = project.id"
             class="text-left focus:outline-none hover:-translate-y-3 transition-transform duration-200"
             :aria-label="`${project.title} — click to open`"
           >
-          <!-- Hand pointer under first book only -->
-          <div v-if="index === 0" class="absolute -bottom-5 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+          <!-- Hand pointer under first book only (only when collapsed) -->
+          <div v-if="index === 0 && !showAllProjects" class="absolute -bottom-5 left-1/2 -translate-x-1/2 z-10 animate-bounce">
             <span class="text-2xl sm:text-3xl">👆🏼</span>
           </div>
             <div
@@ -1208,7 +1224,7 @@ onUnmounted(() => {
                 }"
               />
               <!-- Cover content -->
-              <div class="absolute inset-0 p-3 sm:p-5 flex flex-col justify-between">
+              <div class="absolute inset-0 p-3 sm:p-5 flex flex-col justify-between" style="margin-top: 0.7rem">
                 <div>
                   <div
                     class="uppercase tracking-widest mb-2 sm:mb-3 opacity-65"
@@ -1244,6 +1260,26 @@ onUnmounted(() => {
             </div>
           </button>
         </div>
+      </div>
+
+      <!-- View More Button -->
+      <div v-if="!showAllProjects && PROJECTS.length > 3" class="flex justify-center mt-12">
+        <button
+          @click="showAllProjects = true"
+          class="px-8 py-3 border-2 transition-all hover:scale-105"
+          :style="{
+            fontFamily: 'var(--font-label)',
+            fontSize: '0.875rem',
+            letterSpacing: '0.15em',
+            textTransform: 'uppercase',
+            borderColor: 'var(--border)',
+            color: 'var(--foreground)',
+            backgroundColor: 'transparent',
+            borderRadius: '2px'
+          }"
+        >
+          View More Projects
+        </button>
       </div>
 
       <!-- Full-screen Book Modal -->
@@ -1503,17 +1539,17 @@ onUnmounted(() => {
         >
           CHP.4
         </p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Genre Index</h2>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">The Arsenal</h2>
       </div>
 
       <div class="space-y-12">
-        <div v-for="[genre, books] in Object.entries(SKILLS)" :key="genre">
+        <div v-for="([genre, books], index) in Object.entries(SKILLS)" :key="genre">
           <div class="flex items-center gap-3 mb-3">
             <span
               class="text-xs uppercase tracking-[0.2em] opacity-40"
               :style="{ fontFamily: 'var(--font-label)' }"
             >
-              Section
+              4.{{ index + 1 }}
             </span>
             <span class="text-lg font-semibold" :style="{ fontFamily: 'var(--font-display)' }">
               {{ genre }}
@@ -1658,7 +1694,7 @@ onUnmounted(() => {
           CHP.5
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">
-          Checkout Desk
+          Catalog Card
         </h2>
       </div>
 
@@ -1684,24 +1720,9 @@ onUnmounted(() => {
           />
 
           <div class="relative p-6">
-            <!-- Header -->
-            <div class="border-b-2 border-foreground/20 pb-3 mb-5">
-              <div
-                class="text-xs uppercase tracking-widest opacity-40 mb-1"
-                :style="{ fontSize: '9px', letterSpacing: '0.2em' }"
-              >
-                London Public Portfolio
-              </div>
-              <div
-                class="text-2xl font-bold"
-                :style="{ fontFamily: 'var(--font-display)', lineHeight: 1.2 }"
-              >
-                Library Card
-              </div>
-            </div>
 
             <!-- Fields -->
-            <div class="space-y-3 mb-7 text-sm">
+            <div class="space-y-3 mb-5 text-sm">
               <div
                 v-for="{ key, val, bold } in [
                   { key: 'PATRON', val: 'ROHAIL RAMESH', bold: true },
@@ -1711,7 +1732,7 @@ onUnmounted(() => {
                   // { key: 'STATUS', val: 'AVAILABLE', bold: true },
                 ]"
                 :key="key"
-                class="flex gap-3 items-baseline"
+                class="flex gap-3 mb-5 items-baseline"
                 :style="{ lineHeight: '31px' }"
               >
                 <span class="opacity-35 flex-shrink-0" :style="{ width: '100px', fontSize: '11px' }">
@@ -1808,9 +1829,10 @@ onUnmounted(() => {
         </p>
       </div>
     </div>
+
     <!-- ── CONTACT ─────────────────────────────────────────────────────────── -->
     <section id="contact" class="py-16 sm:py-24 px-4 sm:px-8 max-w-5xl mx-auto pb-24 sm:pb-36">
-      <div class="text-center mb-14">
+      <div class="text-center mb-10">
         <p
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
@@ -1819,12 +1841,6 @@ onUnmounted(() => {
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Guestbook</h2>
       </div>
-      <p
-        class="text-center text-sm sm:text-base uppercase tracking-widest opacity-40 -mt-8 mb-14 px-4"
-        :style="{ fontFamily: 'var(--font-label)' }"
-      >
-        Leave a note at the counter
-      </p>
 
       <div class="max-w-lg mx-auto">
         <Transition
@@ -2097,10 +2113,10 @@ onUnmounted(() => {
       </div>
     </div>
     <!-- ── FOOTER ──────────────────────────────────────────────────────────── -->
-    <footer class="py-12 border-t border-border/50">
+    <footer class="py-12 border-t border-border/50 mb-3">
       <div class="text-center">
         <p
-          class="text-xs opacity-30"
+          class="text-xs opacity-100"
           :style="{ fontFamily: 'var(--font-label)', letterSpacing: '0.15em' }"
         >
           © 2026 Portfolio by Rohail Ramesh
@@ -2129,8 +2145,8 @@ onUnmounted(() => {
       >
         <div class="flex items-center gap-2 text-xs uppercase tracking-widest">
           <ArrowUp :size="14" class="group-hover:-translate-y-1 transition-transform" />
-          <span class="hidden sm:inline">Content Page</span>
-          <span class="sm:hidden">Content Page</span>
+          <span class="hidden sm:inline">Index</span>
+          <span class="sm:hidden">Index</span>
         </div>
       </button>
     </Transition>
