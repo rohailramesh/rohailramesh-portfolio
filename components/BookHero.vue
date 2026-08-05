@@ -4,6 +4,8 @@ import { ref, onMounted } from 'vue'
 // State
 const sceneVisible = ref(false)
 const personVisible = ref(false)
+const isEntering = ref(false)
+const doorOpening = ref(false)
 
 // Floating books for background
 const floatingBooks = [
@@ -14,12 +16,25 @@ const floatingBooks = [
   { id: 5, delay: 8, duration: 27, size: 0.45, startX: 15, startY: 50 },
 ]
 
-// Scroll to map section
+// Enter the bookstore with animation
 const scrollToProjects = () => {
-  const element = document.getElementById('map')
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
+  // Start the entering animation
+  isEntering.value = true
+  doorOpening.value = true
+  
+  // Person walks to door (1.5s total)
+  // Then scroll to the next section
+  setTimeout(() => {
+    const element = document.getElementById('map')
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+    // Reset after scroll
+    setTimeout(() => {
+      isEntering.value = false
+      doorOpening.value = false
+    }, 1000)
+  }, 1500)
 }
 
 // Fade in animation on mount
@@ -103,8 +118,8 @@ onMounted(() => {
           </div>
           
           <!-- Door -->
-          <div class="shop-door">
-            <div class="door-panel">
+          <div class="shop-door" :class="{ 'opening': doorOpening }">
+            <div class="door-panel" :class="{ 'opening': doorOpening }">
               <button @click="scrollToProjects" class="enter-button">
                 <span>ENTER</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -133,7 +148,7 @@ onMounted(() => {
       <div class="walkway-path" :class="{ 'visible': personVisible }"></div>
       
       <!-- Person Icon (you standing in front) -->
-      <div class="person-icon" :class="{ 'visible': personVisible }">
+      <div class="person-icon" :class="{ 'visible': personVisible, 'entering': isEntering }">
         <svg viewBox="0 0 48 64" fill="currentColor">
           <!-- Head -->
           <circle cx="24" cy="12" r="6" fill="#2C1810"/>
@@ -447,6 +462,28 @@ onMounted(() => {
   height: 45%;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, transparent 100%);
   border-radius: 50%;
+  transition: opacity 0.3s ease;
+}
+
+.door-panel.opening {
+  animation: doorSwing 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform-origin: left center;
+}
+
+.door-panel.opening::before {
+  opacity: 0.1;
+}
+
+@keyframes doorSwing {
+  0% {
+    transform: perspective(600px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(600px) rotateY(-45deg);
+  }
+  100% {
+    transform: perspective(600px) rotateY(-50deg);
+  }
 }
 
 .door-handle {
@@ -564,6 +601,10 @@ onMounted(() => {
   animation: heartbeat 2s ease-in-out infinite;
 }
 
+.person-icon.entering {
+  animation: walkToDoor 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
 @keyframes heartbeat {
   0%, 100% {
     transform: translateY(0) scale(1);
@@ -579,6 +620,25 @@ onMounted(() => {
   }
   40% {
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes walkToDoor {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(clamp(-60px, -8vh, -80px)) scale(0.85);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(clamp(-100px, -14vh, -140px)) scale(0.6);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(clamp(-120px, -16vh, -160px)) scale(0.3);
+    opacity: 0;
   }
 }
 
