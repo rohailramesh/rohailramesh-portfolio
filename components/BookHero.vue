@@ -702,7 +702,7 @@ onMounted(() => {
   }
 
   .book-container {
-    height: clamp(350px, 70vh, 500px);
+    height: clamp(350px, 30vh, 500px);
   }
 
   .hero-text {
@@ -731,7 +731,7 @@ onMounted(() => {
 
 @media (max-width: 480px) {
   .book-container {
-    height: clamp(320px, 80vh, 450px);
+    height: clamp(300px, 20vh, 450px);
   }
 
   .hero-name {

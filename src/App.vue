@@ -142,6 +142,30 @@ const PROJECTS = [
     url: 'https://www.marysmeals.org.uk',
   },
   {
+    id: 'period-ml',
+    title: 'UniClean',
+    genre: 'Health Tech',
+    coverBg: '#1F3D2F',
+    accentColor: '#A8C5A0',
+    synopsis:
+      'Machine learning app implementing an LSTM model for preventing luteal phase defect, miscarriages and infertility, while overcoming period product poverty amongst academic institutions — achieving 80% accuracy.',
+    stack: ['Python', 'React Native', 'Flask', 'Supabase', 'TensorFlow', 'PostgreSQL', 'Botpress', 'Notify'],
+    year: '2024',
+    url: 'https://github.com/rohailramesh/UniClean_FYP',
+  },
+  {
+    id: 'flatify',
+    title: 'Flatify',
+    genre: 'Consultancy Platform',
+    coverBg: '#6B1F2A',
+    accentColor: '#F0B8C0',
+    synopsis:
+      'Cross-platform accommodation and consultant networking application built for FDM Group. Led a 7-member team through a 12-week sprint cycle, earning the Best Software Engineering Award.',
+    stack: ['Next.js', 'React Native', 'Node.js', 'Redis', 'Tailwind CSS', 'Redux', 'Supabase', 'Framer Motion', 'Google Places API', 'Chakra UI'],
+    url: 'https://github.com/rohailramesh/flat-finder',
+    year: '2024',
+  },
+  {
     id: 'booklet',
     title: 'Booklet',
     genre: 'Education Tech',
@@ -206,18 +230,6 @@ const PROJECTS = [
     year: '2025',
   },
   {
-    id: 'period-ml',
-    title: 'UniClean',
-    genre: 'Health Tech',
-    coverBg: '#1F3D2F',
-    accentColor: '#A8C5A0',
-    synopsis:
-      'Machine learning app implementing an LSTM model for preventing luteal phase defect, miscarriages and infertility, while overcoming period product poverty amongst academic institutions — achieving 80% accuracy.',
-    stack: ['Python', 'React Native', 'Flask', 'Supabase', 'TensorFlow', 'PostgreSQL', 'Botpress', 'Notify'],
-    year: '2024',
-    url: 'https://github.com/rohailramesh/UniClean_FYP',
-  },
-  {
     id: 'hartnews',
     title: 'Hart News',
     genre: 'News Platform',
@@ -268,18 +280,6 @@ const PROJECTS = [
     stack: ['Next.js', 'ShadCN', 'Stripe', 'Cloudinary', 'MongoDB', 'Tailwind'],
     year: '2024',
     url: 'https://github.com/rohailramesh/reebolly',
-  },
-  {
-    id: 'flatify',
-    title: 'Flatify',
-    genre: 'Consultancy Platform',
-    coverBg: '#6B1F2A',
-    accentColor: '#F0B8C0',
-    synopsis:
-      'Cross-platform accommodation and consultant networking application built for FDM Group. Led a 7-member team through a 12-week sprint cycle, earning the Best Software Engineering Award.',
-    stack: ['Next.js', 'React Native', 'Node.js', 'Redis', 'Tailwind CSS', 'Redux', 'Supabase', 'Framer Motion', 'Google Places API', 'Chakra UI'],
-    url: 'https://github.com/rohailramesh/flat-finder',
-    year: '2024',
   },
   {
     id: 'supabase',
@@ -756,7 +756,7 @@ onUnmounted(() => {
       >
         <!-- Book cover / spine side -->
         <div
-          class="flex-shrink-0 flex flex-col items-center justify-between p-10 md:py-12 staff-picks"
+          class="flex-shrink-0 flex flex-col items-center justify-start p-10 md:py-12 staff-picks"
           :style="{ backgroundColor: '#1F3D2F', minWidth: '220px', width: '220px' }"
         >
 
@@ -775,22 +775,55 @@ onUnmounted(() => {
           </div>
 
           <div class="text-center">
-            <div class="text-white text-lg font-bold" :style="{ fontFamily: 'var(--font-display)' }">
+            <div class="text-white text-lg font-bold" :style="{ fontFamily: 'var(--font-display)', width: 'max-content', justifySelf: 'center' }">
               ROHAIL RAMESH
             </div>
             <div
-              class="text-xs mt-1 opacity-55"
-              :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0', letterSpacing: '0.1em' }"
+              class="text-xs mt-1 opacity-80"
+              :style="{ fontFamily: 'var(--font-label)', width: 'max-content', color: '#A8C5A0', letterSpacing: '0.1em' }"
             >
-              Full-Stack Web & Applications Developer
+              Full-Stack Developer
             </div>
             <div
-              class="text-xs mt-0.5 opacity-40"
+              class="text-xs mt-0.5 opacity-60"
               :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0' }"
             >
               London, United Kingdom
             </div>
           </div>
+          <div class="flex flex-wrap items-center gap-3 sm:gap-5" style="margin-top: 1rem">
+            <a
+              href="mailto:rohailramesh@hotmail.com"
+              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
+              :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0'}"
+            >
+              <Mail :size="15" /> <span class="hidden xs:inline">Mail</span>
+            </a>
+            <a
+              href="https://github.com/rohailramesh"
+              target="_blank"
+              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
+              :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0'}"
+            >
+              <Github :size="15" /> <span class="hidden xs:inline">GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rohail-ramesh-a18b001b4"
+              target="_blank"
+              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
+              :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0'}"
+            >
+              <Linkedin :size="15" /> <span class="hidden xs:inline">LinkedIn</span>
+            </a>
+            <!--            <a-->
+            <!--              href="#"-->
+            <!--              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"-->
+            <!--              :style="{ fontFamily: 'var(&#45;&#45;font-label)' }"-->
+            <!--            >-->
+            <!--              <ExternalLink :size="12" /> Portfolio-->
+            <!--            </a>-->
+          </div>
+
         </div>
 
         <!-- Flap / bio -->
@@ -806,37 +839,6 @@ onUnmounted(() => {
             experience implementing Stripe, Algolia, OpenAI, and Google Analytics. Passionate
             about combining clean, maintainable code with thoughtful UI/UX design.
           </p>
-
-          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
-            <a
-              href="mailto:rohailramesh@hotmail.com"
-              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
-              :style="{ fontFamily: 'var(--font-label)' }"
-            >
-              <Mail :size="12" /> <span class="hidden xs:inline">Mail</span>
-            </a>
-            <a
-              href="#"
-              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
-              :style="{ fontFamily: 'var(--font-label)' }"
-            >
-              <Github :size="12" /> <span class="hidden xs:inline">GitHub</span>
-            </a>
-            <a
-              href="#"
-              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
-              :style="{ fontFamily: 'var(--font-label)' }"
-            >
-              <Linkedin :size="12" /> <span class="hidden xs:inline">LinkedIn</span>
-            </a>
-<!--            <a-->
-<!--              href="#"-->
-<!--              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"-->
-<!--              :style="{ fontFamily: 'var(&#45;&#45;font-label)' }"-->
-<!--            >-->
-<!--              <ExternalLink :size="12" /> Portfolio-->
-<!--            </a>-->
-          </div>
         </div>
       </div>
     </section>
@@ -1080,14 +1082,14 @@ onUnmounted(() => {
                 class="flex gap-4"
               >
                 <span
-                  class="flex-shrink-0 opacity-35 tabular-nums"
+                  class="flex-shrink-0 opacity-65 tabular-nums"
                   :style="{
                     fontFamily: 'var(--font-label)',
-                    fontSize: '11px',
+                    fontSize: '1rem',
                     marginTop: '3px',
                   }"
                 >
-                  Ch.{{ String(i + 1).padStart(2, '0') }}
+                  •
                 </span>
                 <p class="text-base leading-relaxed" :style="{ fontFamily: 'var(--font-body)' }">
                   {{ chapter }}
