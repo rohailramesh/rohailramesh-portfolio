@@ -501,35 +501,35 @@ onUnmounted(() => {
             class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
             :style="{ fontFamily: 'var(--font-display)' }"
           >
-            Author's Note
+            Staff Pick
           </button>
           <button
             @click="scrollTo('experience')"
-            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity "
             :style="{ fontFamily: 'var(--font-display)' }"
           >
-            Career Anthology
+            Career Chronicles
           </button>
           <button
             @click="scrollTo('projects')"
             class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
             :style="{ fontFamily: 'var(--font-display)' }"
           >
-            Bestsellers
+            Featured Editions
           </button>
           <button
             @click="scrollTo('skills')"
             class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
             :style="{ fontFamily: 'var(--font-display)' }"
           >
-            The Arsenal
+            Reference Collection
           </button>
           <button
             @click="scrollTo('contact')"
             class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
             :style="{ fontFamily: 'var(--font-display)' }"
           >
-            Contact
+            Customer Service Desk
           </button>
           <button
             @click="scrollTo('resume')"
@@ -608,19 +608,19 @@ onUnmounted(() => {
     <!-- ── SHOP MAP ────────────────────────────────────────────────────── -->
     <section id="map" class="py-24 px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold " :style="{ fontFamily: 'var(--font-display)' }">Index</h2>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold " :style="{ fontFamily: 'var(--font-display)' }">DIRECTORY</h2>
       </div>
 
       <!-- Zigzag Timeline Path -->
       <div class="relative max-w-3xl mx-auto" style="text-align: center">
         <div
           v-for="(item, index) in [
-            { aisle: 'CHP.1', sub: 'About', label: 'Author\'s Note', id: 'about' },
-            { aisle: 'CHP.2', sub: 'Experience', label: 'Career Anthology', id: 'experience' },
-            { aisle: 'CHP.3', sub: 'Projects', label: 'Bestsellers', id: 'projects' },
-            { aisle: 'CHP.4', sub: 'Skills', label: 'The Arsenal', id: 'skills' },
-            { aisle: 'CHP.5', sub: 'Checkout', label: 'Catalog Card', id: 'resume' },
-            { aisle: 'CHP.6', sub: 'Contact', label: 'The Guestbook', id: 'contact' },
+            { aisle: 'A.1', sub: 'About', label: 'Staff Pick', id: 'about' },
+            { aisle: 'B.2', sub: 'Experience', label: 'Career Chronicles', id: 'experience' },
+            { aisle: 'C.3', sub: 'Projects', label: 'Featured Editions', id: 'projects' },
+            { aisle: 'D.4', sub: 'Skills', label: 'Reference Collection', id: 'skills' },
+            { aisle: 'E.5', sub: 'Resume', label: 'Catalog Card', id: 'resume' },
+            { aisle: 'F.6', sub: 'Contact', label: 'Customer Service Desk', id: 'contact' },
           ]"
           :key="item.id"
           class="relative mb-12 last:mb-0"
@@ -657,7 +657,7 @@ onUnmounted(() => {
 
             <div class="ml-6">
               <div
-                class="text-2xl font-bold mb-1 group-hover:underline"
+                class="text-1xl font-bold mb-1 group-hover:underline"
                 :style="{ fontFamily: 'var(--font-display)' }"
               >
                 {{ item.label }}
@@ -745,9 +745,9 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          CHP.1
+          A.1
         </p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Author's Note</h2>
+        <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">Staff Pick</h2>
       </div>
 
       <div
@@ -775,7 +775,7 @@ onUnmounted(() => {
           </div>
 
           <div class="text-center">
-            <div class="text-white text-lg font-bold" :style="{ fontFamily: 'var(--font-display)', width: 'max-content', justifySelf: 'center' }">
+            <div class="text-white text-lg font-bold" :style="{ fontFamily: 'var(--font-display)', width: 'max-content', justifySelf: 'center', marginLeft: '10px' }">
               ROHAIL RAMESH
             </div>
             <div
@@ -828,13 +828,13 @@ onUnmounted(() => {
 
         <!-- Flap / bio -->
         <div class="flex-1 p-6 sm:p-8 md:p-10">
-          <p class="text-base leading-relaxed mb-4" :style="{ fontFamily: 'var(--font-body)' }">
-            I build scalable, user-focused products across fintech, healthcare, education, and
+          <p class="text-base leading-relaxed mb-4" :style="{ fontFamily: 'var(--font-body)', textAlign: 'center' }">
+            Rohail builds scalable, user-focused products across fintech, healthcare, education, and
             non-profit sectors. Currently developing multilingual supporter platforms at Mary's
             Meals, creating accessible, cross-device experiences that drive engagement and
             donations for a global charity serving over 3 million children daily.
           </p>
-          <p class="text-base leading-relaxed mb-7" :style="{ fontFamily: 'var(--font-body)' }">
+          <p class="text-base leading-relaxed mb-7" :style="{ fontFamily: 'var(--font-body)', textAlign: 'center'  }">
             Skilled in JavaScript, TypeScript, Vue.js, React, and API integrations, with
             experience implementing Stripe, Algolia, OpenAI, and Google Analytics. Passionate
             about combining clean, maintainable code with thoughtful UI/UX design.
@@ -911,9 +911,9 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          CHP.2
+          B.2
         </p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Career Anthology</h2>
+        <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">Career Chronicles</h2>
       </div>
       <!-- Shelf unit -->
       <div
@@ -1089,7 +1089,7 @@ onUnmounted(() => {
                     marginTop: '3px',
                   }"
                 >
-                  •
+                   Ch.{{ String(i + 1).padStart(2, '0') }}
                 </span>
                 <p class="text-base leading-relaxed" :style="{ fontFamily: 'var(--font-body)' }">
                   {{ chapter }}
@@ -1171,10 +1171,10 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          CHP.3
+          C.3
         </p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">
-          Bestsellers
+        <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">
+          Featured Editions
         </h2>
       </div>
 
@@ -1280,7 +1280,7 @@ onUnmounted(() => {
             borderRadius: '2px'
           }"
         >
-          View More Projects
+          Explore MOre
         </button>
       </div>
 
@@ -1539,9 +1539,9 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          CHP.4
+          D.4
         </p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">The Arsenal</h2>
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">Reference Collection</h2>
       </div>
 
       <div class="space-y-12">
@@ -1693,14 +1693,14 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          CHP.5
+          E.5
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">
           Catalog Card
         </h2>
       </div>
 
-      <div class="max-w-sm mx-auto">
+      <div class="mx-auto">
         <!-- Library card -->
         <div
           class="relative border-2 border-border"
@@ -1841,10 +1841,10 @@ onUnmounted(() => {
         >
           CHP.6
         </p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">Guestbook</h2>
+        <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">Customer Service Desk</h2>
       </div>
 
-      <div class="max-w-lg mx-auto">
+      <div class="mx-auto">
         <Transition
           mode="out-in"
           enter-active-class="transition-opacity duration-400"
@@ -1876,17 +1876,10 @@ onUnmounted(() => {
               :style="{ left: '48px', width: '1px', backgroundColor: 'rgba(200,40,40,0.18)' }"
             />
 
-            <div
-              class="text-xl font-bold mb-8 relative z-10"
-              :style="{ fontFamily: 'var(--font-display)', lineHeight: '31px' }"
-            >
-              Sign the Guestbook
-            </div>
-
             <div class="space-y-6 relative z-10">
               <div>
                 <label
-                  class="block text-xs uppercase tracking-widest opacity-40 mb-1"
+                  class="block text-xs uppercase tracking-widest opacity-60 mb-1"
                   :style="{ lineHeight: '31px' }"
                 >
                   Name
@@ -1904,7 +1897,7 @@ onUnmounted(() => {
 
               <div>
                 <label
-                  class="block text-xs uppercase tracking-widest opacity-40 mb-1"
+                  class="block text-xs uppercase tracking-widest opacity-60 mb-1"
                   :style="{ lineHeight: '31px' }"
                 >
                   Email
@@ -1922,7 +1915,7 @@ onUnmounted(() => {
 
               <div>
                 <label
-                  class="block text-xs uppercase tracking-widest opacity-40 mb-1"
+                  class="block text-xs uppercase tracking-widest opacity-60 mb-1"
                   :style="{ lineHeight: '31px' }"
                 >
                   Message
@@ -1941,8 +1934,8 @@ onUnmounted(() => {
               <button
                 type="submit"
                 :disabled="!guestbook.name || !guestbook.message"
-                class="mt-2 px-7 py-2.5 border border-border text-xs uppercase tracking-widest hover:border-foreground/40 transition-all disabled:opacity-25"
-                :style="{ fontFamily: 'var(--font-label)' }"
+                class="mt-2 px-7 py-2.5 border border-border text-xs uppercase tracking-widest hover:border-foreground/40 transition-all disabled:opacity-55"
+                :style="{ fontFamily: 'var(--font-label)', borderWidth: 'medium' }"
               >
                 Sign &nbsp;→
               </button>
@@ -2147,8 +2140,8 @@ onUnmounted(() => {
       >
         <div class="flex items-center gap-2 text-xs uppercase tracking-widest">
           <ArrowUp :size="14" class="group-hover:-translate-y-1 transition-transform" />
-          <span class="hidden sm:inline">Index</span>
-          <span class="sm:hidden">Index</span>
+          <span class="hidden sm:inline">Directory</span>
+          <span class="sm:hidden">Directory</span>
         </div>
       </button>
     </Transition>
