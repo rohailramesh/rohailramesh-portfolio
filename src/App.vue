@@ -543,67 +543,67 @@ onUnmounted(() => {
     </Transition>
 
     <!-- Quote Post-it Note 1 -->
-    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
-      <div
-        v-motion
-        :initial="{ opacity: 0, y: 20, rotate: -2 }"
-        :visible="{ opacity: 1, y: 0, rotate: 1, transition: { duration: 500 } }"
-        class="relative max-w-md"
-        :style="{
-          background: 'linear-gradient(135deg, #F5E6D3 0%, #EAD8BF 100%)',
-          padding: 'clamp(20px, 4vw, 32px)',
-          boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
-          transform: 'rotate(1deg)',
-          border: '1px solid rgba(196,146,43,0.15)',
-        }"
-      >
-        <!-- Post-it note top edge shadow -->
-        <div
-          class="absolute top-0 left-0 right-0 h-3 opacity-20"
-          :style="{
-            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',
-          }"
-        />
-        <!-- Paperclip -->
-        <div
-          class="absolute -top-2 -left-2"
-          :style="{ color: '#8B7355' }"
-        >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
-          </svg>
-        </div>
-        <!-- Refresh button -->
-        <button
-          @click="quote1 = getRandomQuote()"
-          class="absolute top-3 right-3 opacity-40 hover:opacity-100 transition-opacity"
-          :style="{ color: '#C4922B' }"
-          aria-label="Get new quote"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
-          </svg>
-        </button>
-        <p
-          class="text-sm sm:text-base italic mb-3 leading-relaxed"
-          :style="{
-            fontFamily: 'var(--font-body)',
-            color: '#2A1810',
-          }"
-        >
-          "{{ quote1.en }}"
-        </p>
-        <p
-          class="text-xs text-right opacity-60"
-          :style="{
-            fontFamily: 'var(--font-label)',
-            color: '#2A1810',
-          }"
-        >
-          — {{ quote1.author }}
-        </p>
-      </div>
-    </div>
+<!--    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(&#45;&#45;bg)' }">-->
+<!--      <div-->
+<!--        v-motion-->
+<!--        :initial="{ opacity: 0, y: 20, rotate: -2 }"-->
+<!--        :visible="{ opacity: 1, y: 0, rotate: 1, transition: { duration: 500 } }"-->
+<!--        class="relative max-w-md"-->
+<!--        :style="{-->
+<!--          background: 'linear-gradient(135deg, #F5E6D3 0%, #EAD8BF 100%)',-->
+<!--          padding: 'clamp(20px, 4vw, 32px)',-->
+<!--          boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',-->
+<!--          transform: 'rotate(1deg)',-->
+<!--          border: '1px solid rgba(196,146,43,0.15)',-->
+<!--        }"-->
+<!--      >-->
+<!--        &lt;!&ndash; Post-it note top edge shadow &ndash;&gt;-->
+<!--        <div-->
+<!--          class="absolute top-0 left-0 right-0 h-3 opacity-20"-->
+<!--          :style="{-->
+<!--            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',-->
+<!--          }"-->
+<!--        />-->
+<!--        &lt;!&ndash; Paperclip &ndash;&gt;-->
+<!--        <div-->
+<!--          class="absolute -top-2 -left-2"-->
+<!--          :style="{ color: '#8B7355' }"-->
+<!--        >-->
+<!--          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">-->
+<!--            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>-->
+<!--          </svg>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Refresh button &ndash;&gt;-->
+<!--        <button-->
+<!--          @click="quote1 = getRandomQuote()"-->
+<!--          class="absolute top-3 right-3 opacity-40 hover:opacity-100 transition-opacity"-->
+<!--          :style="{ color: '#C4922B' }"-->
+<!--          aria-label="Get new quote"-->
+<!--        >-->
+<!--          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">-->
+<!--            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>-->
+<!--          </svg>-->
+<!--        </button>-->
+<!--        <p-->
+<!--          class="text-sm sm:text-base italic mb-3 leading-relaxed"-->
+<!--          :style="{-->
+<!--            fontFamily: 'var(&#45;&#45;font-body)',-->
+<!--            color: '#2A1810',-->
+<!--          }"-->
+<!--        >-->
+<!--          "{{ quote1.en }}"-->
+<!--        </p>-->
+<!--        <p-->
+<!--          class="text-xs text-right opacity-60"-->
+<!--          :style="{-->
+<!--            fontFamily: 'var(&#45;&#45;font-label)',-->
+<!--            color: '#2A1810',-->
+<!--          }"-->
+<!--        >-->
+<!--          — {{ quote1.author }}-->
+<!--        </p>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <!-- ── SHOP MAP ────────────────────────────────────────────────────── -->
     <section id="map" class="py-24 px-8 max-w-5xl mx-auto">

@@ -181,12 +181,13 @@ onMounted(() => {
 .hero-section {
   position: relative;
   min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #E8DCC8 0%, #D4C4B0 100%);
   overflow: hidden;
-  padding: clamp(1rem, 5vw, 3rem);
+  padding: clamp(0.5rem, 2vh, 2rem) clamp(1rem, 3vw, 2rem);
 }
 
 .ambient-glow {
@@ -207,11 +208,12 @@ onMounted(() => {
 .bookstore-scene {
   position: relative;
   width: 100%;
-  max-width: min(90%, 900px);
+  max-width: min(92%, 850px);
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(2rem, 5vh, 4rem);
+  gap: clamp(1rem, 3vh, 2.5rem);
   opacity: 0;
   transform: translateY(30px);
   transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -240,7 +242,7 @@ onMounted(() => {
 .roofline {
   position: relative;
   background: linear-gradient(135deg, #1a0f08 0%, #0d0805 100%);
-  padding: clamp(0.75rem, 1.5vh, 1.5rem) clamp(2rem, 5vw, 4rem);
+  padding: clamp(0.5rem, 1vh, 1rem) clamp(1.5rem, 4vw, 3rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -248,8 +250,8 @@ onMounted(() => {
 }
 
 .chimney {
-  width: clamp(30px, 5vw, 50px);
-  height: clamp(40px, 6vh, 60px);
+  width: clamp(25px, 4vw, 45px);
+  height: clamp(30px, 4vh, 50px);
   background: linear-gradient(to right, #6B3410 0%, #4a2810 100%);
   border: 2px solid #2C1810;
   border-radius: 4px 4px 0 0;
@@ -273,14 +275,14 @@ onMounted(() => {
 /* Store Sign */
 .store-sign {
   background: linear-gradient(135deg, #2C1810 0%, #1a0f08 100%);
-  padding: clamp(1.5rem, 4vh, 2.5rem) clamp(2rem, 5vw, 4rem);
+  padding: clamp(1rem, 2.5vh, 1.8rem) clamp(1.5rem, 4vw, 3rem);
   text-align: center;
   border-bottom: 4px solid #C4922B;
 }
 
 .sign-title {
   font-family: var(--font-display);
-  font-size: clamp(1rem, 5vw, 4rem);
+  font-size: clamp(1.75rem, 4.5vw, 3.5rem);
   font-weight: 700;
   color: #C4922B;
   margin: 0;
@@ -293,19 +295,19 @@ onMounted(() => {
 
 .sign-subtitle {
   font-family: var(--font-label);
-  font-size: clamp(0.85rem, 1.8vw, 1.2rem);
-  letter-spacing: clamp(0.25em, 0.5vw, 0.5em);
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  letter-spacing: clamp(0.2em, 0.4vw, 0.4em);
   text-transform: uppercase;
   color: #D4C4B0;
   font-weight: 500;
-  margin: clamp(0.75rem, 1.5vh, 1.25rem) 0 0;
+  margin: clamp(0.5rem, 1vh, 0.85rem) 0 0;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 /* Awning */
 .awning {
   display: flex;
-  height: clamp(60px, 10vh, 100px);
+  height: clamp(45px, 7vh, 80px);
   background: linear-gradient(to bottom, #8B4513 0%, #6B3410 100%);
   box-shadow: 
     0 4px 15px rgba(0, 0, 0, 0.4),
@@ -335,11 +337,11 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   background: linear-gradient(to bottom, #2C1810 0%, #1a0f08 100%);
-  padding: clamp(0.5rem, 1.5vh, 1rem);
+  padding: clamp(0.4rem, 1vh, 0.75rem);
 }
 
 .awning-emblem {
-  width: clamp(50px, 8vw, 80px);
+  width: clamp(40px, 6vw, 50px);
   height: auto;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
   opacity: 0.95;
@@ -349,9 +351,10 @@ onMounted(() => {
 .storefront {
   display: flex;
   background: linear-gradient(135deg, #8B6914 0%, #6B5410 100%);
-  padding: clamp(1.5rem, 3vw, 3rem);
-  gap: clamp(1rem, 2.5vw, 2rem);
-  min-height: clamp(300px, 40vh, 450px);
+  padding: clamp(1rem, 2vw, 2rem);
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  min-height: clamp(220px, 40vh, 380px);
+  max-height: clamp(280px, 38vh, 450px);
 }
 
 /* Shop Windows */
@@ -442,7 +445,7 @@ onMounted(() => {
 
 .door-panel {
   flex: 1;
-  margin: clamp(1rem, 2.5vw, 2rem);
+  margin: clamp(0.75rem, 2vw, 1.5rem);
   background: linear-gradient(135deg, rgba(135, 206, 235, 0.15) 0%, rgba(70, 130, 180, 0.1) 100%);
   border: 3px solid #2C1810;
   border-radius: 4px;
@@ -504,14 +507,14 @@ onMounted(() => {
 .enter-button {
   display: flex;
   align-items: center;
-  gap: clamp(0.5rem, 1vw, 0.75rem);
-  padding: clamp(0.85rem, 2.5vh, 1.5rem) clamp(1.5rem, 4vw, 2.5rem);
+  gap: clamp(0.4rem, 0.8vw, 0.6rem);
+  padding: clamp(0.7rem, 2vh, 1.2rem) clamp(1.2rem, 3vw, 2rem);
   background: linear-gradient(135deg, #C4922B 0%, #8B6914 100%);
   color: #1C1714;
   border: 3px solid #8B6914;
   border-radius: 8px;
   font-family: var(--font-label);
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 700;
@@ -550,11 +553,11 @@ onMounted(() => {
 
 .walkway-path {
   position: absolute;
-  bottom: clamp(100px, 9vh, 160px);
+  bottom: clamp(55px, 3vh, 135px);
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(80px, 135vw, 400px);
-  height: clamp(50px, 3vh, 140px);
+  width: clamp(90px, 50vw, 220px);
+  height: clamp(60px, 8vh, 110px);
   background: linear-gradient(to top,
     rgba(107, 93, 82, 0.4) 0%,
     rgba(107, 93, 82, 0.3) 50%,
@@ -587,8 +590,8 @@ onMounted(() => {
 
 .person-icon {
   position: relative;
-  width: clamp(80px, 12vw, 130px);
-  height: clamp(100px, 16vh, 160px);
+  width: clamp(70px, 10vw, 110px);
+  height: clamp(85px, 13vh, 135px);
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -857,8 +860,8 @@ onMounted(() => {
   }
 
   .person-icon {
-    width: clamp(65px, 10vw, 100px);
-    height: clamp(80px, 13vh, 130px);
+    width: clamp(60px, 9vw, 90px);
+    height: clamp(75px, 12vh, 115px);
   }
 }
 
