@@ -800,14 +800,16 @@ onUnmounted(() => {
               <Mail :size="15" /> <span class="hidden xs:inline">Mail</span>
             </a>
             <a
-              href="#"
+              href="https://github.com/rohailramesh"
+              target="_blank"
               class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
               :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0'}"
             >
               <Github :size="15" /> <span class="hidden xs:inline">GitHub</span>
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/rohail-ramesh-a18b001b4"
+              target="_blank"
               class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
               :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0'}"
             >
