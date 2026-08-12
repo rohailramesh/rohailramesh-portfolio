@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { Download, ExternalLink, Github, Linkedin, Mail, ArrowUp, Eye } from 'lucide-vue-next'
 import quotesData from '../data/quotes.json'
 import BookHero from '../components/BookHero.vue'
+import StaffPickBook from '../components/StaffPickBook.vue'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -560,7 +561,7 @@ onUnmounted(() => {
             class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
             :style="{ fontFamily: 'var(--font-display)' }"
           >
-            Honor Roll
+            Wall of Fame
           </button>
           <button
             @click="scrollTo('contact')"
@@ -657,7 +658,7 @@ onUnmounted(() => {
             { aisle: 'B.2', sub: 'Experience', label: 'Career Chronicles', id: 'experience' },
             { aisle: 'C.3', sub: 'Projects', label: 'Featured Editions', id: 'projects' },
             { aisle: 'D.4', sub: 'Skills', label: 'Reference Collection', id: 'skills' },
-            { aisle: 'E.5', sub: 'Awards', label: 'Honor Roll', id: 'awards' },
+            { aisle: 'E.5', sub: 'Awards', label: 'Wall of Fame', id: 'awards' },
             { aisle: 'F.6', sub: 'Resume', label: 'Catalog Card', id: 'resume' },
             { aisle: 'G.7', sub: 'Contact', label: 'Customer Service Desk', id: 'contact' },
           ]"
@@ -779,7 +780,7 @@ onUnmounted(() => {
     </div>
     <!-- ── ABOUT ───────────────────────────────────────────────────────────── -->
     <section id="about" class="py-16 sm:py-24 px-4 sm:px-8 max-w-5xl mx-auto">
-      <div class="text-center mb-14">
+      <div class="text-center mb-10">
         <p
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
@@ -789,97 +790,8 @@ onUnmounted(() => {
         <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">Staff Pick</h2>
       </div>
 
-      <div
-        class="flex flex-col md:flex-row max-w-3xl mx-auto border border-border overflow-hidden"
-        :style="{ backgroundColor: 'var(--card)' }"
-      >
-        <!-- Book cover / spine side -->
-        <div
-          class="flex-shrink-0 flex flex-col items-center justify-start p-10 md:py-12 staff-picks"
-          :style="{ backgroundColor: '#1F3D2F', minWidth: '220px', width: '220px' }"
-        >
-
-
-          <!-- Avatar circle -->
-          <div
-            class="w-35 h-35 rounded-full flex items-center justify-center border-2"
-            :style="{ backgroundColor: '#2D5040', borderColor: '#A8C5A0' }"
-          >
-            <span
-              class="text-3xl font-bold"
-              :style="{ fontFamily: 'var(--font-display)', color: '#A8C5A0' }"
-            >
-              <img src="/rohailramesh-pic.jpg" alt="Rohail Ramesh" class="rounded-full w-full h-full object-cover" />
-            </span>
-          </div>
-
-          <div class="text-center">
-            <div class="text-white text-lg font-bold" :style="{ fontFamily: 'var(--font-display)', width: 'max-content', justifySelf: 'center', marginLeft: '10px' }">
-              ROHAIL RAMESH
-            </div>
-            <div
-              class="text-xs mt-1 opacity-80"
-              :style="{ fontFamily: 'var(--font-label)', width: 'max-content', color: '#A8C5A0', letterSpacing: '0.1em' }"
-            >
-              Full-Stack Developer
-            </div>
-            <div
-              class="text-xs mt-0.5 opacity-60"
-              :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0' }"
-            >
-              London, United Kingdom
-            </div>
-          </div>
-          <div class="flex flex-wrap items-center gap-3 sm:gap-5" style="margin-top: 1rem">
-            <a
-              href="mailto:rohailramesh@hotmail.com"
-              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
-              :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0'}"
-            >
-              <Mail :size="15" /> <span class="hidden xs:inline">Mail</span>
-            </a>
-            <a
-              href="https://github.com/rohailramesh"
-              target="_blank"
-              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
-              :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0'}"
-            >
-              <Github :size="15" /> <span class="hidden xs:inline">GitHub</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/rohail-ramesh-a18b001b4"
-              target="_blank"
-              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
-              :style="{ fontFamily: 'var(--font-label)', color: '#A8C5A0'}"
-            >
-              <Linkedin :size="15" /> <span class="hidden xs:inline">LinkedIn</span>
-            </a>
-            <!--            <a-->
-            <!--              href="#"-->
-            <!--              class="flex items-center gap-1.5 text-xs uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"-->
-            <!--              :style="{ fontFamily: 'var(&#45;&#45;font-label)' }"-->
-            <!--            >-->
-            <!--              <ExternalLink :size="12" /> Portfolio-->
-            <!--            </a>-->
-          </div>
-
-        </div>
-
-        <!-- Flap / bio -->
-        <div class="flex-1 p-6 sm:p-8 md:p-10">
-          <p class="text-base leading-relaxed mb-4" :style="{ fontFamily: 'var(--font-body)', textAlign: 'center' }">
-            Rohail builds scalable, user-focused products across fintech, healthcare, education, and
-            non-profit sectors. Currently developing multilingual supporter platforms at Mary's
-            Meals, creating accessible, cross-device experiences that drive engagement and
-            donations for a global charity serving over 3 million children daily.
-          </p>
-          <p class="text-base leading-relaxed mb-7" :style="{ fontFamily: 'var(--font-body)', textAlign: 'center'  }">
-            Skilled in JavaScript, TypeScript, Vue.js, React, and API integrations, with
-            experience implementing Stripe, Algolia, OpenAI, and Google Analytics. Passionate
-            about combining clean, maintainable code with thoughtful UI/UX design.
-          </p>
-        </div>
-      </div>
+      <!-- Book Opening Animation -->
+      <StaffPickBook />
     </section>
     <!-- Quote Post-it Note 3 -->
     <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
@@ -1736,7 +1648,7 @@ onUnmounted(() => {
           E.5
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">
-          Honor Roll
+          Wall of Fame
         </h2>
       </div>
 
@@ -1930,7 +1842,7 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          E.5
+          F.6
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">
           Catalog Card
@@ -2076,7 +1988,7 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          CHP.6
+          G.7
         </p>
         <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">Customer Service Desk</h2>
       </div>
