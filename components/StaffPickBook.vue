@@ -475,9 +475,7 @@ onMounted(() => {
     transform: scaleX(1);
   }
   
-  .book-container.is-open {
-    transform: scale(0.9);
-  }
+
   
   .book-container.is-open .book-left {
     left: 0;
@@ -500,9 +498,7 @@ onMounted(() => {
 }
 
 @media (max-width: 480px) {
-  .book-container {
-    height: clamp(300px, 40vh, 450px);
-  }
+
   
   .book-left {
     left: 50%;
@@ -512,10 +508,7 @@ onMounted(() => {
   
 
   
-  .book-container.is-open {
-    transform: scale(0.8);
-  }
-  
+
   .book-container.is-open .book-left {
     left: 0;
     transform: translateX(0);
