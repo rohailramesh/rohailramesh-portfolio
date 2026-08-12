@@ -509,28 +509,20 @@ onMounted(() => {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .book-container {
-    height: clamp(350px, 45vh, 500px);
-  }
-  
-  .book-left {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-  }
-  
-  .cover-content {
-    transform: scaleX(1);
-  }
-  
 
-  
-  .book-container.is-open .book-left {
-    left: 0;
-    transform: translateX(0);
+
+  .book-left {
     width: 50%;
   }
   
+  .cover-content {
+    transform: scaleX(-1);
+  }
+  
+
+  .peek-prompt{
+    left: 48%;
+  }
   .book-container.is-open .cover-content {
     transform: scaleX(1);
   }
@@ -553,6 +545,9 @@ onMounted(() => {
     line-height: 1.6;
   }
   
+
+}
+@media (max-width: 550px) {
   .scroll-indicator {
     display: flex;
   }
@@ -562,21 +557,19 @@ onMounted(() => {
 
   
   .book-left {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-  }
-  
-
-  
-
-  .book-container.is-open .book-left {
-    left: 0;
-    transform: translateX(0);
+    left: -90px;
     width: 50%;
   }
   
+  .cover-content {
+    transform: scaleX(-1);
+  }
+  
 
+  
+  .book-container.is-open .cover-content {
+    transform: scaleX(1);
+  }
   
   .book-spine {
     width: 25px;
@@ -588,9 +581,10 @@ onMounted(() => {
   }
   
   .peek-prompt {
-    bottom: -50px;
+    bottom: -60px;
     padding: 0.75rem 1.25rem;
     font-size: 0.75rem;
+    left: 48%;
   }
   
   .book-page {

@@ -780,7 +780,7 @@ onUnmounted(() => {
     </div>
     <!-- ── ABOUT ───────────────────────────────────────────────────────────── -->
     <section id="about" class="py-16 sm:py-24 px-4 sm:px-8 max-w-5xl mx-auto">
-      <div class="text-center mb-14">
+      <div class="text-center mb-10">
         <p
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
