@@ -295,6 +295,36 @@ const PROJECTS = [
   },
 ]
 
+const AWARDS = [
+  {
+    id: 'award-2024',
+    year: '2024',
+    title: 'Best Next-Generation Enterprise Chat Platform for 2030',
+    institution: 'Work in Fintech Summit, London',
+    date: 'September 2024',
+    description: 'Recognised for developing an innovative enterprise chat platform concept focused on the future of workplace communication and fintech.',
+    color: '#C4922B',
+  },
+  {
+    id: 'award-2023',
+    year: '2023',
+    title: 'Best 2nd Year Software Engineering Project',
+    institution: 'Queen Mary University of London & FDM Group',
+    date: 'May 2023',
+    description: 'Awarded for a collaborative 12-week software engineering project developing FLATIFY, a cross-platform accommodation and consultant networking application for a global corporation.',
+    color: '#8B6F47',
+  },
+  {
+    id: 'award-2020',
+    year: '2020',
+    title: 'Best Academic Project Winner – Computer Science & Engineering',
+    institution: 'Oxford Brookes Summer School',
+    date: 'April 2020',
+    description: 'Recognised for delivering the strongest academic project during the Computer Science & Engineering summer programme, demonstrating technical ability and problem-solving.',
+    color: '#6B5A48',
+  },
+]
+
 const SKILLS: Record<string, { title: string; color: string; height: number }[]> = {
   Languages: [
     { title: 'JavaScript', color: '#1E3A2F', height: 128 },
@@ -340,6 +370,7 @@ const guestbook = ref({ name: '', email: '', message: '' })
 const mobileMenuOpen = ref(false)
 const showScrollTop = ref(false)
 const windowWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1024)
+const selectedAward = ref<string | null>(null)
 
 // Random quotes for section dividers
 const getRandomQuote = (): { en: string; author: string } => {
@@ -525,6 +556,13 @@ onUnmounted(() => {
             Reference Collection
           </button>
           <button
+            @click="scrollTo('awards')"
+            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            :style="{ fontFamily: 'var(--font-display)' }"
+          >
+            Honor Roll
+          </button>
+          <button
             @click="scrollTo('contact')"
             class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
             :style="{ fontFamily: 'var(--font-display)' }"
@@ -619,15 +657,16 @@ onUnmounted(() => {
             { aisle: 'B.2', sub: 'Experience', label: 'Career Chronicles', id: 'experience' },
             { aisle: 'C.3', sub: 'Projects', label: 'Featured Editions', id: 'projects' },
             { aisle: 'D.4', sub: 'Skills', label: 'Reference Collection', id: 'skills' },
-            { aisle: 'E.5', sub: 'Resume', label: 'Catalog Card', id: 'resume' },
-            { aisle: 'F.6', sub: 'Contact', label: 'Customer Service Desk', id: 'contact' },
+            { aisle: 'E.5', sub: 'Awards', label: 'Honor Roll', id: 'awards' },
+            { aisle: 'F.6', sub: 'Resume', label: 'Catalog Card', id: 'resume' },
+            { aisle: 'G.7', sub: 'Contact', label: 'Customer Service Desk', id: 'contact' },
           ]"
           :key="item.id"
           class="relative mb-12 last:mb-0"
         >
           <!-- Connecting Line -->
           <div
-            v-if="index < 5"
+            v-if="index < 6"
             class="absolute top-full left-1/2 w-0.5 h-12 -translate-x-1/2 opacity-20"
             :style="{ backgroundColor: 'var(--foreground)' }"
           />
@@ -1686,6 +1725,204 @@ onUnmounted(() => {
         </p>
       </div>
     </div>
+
+    <!-- ── AWARDS ──────────────────────────────────────────────────────────── -->
+    <section id="awards" class="py-16 sm:py-24 px-4 sm:px-8 max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <p
+          class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
+          :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
+        >
+          E.5
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">
+          Honor Roll
+        </h2>
+      </div>
+
+      <!-- Beautiful Bookmarks Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 max-w-4xl mx-auto">
+        <div
+          v-for="(award, index) in AWARDS"
+          :key="award.id"
+          v-motion
+          :initial="{ opacity: 0, y: 20, scale: 0.95 }"
+          :visible="{ opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 100, damping: 15, delay: index * 100 } }"
+          class="flex justify-center"
+        >
+          <!-- Elegant Bookmark -->
+          <div
+            class="relative group transition-transform duration-300 ease-out hover:-translate-y-2"
+            :style="{
+              width: 'clamp(220px, 28vw, 260px)',
+            }"
+          >
+            <!-- Bookmark Card -->
+            <div
+              class="relative rounded-t-xl overflow-hidden transition-all duration-300 ease-out hover:shadow-2xl"
+              :style="{
+                backgroundColor: '#EAE3CE',
+                paddingTop: '380px',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                border: '3px solid ' + award.color,
+                borderBottom: 'none',
+              }"
+            >
+              <!-- Paper Texture -->
+              <div
+                class="absolute inset-0 opacity-30 pointer-events-none"
+                :style="{
+                  backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(44,24,16,0.015) 2px, rgba(44,24,16,0.015) 3px)',
+                }"
+              />
+
+              <!-- Content -->
+              <div class="absolute inset-0 flex flex-col items-center text-center p-8 gap-3">
+                <!-- Year Badge -->
+                <div
+                  class="text-xs font-bold uppercase px-5 py-2 rounded-full shadow-sm"
+                  :style="{
+                    fontFamily: 'var(--font-label)',
+                    backgroundColor: award.color,
+                    color: '#F2ECD8',
+                    letterSpacing: '0.25em',
+                  }"
+                >
+                  {{ award.year }}
+                </div>
+
+                <!-- Trophy Icon -->
+                <div
+                  class="w-20 h-20 rounded-full flex items-center justify-center my-2 shadow-md"
+                  :style="{
+                    backgroundColor: award.color + '15',
+                    border: '3px solid ' + award.color,
+                  }"
+                >
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" :style="{ stroke: award.color }" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                    <path d="M4 22h16"></path>
+                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                  </svg>
+                </div>
+
+                <!-- Award Title -->
+                <h3
+                  class="text-lg font-bold leading-tight px-1 mt-2"
+                  :style="{
+                    fontFamily: 'var(--font-display)',
+                    color: '#2C1810',
+                  }"
+                >
+                  {{ award.title }}
+                </h3>
+
+                <!-- Institution -->
+                <p
+                  class="text-xs font-semibold opacity-75 px-2"
+                  :style="{
+                    fontFamily: 'var(--font-label)',
+                    color: award.color,
+                    letterSpacing: '0.03em',
+                  }"
+                >
+                  {{ award.institution }}
+                </p>
+
+                <!-- Date -->
+                <p
+                  class="text-xs opacity-50 mt-auto"
+                  :style="{
+                    fontFamily: 'var(--font-label)',
+                    color: '#2C1810',
+                  }"
+                >
+                  {{ award.date }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Bookmark Ribbon Tail (V-shaped bottom) -->
+            <div
+              class="relative w-full h-10 overflow-visible"
+            >
+              <div
+                :style="{
+                  width: 0,
+                  height: 0,
+                  borderLeft: 'calc(clamp(220px, 28vw, 260px) / 2) solid ' + award.color,
+                  borderRight: 'calc(clamp(220px, 28vw, 260px) / 2) solid ' + award.color,
+                  borderBottom: '40px solid transparent',
+                }"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Post-it Note 6.5 -->
+    <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 20, rotate: -1 }"
+        :visible="{ opacity: 1, y: 0, rotate: -1, transition: { duration: 500 } }"
+        class="relative max-w-md"
+        :style="{
+          background: 'linear-gradient(135deg, #F5E6D3 0%, #EAD8BF 100%)',
+          padding: 'clamp(20px, 4vw, 32px)',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)',
+          transform: 'rotate(-1deg)',
+          border: '1px solid rgba(196,146,43,0.15)',
+        }"
+      >
+        <div
+          class="absolute top-0 left-0 right-0 h-3 opacity-20"
+          :style="{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%)',
+          }"
+        />
+        <div
+          class="absolute -top-2 -left-2"
+          :style="{ color: '#8B7355' }"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+        </div>
+        <button
+          @click="quote7 = getRandomQuote()"
+          class="absolute top-3 right-3 opacity-40 hover:opacity-100 transition-opacity"
+          :style="{ color: '#C4922B' }"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+        </button>
+        <p
+          class="text-sm sm:text-base mb-3 leading-relaxed italic"
+          :style="{
+            fontFamily: 'var(--font-body)',
+            color: '#2A1810',
+          }"
+        >
+          "{{ quote7.en }}"
+        </p>
+        <p
+          class="text-xs text-right opacity-60"
+          :style="{
+            fontFamily: 'var(--font-label)',
+            color: '#2A1810',
+          }"
+        >
+          — {{ quote7.author }}
+        </p>
+      </div>
+    </div>
+
     <!-- ── RESUME ──────────────────────────────────────────────────────────── -->
     <section id="resume" class="py-16 sm:py-24 px-4 sm:px-8 max-w-5xl mx-auto">
       <div class="text-center mb-14">
@@ -2047,7 +2284,7 @@ onUnmounted(() => {
           The Shopkeeper's Current Read
         </h2>
         <h3
-          class="text-[12px] sm:text-[10px] italic mb-3 sm:mb-4 text-center leading-relaxed px-2"
+          class="text-[14px] sm:text-[12px] italic mb-3 sm:mb-4 text-center leading-relaxed px-2"
           :style="{
         fontFamily: 'var(--font-body)',
         color: '#2A1810',
@@ -2095,7 +2332,7 @@ onUnmounted(() => {
         </div>
         <!-- Last updated -->
         <h3
-          class="text-[10px] sm:text-[9px] text-center italic"
+          class="text-[14px] sm:text-[12px] text-center italic"
           :style="{
         fontFamily: 'var(--font-label)',
         color: '#2A1810',
