@@ -135,6 +135,18 @@ onMounted(() => {
             </div>
           </Transition>
         </div>
+        <!-- Scroll Indicator for small screens - outside scrollable area -->
+        <Transition
+          enter-active-class="content-enter"
+          enter-from-class="content-enter-from"
+        >
+          <div v-if="showContent" class="scroll-indicator">
+            <span>Scroll for more</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </Transition>
       </div>
 
       <!-- Book Spine -->
@@ -252,6 +264,7 @@ onMounted(() => {
 }
 
 .book-right {
+  position: relative;
   left: 50%;
   opacity: 0;
   z-index: 1;
@@ -459,6 +472,41 @@ onMounted(() => {
   margin-bottom: 0;
 }
 
+/* Scroll Indicator */
+.scroll-indicator {
+  display: none;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to top, rgba(234, 227, 206, 0.95), rgba(234, 227, 206, 0.8));
+  backdrop-filter: blur(4px);
+  border-top: 1px solid rgba(28, 23, 20, 0.15);
+  border-radius: 0 0 6px 0;
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(28, 23, 20, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  animation: bounce 2s ease-in-out infinite;
+  box-shadow: 0 -2px 8px rgba(28, 23, 20, 0.08);
+  z-index: 10;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .book-container {
@@ -495,6 +543,19 @@ onMounted(() => {
     width: 36px;
     height: 36px;
   }
+  
+  .book-page {
+    padding: clamp(1.5rem, 3vw, 2rem);
+  }
+  
+  .bio-paragraph {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+  
+  .scroll-indicator {
+    display: flex;
+  }
 }
 
 @media (max-width: 480px) {
@@ -530,6 +591,21 @@ onMounted(() => {
     bottom: -50px;
     padding: 0.75rem 1.25rem;
     font-size: 0.75rem;
+  }
+  
+  .book-page {
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+  
+  .bio-paragraph {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    margin-bottom: 0.9rem;
+  }
+  
+  .scroll-indicator {
+    display: flex;
+    font-size: 0.65rem;
   }
 }
 </style>
