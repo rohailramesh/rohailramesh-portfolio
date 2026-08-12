@@ -34,8 +34,7 @@ onMounted(() => {
             }
           }, 500)
         } else {
-          isBookOpen.value = false
-          showContent.value = false
+          // Only hide prompt when scrolling away, don't close the book
           showPrompt.value = false
         }
       })
@@ -238,20 +237,29 @@ onMounted(() => {
 }
 
 .book-left {
-  left: 0;
-  transform-origin: right center;
-  transition: transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  left: -25%;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  transform-origin: right;
+  transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 2;
 }
 
 .book-container.is-open .book-left {
+  left: 0;
   transform: rotateY(0deg);
 }
 
 .book-right {
-  right: 0;
   left: 50%;
+  opacity: 0;
   z-index: 1;
+  transition: opacity 0.5s ease 1.5s;
+}
+
+.book-container.is-open .book-right {
+  opacity: 1;
 }
 
 /* Book Spine */
@@ -301,12 +309,6 @@ onMounted(() => {
   box-shadow: 
     inset 0 0 60px rgba(0, 0, 0, 0.3),
     4px 0 20px rgba(0, 0, 0, 0.4);
-  transform: rotateY(180deg);
-  backface-visibility: visible;
-}
-
-.book-container.is-open .book-cover-front {
-  transform: rotateY(0deg);
 }
 
 .leather-texture {
@@ -326,6 +328,11 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   gap: clamp(1rem, 2vw, 1.5rem);
+  transform: scaleX(-1);
+}
+
+.book-container.is-open .cover-content {
+  transform: scaleX(1);
 }
 
 .avatar-circle {
@@ -411,7 +418,6 @@ onMounted(() => {
   overflow-y: auto;
   padding: clamp(2rem, 4vw, 3rem);
   display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
@@ -459,6 +465,30 @@ onMounted(() => {
     height: clamp(350px, 45vh, 500px);
   }
   
+  .book-left {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+  
+  .cover-content {
+    transform: scaleX(1);
+  }
+  
+  .book-container.is-open {
+    transform: scale(0.9);
+  }
+  
+  .book-container.is-open .book-left {
+    left: 0;
+    transform: translateX(0);
+    width: 50%;
+  }
+  
+  .book-container.is-open .cover-content {
+    transform: scaleX(1);
+  }
+  
   .book-spine {
     width: 30px;
   }
@@ -473,6 +503,26 @@ onMounted(() => {
   .book-container {
     height: clamp(300px, 40vh, 450px);
   }
+  
+  .book-left {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+  
+
+  
+  .book-container.is-open {
+    transform: scale(0.8);
+  }
+  
+  .book-container.is-open .book-left {
+    left: 0;
+    transform: translateX(0);
+    width: 50%;
+  }
+  
+
   
   .book-spine {
     width: 25px;
