@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { Download, ExternalLink, Github, Linkedin, Mail, ArrowUp, Eye } from 'lucide-vue-next'
 import quotesData from '../data/quotes.json'
 import BookHero from '../components/BookHero.vue'
+import StaffPickBook from '../components/StaffPickBook.vue'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -560,7 +561,7 @@ onUnmounted(() => {
             class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
             :style="{ fontFamily: 'var(--font-display)' }"
           >
-            Honor Roll
+            Wall of Fame
           </button>
           <button
             @click="scrollTo('contact')"
@@ -657,7 +658,7 @@ onUnmounted(() => {
             { aisle: 'B.2', sub: 'Experience', label: 'Career Chronicles', id: 'experience' },
             { aisle: 'C.3', sub: 'Projects', label: 'Featured Editions', id: 'projects' },
             { aisle: 'D.4', sub: 'Skills', label: 'Reference Collection', id: 'skills' },
-            { aisle: 'E.5', sub: 'Awards', label: 'Honor Roll', id: 'awards' },
+            { aisle: 'E.5', sub: 'Awards', label: 'Wall of Fame', id: 'awards' },
             { aisle: 'F.6', sub: 'Resume', label: 'Catalog Card', id: 'resume' },
             { aisle: 'G.7', sub: 'Contact', label: 'Customer Service Desk', id: 'contact' },
           ]"
@@ -1736,7 +1737,7 @@ onUnmounted(() => {
           E.5
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">
-          Honor Roll
+          Wall of Fame
         </h2>
       </div>
 
@@ -1930,7 +1931,7 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          E.5
+          F.6
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold" :style="{ fontFamily: 'var(--font-display)' }">
           Catalog Card
@@ -2076,7 +2077,7 @@ onUnmounted(() => {
           class="text-sm sm:text-base uppercase tracking-[0.35em] mb-3"
           :style="{ fontFamily: 'var(--font-label)', color: 'var(--muted-foreground)' }"
         >
-          CHP.6
+          G.7
         </p>
         <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold uppercase" :style="{ fontFamily: 'var(--font-display)' }">Customer Service Desk</h2>
       </div>
