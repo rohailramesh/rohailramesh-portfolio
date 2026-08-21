@@ -10,6 +10,8 @@ interface MapRoom {
   icon: string
 }
 
+const isInView = ref(false)
+
 const rooms: MapRoom[] = [
   { id: 'about', label: 'Staff Pick', sub: 'About', position: { x: 20, y: 20 }, icon: '📖' },
   { id: 'experience', label: 'Career Chronicles', sub: 'Experience', position: { x: 75, y: 28 }, icon: '📚' },
@@ -25,7 +27,6 @@ const mapVisible = ref(false)
 const pathsDrawn = ref(false)
 const hoveredRoom = ref<string | null>(null)
 const mapContainer = ref<HTMLElement | null>(null)
-const isInView = ref(false)
 
 // Emit for navigation
 const emit = defineEmits<{

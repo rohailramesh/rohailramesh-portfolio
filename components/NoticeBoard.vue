@@ -3,11 +3,12 @@ import { ref, onMounted } from 'vue'
 
 // Props
 interface Award {
-  id: number
+  id: string
   year: string
   title: string
   institution: string
   date: string
+  description?: string
   color: string
 }
 
