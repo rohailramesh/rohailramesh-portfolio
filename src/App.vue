@@ -4,7 +4,7 @@ import { Download, ExternalLink, Github, Linkedin, Mail, ArrowUp, Eye } from 'lu
 import quotesData from '../data/quotes.json'
 import BookHero from '../components/BookHero.vue'
 import StaffPickBook from '../components/StaffPickBook.vue'
-
+import {Analytics} from '@vercel/analytics/vue'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const EXPERIENCE = [
@@ -464,6 +464,7 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <Analytics/>
   <div class="min-h-screen overflow-x-hidden" :style="{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }">
     <!-- ── BOOK HERO ───────────────────────────────────────────────────────── -->
     <BookHero />
