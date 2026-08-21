@@ -4,6 +4,7 @@ import { Download, ExternalLink, Github, Linkedin, Mail, ArrowUp, Eye } from 'lu
 import quotesData from '../data/quotes.json'
 import BookHero from '../components/BookHero.vue'
 import StaffPickBook from '../components/StaffPickBook.vue'
+import EnchantedMap from '../components/EnchantedMap.vue'
 import {Analytics} from '@vercel/analytics/vue'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -416,10 +417,16 @@ function scrollToTop() {
   scrollTo('map') //
 }
 
-// Show scroll to top button when user scrolls down
+// Show scroll to top button when user scrolls down past the map section
 if (typeof window !== 'undefined') {
   window.addEventListener('scroll', () => {
-    showScrollTop.value = window.scrollY > 500
+    const mapSection = document.getElementById('map')
+    if (mapSection) {
+      const mapBottom = mapSection.offsetTop + mapSection.offsetHeight
+      showScrollTop.value = window.scrollY > mapBottom
+    } else {
+      showScrollTop.value = window.scrollY > 500
+    }
   })
 }
 
@@ -529,6 +536,13 @@ onUnmounted(() => {
         }"
       >
         <div class="flex flex-col py-2">
+          <button
+            @click="scrollTo('map')"
+            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            :style="{ fontFamily: 'var(--font-display)' }"
+          >
+            Shop Map
+          </button>
           <button
             @click="scrollTo('about')"
             class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
@@ -646,76 +660,9 @@ onUnmounted(() => {
 <!--    </div>-->
 
     <!-- ── SHOP MAP ────────────────────────────────────────────────────── -->
-    <section id="map" class="py-24 px-8 max-w-5xl mx-auto">
-      <div class="text-center mb-14">
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold " :style="{ fontFamily: 'var(--font-display)' }">DIRECTORY</h2>
-      </div>
-
-      <!-- Zigzag Timeline Path -->
-      <div class="relative max-w-3xl mx-auto" style="text-align: center">
-        <div
-          v-for="(item, index) in [
-            { aisle: 'A.1', sub: 'About', label: 'Staff Pick', id: 'about' },
-            { aisle: 'B.2', sub: 'Experience', label: 'Career Chronicles', id: 'experience' },
-            { aisle: 'C.3', sub: 'Projects', label: 'Featured Editions', id: 'projects' },
-            { aisle: 'D.4', sub: 'Skills', label: 'Reference Collection', id: 'skills' },
-            { aisle: 'E.5', sub: 'Awards', label: 'Wall of Fame', id: 'awards' },
-            { aisle: 'F.6', sub: 'Resume', label: 'Catalog Card', id: 'resume' },
-            { aisle: 'G.7', sub: 'Contact', label: 'Customer Service Desk', id: 'contact' },
-          ]"
-          :key="item.id"
-          class="relative mb-12 last:mb-0"
-        >
-          <!-- Connecting Line -->
-          <div
-            v-if="index < 6"
-            class="absolute top-full left-1/2 w-0.5 h-12 -translate-x-1/2 opacity-20"
-            :style="{ backgroundColor: 'var(--foreground)' }"
-          />
-
-          <!-- Aisle Stop -->
-          <button
-            @click="scrollTo(item.id)"
-            class="group relative w-full text-left p-6 border-2 transition-all hover:border-foreground/30 hover:shadow-md"
-            :class="index % 2 === 0 ? 'md:mr-auto md:w-[45%]' : 'md:ml-auto md:w-[45%]'"
-            :style="{
-              backgroundColor: 'var(--card)',
-              borderColor: 'var(--border)',
-            }"
-          >
-            <!-- Aisle Number Badge -->
-            <div
-              class="absolute -left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 flex items-center justify-center font-bold"
-              :style="{
-                backgroundColor: 'var(--background)',
-                borderColor: 'var(--border)',
-                fontFamily: 'var(--font-label)',
-                fontSize: '11px',
-              }"
-            >
-              {{ item.aisle }}
-            </div>
-
-            <div class="ml-6">
-              <div
-                class="text-1xl font-bold mb-1 group-hover:underline"
-                :style="{ fontFamily: 'var(--font-display)' }"
-              >
-                {{ item.label }}
-              </div>
-<!--              <div class="text-sm opacity-60" :style="{ fontFamily: 'var(&#45;&#45;font-label)' }">-->
-<!--                {{ item.sub }}-->
-<!--              </div>-->
-            </div>
-
-            <!-- Arrow indicator -->
-            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-              →
-            </div>
-          </button>
-        </div>
-      </div>
-
+    <section id="map" class="py-24 px-8 max-w-6xl mx-auto">
+      <!-- Enchanted Map Component -->
+      <EnchantedMap @navigate="scrollTo" />
     </section>
     <!-- Quote Post-it Note 2 -->
     <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
@@ -2290,8 +2237,8 @@ onUnmounted(() => {
       >
         <div class="flex items-center gap-2 text-xs uppercase tracking-widest">
           <ArrowUp :size="14" class="group-hover:-translate-y-1 transition-transform" />
-          <span class="hidden sm:inline">Directory</span>
-          <span class="sm:hidden">Directory</span>
+          <span class="hidden sm:inline">Shop Map</span>
+          <span class="sm:hidden">Shop Map</span>
         </div>
       </button>
     </Transition>
