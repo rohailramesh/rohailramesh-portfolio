@@ -212,11 +212,35 @@ onMounted(() => {
           </g>
         </g>
         
-        <!-- "You are here" marker at entrance -->
+        <!-- "You are here" marker at entrance with person -->
         <g class="you-are-here" :style="{ '--marker-delay': '1.5s' }">
-          <circle cx="50" cy="10" r="2" fill="var(--destructive)" opacity="0.8"/>
-          <text x="50" y="7" text-anchor="middle" font-size="2.5" fill="var(--destructive)" font-family="var(--font-label)">
-            ↓ Entrance
+          <!-- Person walking in at top -->
+          <g class="person-at-entrance" transform="translate(50, 8)">
+            <!-- Person SVG - bigger -->
+            <g transform="scale(0.2) translate(-24, -32)">
+              <!-- Head -->
+              <circle cx="24" cy="12" r="6" fill="#2C1810"/>
+              <!-- Neck -->
+              <rect x="22" y="17" width="4" height="3" rx="1" fill="#2C1810"/>
+              <!-- Body (torso) -->
+              <path d="M 18 20 L 18 36 Q 18 38, 20 38 L 28 38 Q 30 38, 30 36 L 30 20 Q 30 20, 24 20 Q 18 20, 18 20 Z" fill="#4a2810"/>
+              <!-- Arms -->
+              <path d="M 18 22 L 14 28 L 14 38 Q 14 40, 16 40 L 17 40 L 17 28 L 18 24 Z" fill="#3d2214"/>
+              <path d="M 30 22 L 34 28 L 34 38 Q 34 40, 32 40 L 31 40 L 31 28 L 30 24 Z" fill="#3d2214"/>
+              <!-- Legs -->
+              <path d="M 20 38 L 20 56 Q 20 58, 22 58 L 23 58 L 23 38 Z" fill="#2C1810"/>
+              <path d="M 28 38 L 28 56 Q 28 58, 26 58 L 25 58 L 25 38 Z" fill="#2C1810"/>
+              <!-- Shoes -->
+              <ellipse cx="22" cy="59" rx="3" ry="2" fill="#1a0f08"/>
+              <ellipse cx="26" cy="59" rx="3" ry="2" fill="#1a0f08"/>
+            </g>
+            <!-- Person shadow -->
+            <ellipse cx="0" cy="3" rx="3" ry="1" fill="rgba(0, 0, 0, 0.2)" class="person-shadow"/>
+          </g>
+          
+          <!-- Entrance label below person with more space -->
+          <text class="entrance-label" x="50" y="16.5" text-anchor="middle" font-size="3" fill="var(--foreground)" font-family="var(--font-label)" opacity="0.7" font-weight="600">
+            Entrance
           </text>
         </g>
       </svg>
@@ -262,6 +286,9 @@ onMounted(() => {
 .parchment-wrapper.visible {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+.entrance-label{
+  margin-top: 0.5rem;
 }
 
 /* Corner flourishes */
@@ -478,6 +505,62 @@ onMounted(() => {
   }
 }
 
+/* Person at entrance */
+.person-at-entrance {
+  opacity: 0;
+  animation: personWalkIn 1.2s ease-out 2s forwards;
+}
+
+.person-at-entrance g[transform*="scale"] {
+  animation: heartbeat 2.5s ease-in-out 3.2s infinite;
+}
+
+@keyframes personWalkIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(0.2) translate(-24, -32);
+  }
+  14% {
+    transform: scale(0.22) translate(-24, -32);
+  }
+  28% {
+    transform: scale(0.2) translate(-24, -32);
+  }
+  42% {
+    transform: scale(0.22) translate(-24, -32);
+  }
+  56% {
+    transform: scale(0.2) translate(-24, -32);
+  }
+}
+
+/* Person shadow subtle pulse */
+.person-shadow {
+  animation: shadowPulse 2s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.15;
+    transform: scale(1.1);
+  }
+}
+
 /* Dust particles */
 .dust-particles {
   position: absolute;
@@ -582,6 +665,29 @@ onMounted(() => {
   .room-glow {
     r: 5;
   }
+  
+  /* Slightly smaller person on tablet */
+  .person-at-entrance g[transform*="scale"] {
+    animation: heartbeatTablet 2.5s ease-in-out 3.2s infinite;
+  }
+  
+  @keyframes heartbeatTablet {
+    0%, 100% {
+      transform: scale(0.17) translate(-24, -32);
+    }
+    14% {
+      transform: scale(0.19) translate(-24, -32);
+    }
+    28% {
+      transform: scale(0.17) translate(-24, -32);
+    }
+    42% {
+      transform: scale(0.19) translate(-24, -32);
+    }
+    56% {
+      transform: scale(0.17) translate(-24, -32);
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -629,6 +735,29 @@ onMounted(() => {
   
   .corner-flourish {
     font-size: 1rem;
+  }
+  
+  /* Smaller person on mobile */
+  .person-at-entrance g[transform*="scale"] {
+    animation: heartbeatMobile 2.5s ease-in-out 3.2s infinite;
+  }
+  
+  @keyframes heartbeatMobile {
+    0%, 100% {
+      transform: scale(0.15) translate(-24, -32);
+    }
+    14% {
+      transform: scale(0.17) translate(-24, -32);
+    }
+    28% {
+      transform: scale(0.15) translate(-24, -32);
+    }
+    42% {
+      transform: scale(0.17) translate(-24, -32);
+    }
+    56% {
+      transform: scale(0.15) translate(-24, -32);
+    }
   }
 }
 

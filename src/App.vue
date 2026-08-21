@@ -5,6 +5,7 @@ import quotesData from '../data/quotes.json'
 import BookHero from '../components/BookHero.vue'
 import StaffPickBook from '../components/StaffPickBook.vue'
 import EnchantedMap from '../components/EnchantedMap.vue'
+import NoticeBoard from '../components/NoticeBoard.vue'
 import {Analytics} from '@vercel/analytics/vue'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -1600,128 +1601,8 @@ onUnmounted(() => {
         </h2>
       </div>
 
-      <!-- Beautiful Bookmarks Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 max-w-4xl mx-auto">
-        <div
-          v-for="(award, index) in AWARDS"
-          :key="award.id"
-          v-motion
-          :initial="{ opacity: 0, y: 20, scale: 0.95 }"
-          :visible="{ opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 100, damping: 15, delay: index * 100 } }"
-          class="flex justify-center"
-        >
-          <!-- Elegant Bookmark -->
-          <div
-            class="relative group transition-transform duration-300 ease-out hover:-translate-y-2"
-            :style="{
-              width: 'clamp(220px, 28vw, 260px)',
-            }"
-          >
-            <!-- Bookmark Card -->
-            <div
-              class="relative rounded-t-xl overflow-hidden transition-all duration-300 ease-out hover:shadow-2xl"
-              :style="{
-                backgroundColor: '#EAE3CE',
-                paddingTop: '380px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
-                border: '3px solid ' + award.color,
-                borderBottom: 'none',
-              }"
-            >
-              <!-- Paper Texture -->
-              <div
-                class="absolute inset-0 opacity-30 pointer-events-none"
-                :style="{
-                  backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(44,24,16,0.015) 2px, rgba(44,24,16,0.015) 3px)',
-                }"
-              />
-
-              <!-- Content -->
-              <div class="absolute inset-0 flex flex-col items-center text-center p-8 gap-3">
-                <!-- Year Badge -->
-                <div
-                  class="text-xs font-bold uppercase px-5 py-2 rounded-full shadow-sm"
-                  :style="{
-                    fontFamily: 'var(--font-label)',
-                    backgroundColor: award.color,
-                    color: '#F2ECD8',
-                    letterSpacing: '0.25em',
-                  }"
-                >
-                  {{ award.year }}
-                </div>
-
-                <!-- Trophy Icon -->
-                <div
-                  class="w-20 h-20 rounded-full flex items-center justify-center my-2 shadow-md"
-                  :style="{
-                    backgroundColor: award.color + '15',
-                    border: '3px solid ' + award.color,
-                  }"
-                >
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" :style="{ stroke: award.color }" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                    <path d="M4 22h16"></path>
-                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-                  </svg>
-                </div>
-
-                <!-- Award Title -->
-                <h3
-                  class="text-lg font-bold leading-tight px-1 mt-2"
-                  :style="{
-                    fontFamily: 'var(--font-display)',
-                    color: '#2C1810',
-                  }"
-                >
-                  {{ award.title }}
-                </h3>
-
-                <!-- Institution -->
-                <p
-                  class="text-xs font-semibold opacity-75 px-2"
-                  :style="{
-                    fontFamily: 'var(--font-label)',
-                    color: award.color,
-                    letterSpacing: '0.03em',
-                  }"
-                >
-                  {{ award.institution }}
-                </p>
-
-                <!-- Date -->
-                <p
-                  class="text-xs opacity-50 mt-auto"
-                  :style="{
-                    fontFamily: 'var(--font-label)',
-                    color: '#2C1810',
-                  }"
-                >
-                  {{ award.date }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Bookmark Ribbon Tail (V-shaped bottom) -->
-            <div
-              class="relative w-full h-10 overflow-visible"
-            >
-              <div
-                :style="{
-                  width: 0,
-                  height: 0,
-                  borderLeft: 'calc(clamp(220px, 28vw, 260px) / 2) solid ' + award.color,
-                  borderRight: 'calc(clamp(220px, 28vw, 260px) / 2) solid ' + award.color,
-                  borderBottom: '40px solid transparent',
-                }"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Notice Board Component -->
+      <NoticeBoard :awards="AWARDS" />
     </section>
 
     <!-- Quote Post-it Note 6.5 -->
