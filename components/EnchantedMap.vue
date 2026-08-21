@@ -153,7 +153,7 @@ onMounted(() => {
           <path
             v-for="(room, index) in rooms.slice(0, -1)"
             :key="`path-${index}`"
-            :d="generatePath(room.position, rooms[index + 1].position)"
+            :d="generatePath(room.position, rooms[index + 1]!.position)"
             class="ink-path"
             :style="{ '--path-delay': `${index * 0.15}s` }"
           />
