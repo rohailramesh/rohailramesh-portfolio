@@ -4,6 +4,8 @@ import { Download, ExternalLink, Github, Linkedin, Mail, ArrowUp, Eye } from 'lu
 import quotesData from '../data/quotes.json'
 import BookHero from '../components/BookHero.vue'
 import StaffPickBook from '../components/StaffPickBook.vue'
+import EnchantedMap from '../components/EnchantedMap.vue'
+import NoticeBoard from '../components/NoticeBoard.vue'
 import {Analytics} from '@vercel/analytics/vue'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -416,10 +418,16 @@ function scrollToTop() {
   scrollTo('map') //
 }
 
-// Show scroll to top button when user scrolls down
+// Show scroll to top button when user scrolls down past the map section
 if (typeof window !== 'undefined') {
   window.addEventListener('scroll', () => {
-    showScrollTop.value = window.scrollY > 500
+    const mapSection = document.getElementById('map')
+    if (mapSection) {
+      const mapBottom = mapSection.offsetTop + mapSection.offsetHeight
+      showScrollTop.value = window.scrollY > mapBottom
+    } else {
+      showScrollTop.value = window.scrollY > 500
+    }
   })
 }
 
@@ -529,6 +537,13 @@ onUnmounted(() => {
         }"
       >
         <div class="flex flex-col py-2">
+          <button
+            @click="scrollTo('map')"
+            class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            :style="{ fontFamily: 'var(--font-display)' }"
+          >
+            Shop Map
+          </button>
           <button
             @click="scrollTo('about')"
             class="text-left px-6 py-3 text-sm opacity-70 hover:opacity-100 transition-opacity"
@@ -646,76 +661,9 @@ onUnmounted(() => {
 <!--    </div>-->
 
     <!-- ── SHOP MAP ────────────────────────────────────────────────────── -->
-    <section id="map" class="py-24 px-8 max-w-5xl mx-auto">
-      <div class="text-center mb-14">
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold " :style="{ fontFamily: 'var(--font-display)' }">DIRECTORY</h2>
-      </div>
-
-      <!-- Zigzag Timeline Path -->
-      <div class="relative max-w-3xl mx-auto" style="text-align: center">
-        <div
-          v-for="(item, index) in [
-            { aisle: 'A.1', sub: 'About', label: 'Staff Pick', id: 'about' },
-            { aisle: 'B.2', sub: 'Experience', label: 'Career Chronicles', id: 'experience' },
-            { aisle: 'C.3', sub: 'Projects', label: 'Featured Editions', id: 'projects' },
-            { aisle: 'D.4', sub: 'Skills', label: 'Reference Collection', id: 'skills' },
-            { aisle: 'E.5', sub: 'Awards', label: 'Wall of Fame', id: 'awards' },
-            { aisle: 'F.6', sub: 'Resume', label: 'Catalog Card', id: 'resume' },
-            { aisle: 'G.7', sub: 'Contact', label: 'Customer Service Desk', id: 'contact' },
-          ]"
-          :key="item.id"
-          class="relative mb-12 last:mb-0"
-        >
-          <!-- Connecting Line -->
-          <div
-            v-if="index < 6"
-            class="absolute top-full left-1/2 w-0.5 h-12 -translate-x-1/2 opacity-20"
-            :style="{ backgroundColor: 'var(--foreground)' }"
-          />
-
-          <!-- Aisle Stop -->
-          <button
-            @click="scrollTo(item.id)"
-            class="group relative w-full text-left p-6 border-2 transition-all hover:border-foreground/30 hover:shadow-md"
-            :class="index % 2 === 0 ? 'md:mr-auto md:w-[45%]' : 'md:ml-auto md:w-[45%]'"
-            :style="{
-              backgroundColor: 'var(--card)',
-              borderColor: 'var(--border)',
-            }"
-          >
-            <!-- Aisle Number Badge -->
-            <div
-              class="absolute -left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 flex items-center justify-center font-bold"
-              :style="{
-                backgroundColor: 'var(--background)',
-                borderColor: 'var(--border)',
-                fontFamily: 'var(--font-label)',
-                fontSize: '11px',
-              }"
-            >
-              {{ item.aisle }}
-            </div>
-
-            <div class="ml-6">
-              <div
-                class="text-1xl font-bold mb-1 group-hover:underline"
-                :style="{ fontFamily: 'var(--font-display)' }"
-              >
-                {{ item.label }}
-              </div>
-<!--              <div class="text-sm opacity-60" :style="{ fontFamily: 'var(&#45;&#45;font-label)' }">-->
-<!--                {{ item.sub }}-->
-<!--              </div>-->
-            </div>
-
-            <!-- Arrow indicator -->
-            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-              →
-            </div>
-          </button>
-        </div>
-      </div>
-
+    <section id="map" class="py-24 px-8 max-w-6xl mx-auto">
+      <!-- Enchanted Map Component -->
+      <EnchantedMap @navigate="scrollTo" />
     </section>
     <!-- Quote Post-it Note 2 -->
     <div class="flex justify-center py-12 px-4" :style="{ backgroundColor: 'var(--bg)' }">
@@ -1653,128 +1601,8 @@ onUnmounted(() => {
         </h2>
       </div>
 
-      <!-- Beautiful Bookmarks Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 max-w-4xl mx-auto">
-        <div
-          v-for="(award, index) in AWARDS"
-          :key="award.id"
-          v-motion
-          :initial="{ opacity: 0, y: 20, scale: 0.95 }"
-          :visible="{ opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 100, damping: 15, delay: index * 100 } }"
-          class="flex justify-center"
-        >
-          <!-- Elegant Bookmark -->
-          <div
-            class="relative group transition-transform duration-300 ease-out hover:-translate-y-2"
-            :style="{
-              width: 'clamp(220px, 28vw, 260px)',
-            }"
-          >
-            <!-- Bookmark Card -->
-            <div
-              class="relative rounded-t-xl overflow-hidden transition-all duration-300 ease-out hover:shadow-2xl"
-              :style="{
-                backgroundColor: '#EAE3CE',
-                paddingTop: '380px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
-                border: '3px solid ' + award.color,
-                borderBottom: 'none',
-              }"
-            >
-              <!-- Paper Texture -->
-              <div
-                class="absolute inset-0 opacity-30 pointer-events-none"
-                :style="{
-                  backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(44,24,16,0.015) 2px, rgba(44,24,16,0.015) 3px)',
-                }"
-              />
-
-              <!-- Content -->
-              <div class="absolute inset-0 flex flex-col items-center text-center p-8 gap-3">
-                <!-- Year Badge -->
-                <div
-                  class="text-xs font-bold uppercase px-5 py-2 rounded-full shadow-sm"
-                  :style="{
-                    fontFamily: 'var(--font-label)',
-                    backgroundColor: award.color,
-                    color: '#F2ECD8',
-                    letterSpacing: '0.25em',
-                  }"
-                >
-                  {{ award.year }}
-                </div>
-
-                <!-- Trophy Icon -->
-                <div
-                  class="w-20 h-20 rounded-full flex items-center justify-center my-2 shadow-md"
-                  :style="{
-                    backgroundColor: award.color + '15',
-                    border: '3px solid ' + award.color,
-                  }"
-                >
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" :style="{ stroke: award.color }" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                    <path d="M4 22h16"></path>
-                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-                  </svg>
-                </div>
-
-                <!-- Award Title -->
-                <h3
-                  class="text-lg font-bold leading-tight px-1 mt-2"
-                  :style="{
-                    fontFamily: 'var(--font-display)',
-                    color: '#2C1810',
-                  }"
-                >
-                  {{ award.title }}
-                </h3>
-
-                <!-- Institution -->
-                <p
-                  class="text-xs font-semibold opacity-75 px-2"
-                  :style="{
-                    fontFamily: 'var(--font-label)',
-                    color: award.color,
-                    letterSpacing: '0.03em',
-                  }"
-                >
-                  {{ award.institution }}
-                </p>
-
-                <!-- Date -->
-                <p
-                  class="text-xs opacity-50 mt-auto"
-                  :style="{
-                    fontFamily: 'var(--font-label)',
-                    color: '#2C1810',
-                  }"
-                >
-                  {{ award.date }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Bookmark Ribbon Tail (V-shaped bottom) -->
-            <div
-              class="relative w-full h-10 overflow-visible"
-            >
-              <div
-                :style="{
-                  width: 0,
-                  height: 0,
-                  borderLeft: 'calc(clamp(220px, 28vw, 260px) / 2) solid ' + award.color,
-                  borderRight: 'calc(clamp(220px, 28vw, 260px) / 2) solid ' + award.color,
-                  borderBottom: '40px solid transparent',
-                }"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Notice Board Component -->
+      <NoticeBoard :awards="AWARDS" />
     </section>
 
     <!-- Quote Post-it Note 6.5 -->
@@ -2290,8 +2118,8 @@ onUnmounted(() => {
       >
         <div class="flex items-center gap-2 text-xs uppercase tracking-widest">
           <ArrowUp :size="14" class="group-hover:-translate-y-1 transition-transform" />
-          <span class="hidden sm:inline">Directory</span>
-          <span class="sm:hidden">Directory</span>
+          <span class="hidden sm:inline">Shop Map</span>
+          <span class="sm:hidden">Shop Map</span>
         </div>
       </button>
     </Transition>
