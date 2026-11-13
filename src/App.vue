@@ -390,10 +390,17 @@ const quote6 = ref<{ en: string; author: string }>(getRandomQuote())
 const quote7 = ref<{ en: string; author: string }>(getRandomQuote())
 
 // Currently Reading data
+const getCurrentMonthYear = () => {
+  const now = new Date()
+  const month = now.toLocaleString('en-US', { month: 'long' })
+  const year = now.getFullYear()
+  return `${month} ${year}`
+}
+
 const currentlyReading = ref({
-  title: 'Less',
-  author: 'Andrew Sean Greer',
-  lastUpdated: 'August 2026'
+  title: 'Welcome to the Hyunam-dong Bookshop',
+  author: 'Hwang Boreum',
+  lastUpdated: getCurrentMonthYear()
 })
 
 
